@@ -1,24 +1,25 @@
-# README
+# NZEN
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby 2.3.0
+Rails 5
+Postgres
 
-Things you may want to cover:
+ElasticSearch, Redis and RMagick required.
 
-* Ruby version
 
-* System dependencies
+### Setup
 
-* Configuration
+`rake db:create`
+`rake db:migrate`
+`rake db:seed`
 
-* Database creation
+There are two rake tasks to load Categories and Districts.
 
-* Database initialization
+`rake category:seed`
+`rake district:seed`
 
-* How to run the test suite
+Run web server:
 
-* Services (job queues, cache servers, search engines, etc.)
+`rails server` or `foreman start`
 
-* Deployment instructions
-
-* ...
+Live on [localhost:3000](http://localhost:3000)

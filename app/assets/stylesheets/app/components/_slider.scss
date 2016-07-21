@@ -1,0 +1,47 @@
+#slider {
+
+  .un-slider { 
+    min-height: 400px;
+    margin-top: 50px;
+  }
+  .unslider li {
+    height: 400px;
+    max-height: 400px;
+    &.cellphone { 
+      background: image-url('sliders/slider-cellphone.png') no-repeat center center #fff;
+      background-size: contain;
+    }
+
+    &.housewife { 
+      background: image-url('sliders/slider-housewife.png') no-repeat center center #fff;
+      background-size: contain;
+    }
+
+    &.bringlayer { 
+      background: image-url('sliders/slider-bringlayer.png') no-repeat center center #fff;
+      background-size: contain;
+    }
+
+    &.architecture { 
+      background: image-url('sliders/slider-architecture.png') no-repeat center center #fff;
+      background-size: contain;
+    }
+
+    &.piano { 
+      background: image-url('sliders/slider-piano.png') no-repeat center center #fff;
+      background-size: contain;
+    }
+
+    &.grill { 
+      background: image-url('sliders/slider-grill.png') no-repeat center center #fff;
+      background-size: contain;
+    }
+  }
+
+  .caption {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+  }
+
+}

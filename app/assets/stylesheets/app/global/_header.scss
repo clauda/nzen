@@ -14,13 +14,3 @@
     a { color: #fff; }
   }
 }
-
-.un-slider { 
-  min-height: 500px;
-}
-.unslider li {
-  min-height: 500px;
-  &.first { background-color: #066 }
-  &.second { background-color: #006 }
-  &.third { background-color: #660 }
-}

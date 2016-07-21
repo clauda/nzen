@@ -37,6 +37,7 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
 group :development, :test do
+  gem 'foreman', require: false
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'pry'
