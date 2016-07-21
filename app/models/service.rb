@@ -1,4 +1,5 @@
 class Service < ApplicationRecord
+  include Elasticsearch::Model
   include Sluggable
   belongs_to :user
   belongs_to :category

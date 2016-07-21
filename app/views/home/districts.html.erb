@@ -1,0 +1,11 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Bairros & Distritos</h4>
+      <% @districts.each do |record| %>
+        <p><%= link_to record.name, district_path(record) %></p>
+      <% end %>
+    </div>
+  </div>
+
+</div>

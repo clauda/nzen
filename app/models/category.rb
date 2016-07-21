@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  include Elasticsearch::Model
   include Sluggable
   has_many :services
   

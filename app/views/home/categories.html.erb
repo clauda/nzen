@@ -1,0 +1,11 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Catálogo/</h4>
+      <h4>Categorias</h4>
+      <% @categories.each do |record| %>
+        <p><%= link_to record.name, category_path(record) %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
