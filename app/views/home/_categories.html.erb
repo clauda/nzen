@@ -1,0 +1,24 @@
+<% cache 'categories-groups', expires_in: 1.week do %>
+  <div class="categories" id="categories">
+    <ul class="nav nav-tabs" role="tablist">
+      <li><h4 class="subtitle">Explore todos os negócios</h4></li>
+      <% @categories.each do |alpha, categories| %>
+        <li role="presentation">
+          <a href="#<%= alpha %>" aria-controls="<%= alpha %>" role="tab" data-toggle="tab"><%= alpha %></a>
+        </li>
+      <% end %>
+    </ul>
+    
+    <div class="tab-content">
+      <% @categories.each do |alpha, categories| %>
+        <div role="tabpanel" class="tab-pane" id="<%= alpha %>">
+          <ul class="list">
+            <% categories.each do |category| %>
+              <li><%= link_to category.name, category_path(category) %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

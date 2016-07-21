@@ -7,7 +7,7 @@ $('.un-slider').unslider
 
 $(".typed").typed
   strings: [
-    "consertar o celular ^1000 ou outra coisa", 
+    "consertar o celular ^1000 ou comprar outro", 
     "de uma boa diarista",
     "de um bom churrasqueiro",
     "reformar meu quarto ^500",

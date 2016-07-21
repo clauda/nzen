@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
-  def index;end
+  
+  def index
+    @categories = Category.active.group_by { |cat| cat.name[0] }
+  end
 
   def categories
     @categories = Category.active
