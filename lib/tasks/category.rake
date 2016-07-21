@@ -3,7 +3,7 @@ namespace :category do
   task :seed => :environment do |t, args|
     file = File.open(Rails.root.join("db","data","categories.csv"), "r") 
     file.each_line do |line|
-      Category.create(name: line)
+      Category.create(name: line.strip)
     end
   end
 end

@@ -12,12 +12,17 @@ class CreateServices < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :logo
       t.string :address
+      t.string :lat
+      t.string :lng
       t.string :zipcode
       t.string :facebook
       t.string :instagram
       t.boolean :published, default: true
+      t.boolean :premium, default: false
+      t.boolean :verified, default: false
       t.boolean :deleted, default: false
       t.boolean :banned, default: false
+      t.string :banned_reason
       t.time :opens
       t.time :closes
 

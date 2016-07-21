@@ -1,7 +1,26 @@
-header {
-}
-
 .navbar { 
   margin-bottom: 0;
   border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  background-color: transparent;
+  border: none;
+
+  .cta { 
+    background-color: #ff5722; 
+    a { color: #fff; }
+  }
+}
+
+.un-slider { 
+  min-height: 500px;
+}
+.unslider li {
+  min-height: 500px;
+  &.first { background-color: #066 }
+  &.second { background-color: #006 }
+  &.third { background-color: #660 }
 }

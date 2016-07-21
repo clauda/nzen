@@ -1,2 +1,8 @@
 body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: none;
+  font-weight: normal;
 }
+
+.yield { margin-top: 50px; }

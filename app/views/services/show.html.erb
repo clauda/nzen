@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @service.logo.url(:medium) %>
+
 <p>
   <strong>Name:</strong>
   <%= @service.name %>
@@ -7,17 +9,17 @@
 
 <p>
   <strong>User:</strong>
-  <%= @service.user %>
+  <%= @service.user.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @service.category %>
+  <%= @service.category.name %>
 </p>
 
 <p>
   <strong>District:</strong>
-  <%= @service.district %>
+  <%= @service.district.name %>
 </p>
 
 <p>
@@ -38,11 +40,6 @@
 <p>
   <strong>Email:</strong>
   <%= @service.email %>
-</p>
-
-<p>
-  <strong>Logo:</strong>
-  <%= @service.logo %>
 </p>
 
 <p>

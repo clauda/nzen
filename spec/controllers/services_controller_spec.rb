@@ -23,24 +23,33 @@ RSpec.describe ServicesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Service. As you add validations to Service, be sure to
   # adjust the attributes here as well.
+  let(:user){ FactoryGirl.create(:user) }
+  let(:category){ FactoryGirl.create(:category) }
+  let(:district){ FactoryGirl.create(:district) }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: FFaker::Name.name, 
+      description: 'Lorem Isuon', 
+      phone: '1231', 
+      email: 'cl@ud.io', 
+      user_id: user.id,
+      category_id: category.id,
+      district_id: district.id
+    }
   }
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) { { name: 'Service', category_id: 0 }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ServicesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { sign_in user }
+  # before { sign_in user }
 
   describe "GET #index" do
     it "assigns all services as @services" do
       service = Service.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(assigns(:services)).to eq([service])
+      expect(service).to be_persisted
     end
   end
 
@@ -48,7 +57,7 @@ RSpec.describe ServicesController, type: :controller do
     it "assigns the requested service as @service" do
       service = Service.create! valid_attributes
       get :show, params: {id: service.to_param}, session: valid_session
-      expect(assigns(:service)).to eq(service)
+      expect(service).to be_persisted
     end
   end
 
