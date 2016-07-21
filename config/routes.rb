@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :districts
+  resources :services
   root to: "home#index"
 end

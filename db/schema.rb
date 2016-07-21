@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721043847) do
+ActiveRecord::Schema.define(version: 20160721045706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,37 @@ ActiveRecord::Schema.define(version: 20160721043847) do
     t.index ["name"], name: "index_districts_on_name", unique: true, using: :btree
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "district_id"
+    t.text     "description"
+    t.string   "permalink"
+    t.string   "phone"
+    t.string   "web"
+    t.string   "email"
+    t.string   "logo"
+    t.string   "address"
+    t.string   "zipcode"
+    t.string   "facebook"
+    t.string   "instagram"
+    t.boolean  "published",   default: true
+    t.boolean  "deleted",     default: false
+    t.boolean  "banned",      default: false
+    t.time     "opens"
+    t.time     "closes"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["address"], name: "index_services_on_address", using: :btree
+    t.index ["category_id"], name: "index_services_on_category_id", using: :btree
+    t.index ["description"], name: "index_services_on_description", using: :btree
+    t.index ["district_id"], name: "index_services_on_district_id", using: :btree
+    t.index ["name"], name: "index_services_on_name", using: :btree
+    t.index ["user_id"], name: "index_services_on_user_id", using: :btree
+    t.index ["zipcode"], name: "index_services_on_zipcode", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",         null: false
     t.string   "encrypted_password",     default: "",         null: false
@@ -53,4 +84,7 @@ ActiveRecord::Schema.define(version: 20160721043847) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "services", "categories"
+  add_foreign_key "services", "districts"
+  add_foreign_key "services", "users"
 end
