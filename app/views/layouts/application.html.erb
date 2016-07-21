@@ -26,8 +26,20 @@
 
     <%= render 'shared/top' %>
 
-    <%= yield %>
+    <%= yield :jumbo %>
 
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+
+      
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Natal Zen, Inc.</p>
+      </footer>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
