@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    name 'Zen'
-    email 'contato@sorta.in'
+    name FFaker::Name.name
+    email FFaker::Internet.email
     password '<3natalzen'
     role 'admin'
   end

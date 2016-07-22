@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721045706) do
+ActiveRecord::Schema.define(version: 20160722175346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20160721045706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_districts_on_name", unique: true, using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "comment"
+    t.integer  "rating"
+    t.integer  "service_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_reviews_on_service_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
   create_table "services", force: :cascade do |t|
@@ -84,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160721045706) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "reviews", "services"
+  add_foreign_key "reviews", "users"
   add_foreign_key "services", "categories"
   add_foreign_key "services", "districts"
   add_foreign_key "services", "users"

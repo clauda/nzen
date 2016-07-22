@@ -4,6 +4,7 @@ class Service < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :district
+  has_many :reviews
 
   mount_uploader :logo, LogoUploader
 
