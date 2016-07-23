@@ -2,7 +2,7 @@ module Sluggable
   extend ActiveSupport::Concern
 
   included do
-    before_create :slug_me
+    after_create :slug_me
   end
 
   def self.included(base)
@@ -24,7 +24,11 @@ module Sluggable
   end
 
   def slug_me
-    self.permalink = self.name.parameterize
+    if self.class.by_slug(self.name.parameterize)
+      self.update(permalink: "#{self.id.to_s}-#{self.name.parameterize}-#{self.district.permalink}")
+    else
+      self.update(permalink: self.name.parameterize)
+    end
   end
 
 end

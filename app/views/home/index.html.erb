@@ -17,12 +17,14 @@
     <div id="search-bar" class="row">
       <div class="col-md-6 col-md-offset-3">
         <h3>Temos + 5234 lojas e serviços catalogados em Natal</h3>
-        <div class="input-group">
-          <input type="text" class="form-control input-lg" placeholder="Estou procurando por...">
-          <span class="input-group-btn">
-            <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
-          </span>
-        </div>
+        <%= form_tag '/busca' do %>
+          <div class="input-group">
+            <input type="text" name="term" class="form-control input-lg" placeholder="Estou procurando por...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
+            </span>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

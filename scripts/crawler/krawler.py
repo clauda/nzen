@@ -46,17 +46,21 @@ class Krawler:
 
     addr_tag = content.find("address").findAll("span")
     addr_text = addr_tag[0].prettify()
-    addr_arr = [t.strip() for t in str(addr_text).split('<br/>')]
-    _address = addr_arr[0].replace('<span>','').strip()
-    _neightbor = addr_arr[1].replace('</span>','').strip()
 
-    details = self.goto(_link)
-    _phone = details.find("p", { "class": "phone" }).get_text().strip()
-    _zipcode = details.find("address").findAll("span")[3].get_text().strip()
+    try:
+      addr_arr = [t.strip() for t in str(addr_text).split('<br/>')]
+      _address = addr_arr[0].replace('<span>','').strip()
+      _neightbor = addr_arr[1].replace('</span>','').strip()
 
-    _business = Business(_name,_category,_neightbor,_phone,_address,_zipcode)
-    print(_business.get_name())
-    self._companies.append(_business)
+      details = self.goto(_link)
+      _phone = details.find("p", { "class": "phone" }).get_text().strip()
+      _zipcode = details.find("address").findAll("span")[3].get_text().strip()
+
+      _business = Business(_name,_category,_neightbor,_phone,_address,_zipcode)
+      self._companies.append(_business)
+      print(_business.get_name())
+    except IndexError as e:
+      print(e)
 
   def all(self):
     return self._companies

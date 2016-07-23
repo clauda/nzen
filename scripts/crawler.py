@@ -6,7 +6,7 @@ import csv
 from crawler.krawler import Krawler
 
 start_at = time.time()
-page = 0
+page = 100
 kraw = Krawler()
 
 def place():
@@ -18,7 +18,7 @@ def place():
   finally:
     csvFile.close()
 
-for i in range(5):
+for i in range(100):
   page += 1
   url = "/natal-rn/tudo-na-regiao?page={0}".format(str(page))
   kraw.search(url)
