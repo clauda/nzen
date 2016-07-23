@@ -20,7 +20,6 @@ def place():
 
 for i in range(5):
   page += 1
-  print("Page: ", page)
   url = "/natal-rn/tudo-na-regiao?page={0}".format(str(page))
   kraw.search(url)
   place()
