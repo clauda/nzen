@@ -24,5 +24,6 @@ module Nzen
     # -- all .rb files in that directory are automatically loaded.
 
     config.cache_store = :redis_store, "redis://localhost:6379/0/zencache", { expires_in: 1.day }
+    config.active_record.time_zone_aware_types = [:datetime, :time]
   end
 end

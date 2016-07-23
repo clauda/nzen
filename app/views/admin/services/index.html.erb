@@ -16,12 +16,12 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= link_to service.name, service %></td>
+        <td><%= link_to service.name, admin_service_path(service) %></td>
         <td><%= service.category.name %></td>
         <td><%= service.district.name %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [:admin,service] %></td>
+        <td><%= link_to 'Edit', edit_admin_service_path(service) %></td>
+        <td><%= link_to 'Destroy', admin_service_path(service), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -34,8 +34,8 @@ gem 'rmagick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+gem 'searchkick'
+gem 'kaminari'
 
 group :development, :test do
   gem 'foreman', require: false

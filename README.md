@@ -13,10 +13,9 @@ ElasticSearch, Redis and RMagick required.
 `rake db:migrate`
 `rake db:seed`
 
-There are two rake tasks to load Categories and Districts.
+There are a rake task to load some Services.
 
-`rake category:seed`
-`rake district:seed`
+`rake service:seed`
 
 Run web server:
 

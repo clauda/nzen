@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722181842) do
+ActiveRecord::Schema.define(version: 20160723100927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160722181842) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["name"], name: "index_categories_on_name", unique: true, using: :btree
+    t.index ["permalink"], name: "index_categories_on_permalink", using: :btree
   end
 
   create_table "districts", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160722181842) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_districts_on_name", unique: true, using: :btree
+    t.index ["permalink"], name: "index_districts_on_permalink", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 20160722181842) do
     t.index ["description"], name: "index_services_on_description", using: :btree
     t.index ["district_id"], name: "index_services_on_district_id", using: :btree
     t.index ["name"], name: "index_services_on_name", using: :btree
+    t.index ["permalink"], name: "index_services_on_permalink", using: :btree
     t.index ["user_id"], name: "index_services_on_user_id", using: :btree
     t.index ["zipcode"], name: "index_services_on_zipcode", using: :btree
   end

@@ -4,6 +4,7 @@
   <%= image_tag @service.logo.url(:medium) %>
 <% end %>
 
+  <%= @service.published ? 'sim' : 'nao' %>
 <p>
   <strong>Name:</strong>
   <%= @service.name %>

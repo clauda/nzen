@@ -7,14 +7,15 @@ Rails.application.routes.draw do
     resources :services
   end
   
-  get 'categorias', to: "home#categories", as: :categories
-  get 'categorias/:id', to: "home#category", as: :category
+  get 'explore', to: "home#categories", as: :categories
+  get 'explore/:id', to: "home#category", as: :category
 
-  get 'bairros', to: "home#districts", as: :districts
-  get 'bairros/:id', to: "home#district", as: :district
+  get 'natal-rn', to: "home#districts", as: :districts
+  get 'natal-rn/:district_id(/:category_id)', to: "home#district", as: :district
 
   get 'lojas-e-servicos', to: "services#index", as: :services
   get 'anuncie', to: "services#new", as: :new_service
+  post 'busca', to: "services#index"
   resources :services, only: [:create,:edit,:update]
 
   get ':id', to: "services#show", as: :business

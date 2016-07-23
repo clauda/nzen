@@ -1,5 +1,5 @@
 class Admin::ServicesController < Admin::AdminController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   # GET /services
@@ -70,6 +70,6 @@ class Admin::ServicesController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :user_id, :category_id, :district_id, :description, :phone, :web, :email, :logo, :address, :facebook, :instagram, :opens, :closes, :zipcode)
+      params.require(:service).permit(:name, :user_id, :category_id, :district_id, :description, :phone, :web, :email, :logo, :address, :facebook, :instagram, :opens, :closes, :zipcode, :published)
     end
 end

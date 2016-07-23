@@ -2,7 +2,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = Service.active
+    @services = Services::Search.for(params[:term], params[:sort], params[:page])
   end
 
   def show

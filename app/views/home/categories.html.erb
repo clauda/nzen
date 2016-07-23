@@ -4,7 +4,9 @@
       <h4>Catálogo/</h4>
       <h4>Categorias</h4>
       <% @categories.each do |record| %>
-        <p><%= link_to record.name, category_path(record) %></p>
+        <p><%= link_to record.name, category_path(record) %>
+          <%= aggregations_for(@services.aggs, "category_id", record.id) %>
+        </p>
       <% end %>
     </div>
   </div>

@@ -1,8 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Lojas & Serviços</h1>
-<%= link_to 'Anuncie', new_service_path, class: 'btn btn-success pull-right' %>
 
+<%= link_to 'Anuncie', new_service_path, class: 'btn btn-success pull-right' %>
+<div class="col-md-3 pull-right">
+  <%= form_tag '/busca' do %>
+  <div class="input-group">
+    <input type="text" name="term" class="form-control" placeholder="Estou procurando por...">
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="button">Encontrar</button>
+    </span>
+  </div>
+  <% end %>
+</div>
+
+<%= @services.total_count %>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -22,6 +34,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @services %>
 
 <br>
 

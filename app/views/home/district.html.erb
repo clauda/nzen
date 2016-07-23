@@ -1,10 +1,21 @@
 <div class="content">
   <div class="row">
     <div class="col-md-12">
-      <h4><%= @district.name %></h4>
+      ID #<%= p @district.id %>
+      <h2>
+        <%= link_to @district.name, district_path(@district) %> 
+          <%= " >> #{link_to @category.name, category_path(@category)}".html_safe if @category %>
+          <span class="badge">
+            <%= aggregations_for(@services.aggs, "district_id", @district.id) %>
+          </span>
+        </h2>
       <ul>
-        <% @district.services.each do |record| %>
-          <li><%= link_to record.name, business_path(record) %></li>
+        <% @services.each do |record| %>
+          <li>
+            <h1><%= link_to record.name, business_path(record) %></h1>
+            <p><%= link_to record.category.name, district_path(record.district, record.category), "data-turbolinks" => "false" %></p>
+            <hr />
+          </li>
         <% end %>
       </ul>
     </div>

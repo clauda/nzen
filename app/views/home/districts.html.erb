@@ -3,7 +3,9 @@
     <div class="col-md-12">
       <h4>Bairros & Distritos</h4>
       <% @districts.each do |record| %>
-        <p><%= link_to record.name, district_path(record) %></p>
+        <p><%= link_to record.name, district_path(record) %> 
+          <%= aggregations_for(@services.aggs, "district_id", record.id) %>
+        </p>
       <% end %>
     </div>
   </div>
