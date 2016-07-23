@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def districts
-    @districts = District.all
+    @districts = District.all.order(:name)
   end
 
   def district

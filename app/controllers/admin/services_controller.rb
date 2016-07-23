@@ -1,26 +1,35 @@
-class ServicesController < ApplicationController
+class Admin::ServicesController < Admin::AdminController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
+  # GET /services
+  # GET /services.json
   def index
-    @services = Service.active
+    @services = Service.all
   end
 
+  # GET /services/1
+  # GET /services/1.json
   def show
   end
 
+  # GET /services/new
   def new
     @service = Service.new
   end
 
+  # GET /services/1/edit
   def edit
   end
 
+  # POST /services
+  # POST /services.json
   def create
-    @service = Service.new(service_params)
+    @service = current_user.services.build(service_params)
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to business_path(@service), notice: 'Service was successfully created.' }
+        format.html { redirect_to [:admin,@service], notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -29,10 +38,12 @@ class ServicesController < ApplicationController
     end
   end
 
+  # PATCH/PUT /services/1
+  # PATCH/PUT /services/1.json
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to business_path(@service), notice: 'Service was successfully updated.' }
+        format.html { redirect_to [:admin,@service], notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -41,16 +52,17 @@ class ServicesController < ApplicationController
     end
   end
 
+  # DELETE /services/1
+  # DELETE /services/1.json
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to admin_services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.by_slug(params[:id])

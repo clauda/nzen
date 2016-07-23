@@ -3,6 +3,6 @@ FactoryGirl.define do
     comment "MyString"
     rating 5
     service
-    user_id 1
+    user
   end
 end

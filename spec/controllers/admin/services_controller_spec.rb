@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe ServicesController, type: :controller do
+RSpec.describe Admin::ServicesController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Service. As you add validations to Service, be sure to
@@ -92,7 +92,7 @@ RSpec.describe ServicesController, type: :controller do
 
       it "redirects to the created service" do
         post :create, params: {service: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(business_path(Service.last))
+        expect(response).to redirect_to([:admin,Service.last])
       end
     end
 
@@ -131,7 +131,7 @@ RSpec.describe ServicesController, type: :controller do
       it "redirects to the service" do
         service = Service.create! valid_attributes
         put :update, params: {id: service.to_param, service: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(business_path(service))
+        expect(response).to redirect_to([:admin,service])
       end
     end
 
@@ -147,6 +147,21 @@ RSpec.describe ServicesController, type: :controller do
         put :update, params: {id: service.to_param, service: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "destroys the requested service" do
+      service = Service.create! valid_attributes
+      expect {
+        delete :destroy, params: {id: service.to_param}, session: valid_session
+      }.to change(Service, :count).by(-1)
+    end
+
+    it "redirects to the services list" do
+      service = Service.create! valid_attributes
+      delete :destroy, params: {id: service.to_param}, session: valid_session
+      expect(response).to redirect_to(admin_services_url)
     end
   end
 

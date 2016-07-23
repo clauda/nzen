@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% if @service.logo.url %>
-  <%= image_tag @service.logo.url(:medium) %>
-<% end %>
+<%= image_tag @service.logo.url(:medium) %>
 
 <p>
   <strong>Name:</strong>
@@ -11,7 +9,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @service.user.try(:name) %>
+  <%= @service.user.name %>
 </p>
 
 <p>
@@ -74,4 +72,5 @@
   <%= @service.zipcode %>
 </p>
 
+<%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>

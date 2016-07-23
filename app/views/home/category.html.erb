@@ -4,7 +4,7 @@
       <h4><%= @category.name %></h4><hr />
       <ul>
         <% @category.services.each do |record| %>
-          <li><%= link_to record.name, service_path(record) %></li>
+          <li><%= link_to record.name, business_path(record) %></li>
         <% end %>
       </ul>
     </div>

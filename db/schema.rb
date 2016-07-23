@@ -57,16 +57,21 @@ ActiveRecord::Schema.define(version: 20160722181842) do
     t.string   "email"
     t.string   "logo"
     t.string   "address"
+    t.string   "lat"
+    t.string   "lng"
     t.string   "zipcode"
     t.string   "facebook"
     t.string   "instagram"
-    t.boolean  "published",   default: true
-    t.boolean  "deleted",     default: false
-    t.boolean  "banned",      default: false
+    t.boolean  "published",     default: true
+    t.boolean  "premium",       default: false
+    t.boolean  "verified",      default: false
+    t.boolean  "deleted",       default: false
+    t.boolean  "banned",        default: false
+    t.string   "banned_reason"
     t.time     "opens"
     t.time     "closes"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["address"], name: "index_services_on_address", using: :btree
     t.index ["category_id"], name: "index_services_on_category_id", using: :btree
     t.index ["description"], name: "index_services_on_description", using: :btree
@@ -93,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160722181842) do
     t.datetime "updated_at",                                  null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "image"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
