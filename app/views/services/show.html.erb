@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+
+<h4>
+  <%= link_to @service.district.name, district_path(@service.district) %> 
+  >> <%= link_to @service.category.name, category_path(@service.category) %>
+  >> <%= @service.name %>
+</h4>
+
 <% if @service.logo.url %>
   <%= image_tag @service.logo.url(:medium) %>
 <% end %>
 
-  <%= @service.published ? 'sim' : 'nao' %>
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
+<h1><%= @service.name %> </h1>
 
 <p>
   <strong>User:</strong>

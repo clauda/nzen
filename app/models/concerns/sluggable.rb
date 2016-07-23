@@ -11,7 +11,7 @@ module Sluggable
       def self.by_slug id
         begin
           find_by(permalink: id) if id
-        rescue Mongoid::Errors::DocumentNotFound
+        rescue ActiveRecord::RecordNotFound
           return nil
         end
       end

@@ -54,10 +54,15 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.by_slug(params[:id])
+      raise ActiveRecord::RecordNotFound if @service.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
       params.require(:service).permit(:name, :user_id, :category_id, :district_id, :description, :phone, :web, :email, :logo, :address, :facebook, :instagram, :opens, :closes, :zipcode)
+    end
+
+    rescue_from ActiveRecord::RecordNotFound do 
+      render(partial: 'shared/404', status: :not_found)
     end
 end
