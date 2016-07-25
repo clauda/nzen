@@ -1,12 +1,15 @@
-<div class="content">
+<div class="content" id="categories">
   <div class="row">
-    <div class="col-md-12">
-      <h4>Catálogo/</h4>
-      <h4>Categorias</h4>
+    <h1>Catálogo</h1><hr />
+    <div class="col-md-12 text-center">
       <% @categories.each do |record| %>
-        <p><%= link_to record.name, category_path(record) %>
-          <%= aggregations_for(@services.aggs, "category_id", record.id) %>
-        </p>
+        <div class="cat-link">
+          <% cache "cat-btn-#{record.id}" do %>
+            <%= link_to category_path(record), class: 'btn btn-clear' do %>
+              <%= record.name %><span class="badge"><%= record.services_total %></span>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

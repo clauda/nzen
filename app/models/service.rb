@@ -2,8 +2,8 @@ class Service < ApplicationRecord
   include Sluggable
   searchkick
   belongs_to :user, optional: true
-  belongs_to :category
-  belongs_to :district
+  belongs_to :category, counter_cache: true
+  belongs_to :district, counter_cache: true
   has_many :reviews
 
   mount_uploader :logo, LogoUploader
@@ -13,6 +13,8 @@ class Service < ApplicationRecord
 
   scope :active, -> { where(published: true, deleted: false).order(:name) }
 
+  after_create :reindexes
+
   def search_data
     { name: self.name,
       permalink: self.permalink,
@@ -20,9 +22,24 @@ class Service < ApplicationRecord
       district_permalink: self.district.permalink,
       category_id: self.category.id,
       district_id: self.district.id,
+      category_parent_id: self.category.parent.try(:id),
       description: self.description,
       published: self.published,
       phone: self.phone }
   end
+
+  def category_parent
+    self.category.parent
+  end
+
+  private
+
+    # Move to a background job 
+    def reindexes
+      self.category.reindex
+      self.reindex
+      # Rails.cache.clear
+      self.category_parent.update(services_count: self.services_total)
+    end
 
 end

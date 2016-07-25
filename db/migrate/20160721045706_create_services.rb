@@ -33,5 +33,6 @@ class CreateServices < ActiveRecord::Migration[5.0]
     add_index :services, :description
     add_index :services, :address
     add_index :services, :zipcode
+    add_index :services, :permalink
   end
 end

@@ -11,6 +11,7 @@ class Krawler:
 
   def __init__(self):
     self._companies = []
+    self._categories = []
     self._site = "http://www.guiamais.com.br"
 
   def read(self, url):
@@ -64,3 +65,33 @@ class Krawler:
 
   def all(self):
     return self._companies
+
+  def categories(self):
+    return self._categories
+
+  def fetch_categories(self):
+    _page = self.read("/categorias/natal-rn")
+    _ul = _page.findAll("ul", { "class": "grid" })
+    for ul in _ul:
+      for a in ul.findAll("a"):
+        try:
+          record = { "link": a["href"], "name": a.get_text().strip(), "subcategories": [] }
+          self._categories.append(record)
+        except TypeError as e:
+          print(a.get_text().strip(), e)
+
+  def fetch_subcategories(self):
+    for record in self._categories:
+      _cat_page = self.read(record["link"])
+      _list = _cat_page.findAll("ul", { "class": "grid" })
+      subcategories = []
+      for ul in _list:
+        for s in ul.findAll("a"):
+          try:
+            subcategories.append(s.get_text().strip())
+          except:
+            print(a.get_text().strip())
+      record["subcategories"] = subcategories
+      print(record["name"], len(subcategories))
+
+

@@ -1,7 +1,10 @@
-<div class="content">
+<div class="content" id="categories">
   <div class="row">
     <div class="col-md-12">
-      <h4><%= @category.name %></h4><hr />
+      <h4>
+        <%= "#{link_to(@category.parent.name, category_path(@category.parent))} >>".html_safe if @category.parent %> 
+        <%= @category.name %>
+      </h4><hr />
       <ul>
         <% @category.services.each do |record| %>
           <li>
@@ -11,5 +14,20 @@
         <% end %>
       </ul>
     </div>
+
+    <hr />
+
+    <div class="col-md-12 text-center">
+      <% @category.children.active.each do |record| %>
+        <div class="cat-link">
+          <% cache "cat-btn-#{record.id}" do %>
+            <%= link_to category_path(record), class: 'btn btn-clear' do %>
+              <%= record.name %><span class="badge"><%= record.services_count %></span>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>

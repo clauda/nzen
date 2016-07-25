@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723100927) do
+ActiveRecord::Schema.define(version: 20160725055949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "published",  default: true
+    t.integer  "parent_id"
     t.string   "permalink"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.index ["name"], name: "index_categories_on_name", unique: true, using: :btree
+    t.boolean  "published",      default: true
+    t.boolean  "primary",        default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "services_count"
+    t.index ["name"], name: "index_categories_on_name", using: :btree
     t.index ["permalink"], name: "index_categories_on_permalink", using: :btree
   end
 
@@ -30,10 +33,11 @@ ActiveRecord::Schema.define(version: 20160723100927) do
     t.string   "permalink"
     t.string   "lat"
     t.string   "lng"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "services_count"
     t.index ["name"], name: "index_districts_on_name", unique: true, using: :btree
-    t.index ["permalink"], name: "index_districts_on_permalink", using: :btree
+    t.index ["permalink"], name: "index_districts_on_permalink", unique: true, using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|

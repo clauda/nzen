@@ -8,6 +8,8 @@ class CreateDistricts < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
     add_index :districts, :name, unique: true
+    add_index :districts, :permalink, unique: true
   end
 end

@@ -3,7 +3,7 @@ namespace :district do
   task :seed => :environment do |t, args|
     file = File.open(Rails.root.join("db","data","districts.csv"), "r") 
     file.each_line do |line|
-      District.create(name: line.strip)
+      District.find_or_create_by(name: line.strip)
     end
   end
 end

@@ -28,4 +28,14 @@
       padding: 6px;
     }
   }
+
+  .cat-link {
+    display: inline-block;
+    margin: 10px;
+    .badge { 
+      margin-left: 5px;
+      background-color: #f44336;
+    }
+  }
+
 }

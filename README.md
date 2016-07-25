@@ -10,12 +10,24 @@ ElasticSearch, Redis and RMagick required.
 ### Setup
 
 `rake db:create`
+
 `rake db:migrate`
+
 `rake db:seed`
 
-There are a rake task to load some Services.
+There are a rake task to load some categories, districts and services.
 
-`rake service:seed`
+This one can take a several time :coffee:
+
+`rake category:seed` 
+
+`rake district:seed`
+
+`rake service:seed` Load more than 8K business.
+
+Reindexing:
+
+`rake searchkick:reindex:all`
 
 Run web server:
 

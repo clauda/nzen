@@ -2,10 +2,10 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   text-shadow: none;
   font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a:hover { text-decoration: none; }

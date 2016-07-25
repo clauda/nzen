@@ -8,6 +8,6 @@ class District < ApplicationRecord
   def search_data
     { name: self.name,
       permalink: self.permalink,
-      services_count: self.services.size }
+      services_count: self.services_count }
   end
 end

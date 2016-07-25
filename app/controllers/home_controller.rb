@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
   
   def index
-    @categories = Category.active.group_by { |cat| cat.name[0] }
+    @categories = Category.masters.group_by { |cat| cat.name[0] }
   end
 
   def categories
-    @categories = Category.search('*', where: { published: true }, order: 'name', per_page: 1000)
+    @categories = Category.search('*', where: { primary: true, published: true, services_total: { gt: 0 } }, order: 'name', per_page: 200)
     @services = Services::Search.for('*', params[:sort], params[:page], { category_id: params[:id], per_page: 10000 })
   end
 

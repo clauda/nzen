@@ -1,4 +1,5 @@
 <% content_for :jumbo do %>
+<div id="home">
   <div class="fluid" id="slider">
     <div class="row un-slider">
       <ul>
@@ -16,7 +17,7 @@
 
     <div id="search-bar" class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h3>Temos + 5234 lojas e serviços catalogados em Natal</h3>
+        <h3>Temos + <%= Service.active.size %> lojas e serviços catalogados em Natal</h3>
         <%= form_tag '/busca' do %>
           <div class="input-group">
             <input type="text" name="term" class="form-control input-lg" placeholder="Estou procurando por...">
@@ -29,6 +30,47 @@
     </div>
   </div>
 
+  <section class="districts">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>
+            <strong>Natal está sendo catalogada.</strong> Adicione o seu negócio no NZEN, o maior portal de lojas e serviços de Natal. É rápido e gratuíto.
+          </h3>
+          <%= link_to "Divulgue seu Negócio", new_service_path, class: "btn btn-clear btn-lg" %>
+        </div>
+
+        <div class="col-md-4 text-center hidden-xs">
+          <%= image_tag "natal/bairros.jpg" %>
+        </div>
+        
+        <div class="col-md-4">
+          <h4>Anuncie</h4>
+          <p>Para obter sucesso, seu negócio primeiro precisa ser encontrado. <strong>Busca Simplificada.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure voluptatibus ratione laboriosam. </p>
+
+          <h4>Páginas Exclusivas</h4>
+          <p>Alguém pela cidade em busca dos seus serviços. Em breve, iremos lançar versões exclusivas de páginas para negócios, com mais destaque e mais visibilidade para o seu negócio. <a href="/">Entre em contato.</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ad">
+    <div class="container">
+      <div class="row"></div>
+    </div>
+  </section>
+
+  <section class="natal">
+    <div class="overlay"></div>
+    <div class="v-center">
+      <div class="content">
+        <h1 class="call">Explore Natal</h1>
+      </div>
+    </div>
+  </section>
+
+</div>
 <% end %>
 
-<%= render 'categories' %>
+<%= render partial: 'categories', collection: @categories, cached: true %>

@@ -3,9 +3,11 @@
 @import "app/global/header";
 
 // Resources
+@import "app/resources/home";
 @import "app/resources/categories";
 
 // Components
+@import "app/components/buttons";
 @import "app/components/login";
 @import "app/components/search_bar";
 @import "app/components/slider";
