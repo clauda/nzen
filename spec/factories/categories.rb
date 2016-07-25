@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :category do
     name "MyString"
-    published false
+    published true
+    primary false
   end
 end

@@ -4,7 +4,7 @@ class Admin::DistrictsController < Admin::AdminController
   # GET /districts
   # GET /districts.json
   def index
-    @districts = District.all
+    @districts = District.search('*', order: 'name', per_page: 100)
   end
 
   # GET /districts/1

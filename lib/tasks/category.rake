@@ -23,7 +23,6 @@ namespace :category do
   desc "Reset Services Counters"
   task :update_counters => :environment do |t, args|
     Category.find_each { |record| Category.reset_counters(record.id, :services) }
-    Category.masters.each { |record| record.update(services_count: record.services_total) }
     Category.reindex
   end
 end

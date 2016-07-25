@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   end
 
   def category
-    @category = Category.by_slug(params[:id])
+    @category = Category.includes(services: [:district]).by_slug(params[:id])
   end
 
   def districts

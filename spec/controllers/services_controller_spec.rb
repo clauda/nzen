@@ -30,14 +30,12 @@ RSpec.describe ServicesController, type: :controller do
     { name: FFaker::Name.name, 
       description: 'Lorem Isuon', 
       phone: '1231', 
-      email: 'cl@ud.io', 
-      user_id: user.id,
       category_id: category.id,
       district_id: district.id
     }
   }
 
-  let(:invalid_attributes) { { name: 'Service', category_id: 0 }}
+  let(:invalid_attributes) { { category_id: nil }}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

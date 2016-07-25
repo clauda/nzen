@@ -22,13 +22,13 @@ module Services
                     include: includes,
                     order: order,
                     page: @page,
-                    per_page: @options[:per_page] || 10,
+                    per_page: @options[:per_page] || 30,
                     misspellings: false,
                     aggs: [:category_id, :district_id])
     end
 
     def filters
-      _filters = { published: true }
+      _filters = @options[:id_admin] ? {} : { published: true } 
       _filters[:category_permalink] = @options[:category_id] if @options[:category_id]
       _filters[:district_permalink] = @options[:district_id] if @options[:district_id]
       _filters

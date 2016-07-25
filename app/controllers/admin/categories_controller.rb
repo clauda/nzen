@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::AdminController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.active
+    @categories = Category.search('*', order: 'name', per_page: 50)
   end
 
   # GET /categories/1

@@ -5,7 +5,7 @@ class Admin::ServicesController < Admin::AdminController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @services = Services::Search.for(params[:term], params[:sort], params[:page], { is_admin: true})
   end
 
   # GET /services/1

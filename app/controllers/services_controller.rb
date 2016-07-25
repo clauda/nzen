@@ -53,7 +53,7 @@ class ServicesController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_service
-      @service = Service.by_slug(params[:id])
+      @service = Service.includes(:category, :district).by_slug(params[:id])
       raise ActiveRecord::RecordNotFound if @service.nil?
     end
 

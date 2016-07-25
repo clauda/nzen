@@ -39,7 +39,6 @@ class Service < ApplicationRecord
       self.category.reindex
       self.reindex
       # Rails.cache.clear
-      self.category_parent.update(services_count: self.services_total)
     end
 
 end

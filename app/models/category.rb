@@ -5,6 +5,8 @@ class Category < ApplicationRecord
   has_many :children, class_name: 'Category', foreign_key: :parent_id
   has_many :services
 
+  validates :name, presence: true
+
   scope :active, -> { where(published: true).order(:name) }
   scope :masters, -> { active.where(primary: true) }
 
