@@ -20,6 +20,8 @@ class Service < ApplicationRecord
       permalink: self.permalink,
       category_permalink: self.category.permalink,
       district_permalink: self.district.permalink,
+      category_name: self.category.name,
+      district_name: self.district.name,
       category_id: self.category.id,
       district_id: self.district.id,
       category_parent_id: self.category.parent.try(:id),

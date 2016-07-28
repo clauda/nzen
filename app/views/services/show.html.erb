@@ -1,80 +1,89 @@
 <% title(@service.name) %>
 
-<h4>
-  <%= link_to @service.district.name, district_path(@service.district) %> 
-  >> <%= link_to @service.category.name, category_path(@service.category) %>
-  >> <%= @service.name %>
-</h4>
+<div class="row">
+  <div class="col-md-9">
+    <h4>
+      <%= link_to @service.district.name, district_path(@service.district) %> 
+      >> <%= link_to @service.category.name, category_path(@service.category) %>
+      >> <%= @service.name %>
+    </h4>
 
-<% if @service.logo.url %>
-  <%= image_tag @service.logo.url(:medium) %>
-<% end %>
+    <% if @service.logo.url %>
+      <%= image_tag @service.logo.url(:medium) %>
+    <% end %>
 
-<h1><%= @service.name %> </h1>
+    <h1><%= @service.name %> </h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @service.user.try(:name) %>
-</p>
+    <p>
+      <strong>User:</strong>
+      <%= @service.user.try(:name) %>
+    </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @service.category.name %>
-</p>
+    <p>
+      <strong>Category:</strong>
+      <%= @service.category.name %>
+    </p>
 
-<p>
-  <strong>District:</strong>
-  <%= @service.district.name %>
-</p>
+    <p>
+      <strong>District:</strong>
+      <%= @service.district.name %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @service.description %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @service.phone %>
-</p>
+    <p>
+      <strong>Phone:</strong>
+      <%= @service.phone %>
+    </p>
 
-<p>
-  <strong>Web:</strong>
-  <%= @service.web %>
-</p>
+    <p>
+      <strong>Web:</strong>
+      <%= @service.web %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @service.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @service.email %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @service.address %>
-</p>
+    <p>
+      <strong>Address:</strong>
+      <%= @service.address %>
+    </p>
 
-<p>
-  <strong>Facebook:</strong>
-  <%= @service.facebook %>
-</p>
+    <p>
+      <strong>Facebook:</strong>
+      <%= @service.facebook %>
+    </p>
 
-<p>
-  <strong>Instagram:</strong>
-  <%= @service.instagram %>
-</p>
+    <p>
+      <strong>Instagram:</strong>
+      <%= @service.instagram %>
+    </p>
 
-<p>
-  <strong>Opens:</strong>
-  <%= @service.opens %>
-</p>
+    <p>
+      <strong>Opens:</strong>
+      <%= @service.opens %>
+    </p>
 
-<p>
-  <strong>Closes:</strong>
-  <%= @service.closes %>
-</p>
+    <p>
+      <strong>Closes:</strong>
+      <%= @service.closes %>
+    </p>
 
-<p>
-  <strong>Zipcode:</strong>
-  <%= @service.zipcode %>
-</p>
+    <p>
+      <strong>Zipcode:</strong>
+      <%= @service.zipcode %>
+    </p>
 
-<%= link_to 'Back', services_path %>
+    <%= link_to 'Back', services_path %>
+  </div>
+
+  <div class="col-md-3">
+    
+  </div>
+</div>
+

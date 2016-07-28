@@ -1,0 +1,39 @@
+<div id="filters">
+  <h2>Filtrar</h2>
+  <hr />
+  <%= form_tag '/busca' do %>
+    <div class="input-group">
+      <input type="text" name="pesquisa" class="form-control" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Ok</button>
+      </span>
+    </div>
+  <% end %>
+  <hr>
+
+  <div class="filter-districts">
+    <h5>Bairros
+      <span class="pull-right">x limpar</span>
+    </h5><hr />
+    <% aggregations_for(@services.aggs, "district_id").each do |id, value| %>
+      <% cache "district-facet-#{id}" do %>
+        <label>
+          <input type="checkbox" class="facet-district" name="district_id" value="<%= id %>" /> 
+          <%= District.find(id).try(:name) %>
+        </label><br />
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="filter-categories">
+    <h5>Categorias</h5><hr />
+    <% aggregations_for(@services.aggs, "category_id").each do |id, value| %>
+      <% cache "category-facet-#{id}" do %>
+        <label>
+          <input type="checkbox" class="facet-category" name="category_id" value="<%= id %>"  /> 
+          <%= Category.find(id).try(:name) %>
+        </label><br />
+      <% end %>
+    <% end %>
+  </div>
+</div>

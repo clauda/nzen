@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   get 'lojas-e-servicos', to: "services#index", as: :services
   get 'anuncie', to: "services#new", as: :new_service
-  get 'busca', to: redirect('/lojas-e-servicos')
-  post 'busca', to: "services#index"
+  post 'busca', to: "services#search"
+  get 'busca', to: "services#index"
   resources :services, only: [:create,:edit,:update]
 
   get ':id', to: "services#show", as: :business

@@ -1,5 +1,22 @@
 
 #home {
+
+  #flyer {
+    padding: 120px 50px 50px 20px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    background: image-url('bgs/hero-bg.jpg') center center no-repeat #fff; 
+    background-size: cover;
+    height: 440px;
+    min-height: 440px;
+    .title { 
+      font-size: 76px;
+      font-weight: 600;
+    }
+  }
   .districts {
     font-size: 16px;
     color: #7f8c8d;

@@ -1,0 +1,47 @@
+.business-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #777;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 96%;
+  h4 {
+    margin-top: 0;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    line-height: 1.5;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    a { color: #f44336; }
+  }
+  a { color: #333; }
+  .detail {
+    padding: 0 15px 15px;
+    .cat {
+      text-transform: uppercase;
+      font-weight: bolder;
+      font-size: 12px;
+      a { color: #777; }
+    }
+    .dist { font-weight: bolder; }
+    p { margin-bottom: 5px; }
+  }
+}
+
+.col-business {
+  -moz-column-width: 15.5em; /* Firefox */
+  -webkit-column-width: 15.5em; /* webkit, Safari, Chrome */
+  column-width: 15.5em;
+}
+/*remove standard list and bullet formatting from ul*/
+.col-business ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* correct webkit/chrome uneven margin on the first column*/
+.col-business ul li:first-child {
+  margin-top: 0px;
+}

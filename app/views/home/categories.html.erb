@@ -1,18 +1,22 @@
 <% title("Explore Natal") %>
 
-<div class="content" id="categories">
+<div id="categories">
   <div class="row">
-    <h1>Catálogo</h1><hr />
-    <div class="col-md-12 text-center">
-      <% @categories.each do |record| %>
-        <div class="cat-link">
-          <% cache "cat-btn-#{record.id}" do %>
-            <%= link_to category_path(record), class: 'btn btn-clear' do %>
-              <%= record.name %><span class="badge"><%= record.services_total %></span>
+    <div class="col-md-9">
+      <h1>Catálogo</h1><hr />
+      <div class="text-center">
+        <% @categories.each do |record| %>
+          <div class="cat-link">
+            <% cache "cat-btn-#{record.id}" do %>
+              <%= link_to category_path(record), class: 'btn btn-clear' do %>
+                <%= record.name %><span class="badge"><%= record.services_total %></span>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
+
+    <div class="col-md-3"></div>
   </div>
 </div>

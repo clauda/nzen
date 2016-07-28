@@ -2,29 +2,33 @@
   { property: 'description', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, consequuntur?' },
 ] %>
 
-<% content_for :jumbo do %>
+<% cache "jumbo" do %>
 <div id="home">
-  <div class="fluid" id="slider">
-    <div class="row un-slider">
-      <ul>
-        <li class="cellphone"></li>
-        <li class="housewife"></li>
-        <li class="grill"></li>
-        <li class="bringlayer"></li>
-        <li class="architecture"></li>
-        <li class="piano"></li>
-      </ul>
-      <div class="caption">
-        <h1>Preciso <br /><small><span class="typed"></span></small></h1>
+  <div class="fluid">
+    <div id="flyer"> 
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <h1 class="title">Communicating shouldn’t be this hard.</h1>
+            <h3 class="subtitle">Introducing a new suite of iOS apps designed to capture,
+              showcase, and track your brightest ideas.
+            </h3>
+          </div>
+        </div>
       </div>
     </div>
-
+   
     <div id="search-bar" class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h3>Temos + <%= Service.active.size %> lojas e serviços catalogados em Natal</h3>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-2">
+          <h3 class="term">
+            Faça uma <span>Busca</span>
+          </h3>
+        </div>
+        <div class="col-md-10 no-padding">
         <%= form_tag '/busca' do %>
           <div class="input-group">
-            <input type="text" name="term" class="form-control input-lg" placeholder="Estou procurando por...">
+            <input type="text" name="pesquisa" class="form-control search-input input-lg" placeholder="Estou procurando por...">
             <span class="input-group-btn">
               <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
             </span>
@@ -37,6 +41,7 @@
   <section class="districts">
     <div class="container">
       <div class="row">
+        <h3>Temos + <%= Service.active.size %> lojas e serviços catalogados em Natal</h3>
         <div class="col-md-4">
           <h3>
             <strong>Natal está sendo catalogada.</strong> Adicione o seu negócio no NZEN, o maior portal de lojas e serviços de Natal. É rápido e gratuíto.
@@ -74,7 +79,29 @@
     </div>
   </section>
 
+  <section id="slider">
+    <div class="row un-slider">
+      <ul>
+        <li class="cellphone"></li>
+        <li class="housewife"></li>
+        <li class="grill"></li>
+        <li class="bringlayer"></li>
+        <li class="architecture"></li>
+        <li class="piano"></li>
+      </ul>
+      <div class="caption">
+        <h1>Preciso <br /><small><span class="typed"></span></small></h1>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: 'categories', locals: { categories: @categories }, cached: true %>
+    </div>
+  </div>
 </div>
 <% end %>
-
-<%= render partial: 'categories', collection: @categories, cached: true %>

@@ -23,19 +23,15 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body data-layout="application">
+  <body>
 
     <%= render 'shared/top' %>
 
-    <div class="container yield">
-      <%= yield %>
+    <%= yield %>
 
-      <hr>
-
-      <footer>
-        <p>&copy; 2016 Natal Zen, Inc.</p>
-      </footer>
-    </div>
+    <footer>
+      <p>&copy; 2016 Natal Zen, Inc.</p>
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

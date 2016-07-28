@@ -2,18 +2,20 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = Services::Search.for(params[:term], params[:sort], params[:page])
+    @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @service = Service.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @service = Service.new(service_params)
@@ -47,6 +49,11 @@ class ServicesController < ApplicationController
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    # @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page])
+    redirect_to(services_path(pesquisa: params[:pesquisa]))
   end
 
   private

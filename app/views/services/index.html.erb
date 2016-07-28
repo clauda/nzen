@@ -1,44 +1,48 @@
 <% title("Lojas & Serviços em Natal") %>
 
-<%= link_to 'Anuncie', new_service_path, class: 'btn btn-success pull-right' %>
-<div class="col-md-3 pull-right">
-  <%= form_tag '/busca' do %>
-  <div class="input-group">
-    <input type="text" name="term" class="form-control" placeholder="Estou procurando por...">
-    <span class="input-group-btn">
-      <button class="btn btn-primary" type="button">Encontrar</button>
-    </span>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_tag '/busca' do %>
+      <div class="input-group">
+        <input type="text" name="pesquisa" class="form-control" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button">Encontrar</button>
+        </span>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
-<h1>Lojas & Serviços</h1>
-<hr />
+<div class="row">
+  <div class="col-md-9">
 
-<%= @services.total_count %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>District</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
+    <h1>Lojas & Serviços</h1>
+    <hr />
+    
+    <div class="row col-business">
+      <ul>
+        <% @services.each do |service| %>
+          <%= render partial: 'services/business-card', locals: { service: service } %>
+        <% end %>
+      </ul>
+      <% if @services.empty? %>
+        <p>Nenhuma loja encontrada. <a href="/anuncie">Cadastre</a> ou tente buscar por outro termo.</p>
+      <% end %>
+    </div>
 
-  <tbody>
-    <% @services.each do |service| %>
-      <tr>
-        <td><%= link_to service.name, business_path(service) %></td>
-        <td><%= service.category.name %></td>
-        <td><%= service.district.name %></td>
-        <td><%= service.phone %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <%= paginate @services %>
+  </div>
+  
+  <div class="col-md-3" id="sidebar">
+    <%= render 'services/filters' %>
 
-<%= paginate @services %>
-
-<br>
+    <div class="ad">
+      <div class="thumbnail">
+        anuncio vai aqui
+      </div>
+    </div>
+    <br />
+    <%= link_to 'Anuncie', new_service_path, class: 'btn btn-success btn-block' %>
+  </div>
+</div>
 

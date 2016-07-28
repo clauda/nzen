@@ -1,0 +1,10 @@
+<% cache "business-card-#{service.id}" do %>
+  <li class="business-card">
+    <h4><%= link_to service.name, business_path(service) %></h4>
+    <div class="detail">
+      <p class="cat"><%= link_to service.category.name, district_path(service.district, service.category) %></p>
+      <p class="dist"><%= link_to service.district.name, district_path(service.district) %></p>
+      <p><%= service.phone %></p>
+    </div>
+  </li>
+<% end %>
