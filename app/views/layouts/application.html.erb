@@ -9,7 +9,8 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Natal Zen</title>
+    <title><%= yield(:title) -%> Nzen, Portal de Natal</title>
+    <%= yield :metatags -%>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 

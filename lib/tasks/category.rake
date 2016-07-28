@@ -9,14 +9,11 @@ namespace :category do
 
   desc "Find orphans"
   task :orphans => :environment do |t, args|
-    categories = Category.where(primay: false, parent_id: nil)
-    puts "#{categories.size} orphans"
+    categories = Category.where(primary: false, parent_id: nil)
+    puts "#{categories.size} orphans! Find my dad:"
     categories.each do |category|
-      if category.services_count && category.services_count <= 0
-        category.update(primary: true)
-      else
-        puts category
-      end
+      puts "##{category.id} '#{category.name}' have #{category.services.size} services."
+      category.update(primary: true) if category.services.empty?
     end
   end
 

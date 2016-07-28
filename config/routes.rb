@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :services
   end
   
+  get 'sitemaps', to: 'sitemaps#index'
+  get 'sitemaps-companies', to: 'sitemaps#services'
+  get 'sitemaps/:id', to: 'sitemaps#district'
+
   get 'explore', to: "home#categories", as: :categories
   get 'explore/:id', to: "home#category", as: :category
 
