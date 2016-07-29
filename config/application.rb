@@ -23,7 +23,7 @@ module Nzen
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.cache_store = :redis_store, "redis://localhost:6379/0/zencache", { expires_in: 1.day }
+    config.cache_store = :redis_store, ENV['REDIS_NZEN_URL'], { expires_in: 1.day }
     config.active_record.time_zone_aware_types = [:datetime, :time]
   end
 end
