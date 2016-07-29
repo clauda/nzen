@@ -26,7 +26,7 @@ module SeoHelper
 
   def url(*paths, **options)
     paths[0] = paths.first[1..-1] if paths.first && paths.first[0] == '/'
-    ["http://nzen.com.br", *paths].join('/')
+    ["http://pinou.com.br", *paths].join('/')
   end
 
 end

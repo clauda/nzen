@@ -13,7 +13,7 @@ class Service < ApplicationRecord
 
   scope :active, -> { where(published: true, deleted: false).order(:name) }
 
-  after_create :reindexes
+  # after_commit :reindexes
 
   def search_data
     { name: self.name,

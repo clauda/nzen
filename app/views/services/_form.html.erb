@@ -20,12 +20,12 @@
 
   <div class="field">
     <%= f.label :category_id %>
-    <%= f.select :category_id, Category.active.collect{|c|[c.name,c.id]} %>
+    <%= f.select :category_id, @categories.collect{|c|[c.name,c.id]} %>
   </div>
 
   <div class="field">
     <%= f.label :district_id %>
-    <%= f.select :district_id, District.all.collect{|d|[d.name,d.id]} %>
+    <%= f.select :district_id, @districts.collect{|d|[d.name,d.id]} %>
   </div>
 
   <div class="field">

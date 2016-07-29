@@ -9,6 +9,7 @@ class Category < ApplicationRecord
 
   scope :active, -> { where(published: true).order(:name) }
   scope :masters, -> { active.where(primary: true) }
+  scope :children, -> { active.where(primary: false) }
 
   def search_data
     { name: self.name,

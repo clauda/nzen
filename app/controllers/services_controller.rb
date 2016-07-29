@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_dependents, only: [:new, :create, :edit, :update]
 
   def index
     @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page])
@@ -62,6 +63,11 @@ class ServicesController < ApplicationController
     def set_service
       @service = Service.includes(:category, :district).by_slug(params[:id])
       raise ActiveRecord::RecordNotFound if @service.nil?
+    end
+
+    def set_dependents
+      @categories = Category.children
+      @districts = District.all.order(:name)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

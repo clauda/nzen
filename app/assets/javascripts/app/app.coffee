@@ -1,0 +1,1 @@
+@pinio = angular.module('pinio', [])
