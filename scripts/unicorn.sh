@@ -1,70 +1,68 @@
-#!/bin/bash
+#!/bin/sh
 
-export RAILS_ROOT=/var/www/nzen/current
-export RAILS_ENV="${2-production}"
-export UNICORN_CONFIG_FILE="${RAILS_ROOT}/script/unicorn.rb"
-source "${RAILS_ROOT}/script/unicorn/functions"
+### BEGIN INIT INFO
+# Provides:          unicorn
+# Required-Start:    $all
+# Required-Stop:     $all
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the unicorn app server
+# Description:       starts unicorn using start-stop-daemon
+### END INIT INFO
 
-check_dependencies
+set -e
 
-case "$1" in
+USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
+
+# app settings
+USER="ubuntu"
+APP_NAME="nzen"
+APP_ROOT="/var/www/$APP_NAME/current"
+ENV="staging"
+
+# environment settings
+CMD="cd $APP_ROOT && bundle exec unicorn -c config/unicorn.rb -E $ENV -D"
+PID="$APP_ROOT/shared/pids/unicorn.pid"
+OLD_PID="$PID.oldbin"
+
+# make sure the app exists
+cd $APP_ROOT || exit 1
+
+sig () {
+  test -s "$PID" && kill -$1 `cat $PID`
+}
+
+oldsig () {
+  test -s $OLD_PID && kill -$1 `cat $OLD_PID`
+}
+
+case $1 in
   start)
-    start_unicorn
+    sig 0 && echo >&2 "Already running" && exit 0
+    echo "Starting $APP_NAME"
+    su - $USER -c "$CMD"
     ;;
-
   stop)
-    stop_unicorn
+    echo "Stopping $APP_NAME"
+    sig QUIT && exit 0
+    echo >&2 "Not running"
     ;;
-
-  stop-force)
-    force_stop
+  force-stop)
+    echo "Force stopping $APP_NAME"
+    sig TERM && exit 0
+    echo >&2 "Not running"
     ;;
-
-  restart)
-    reload_unicorn
+  restart|reload|upgrade)
+    sig USR2 && echo "reloaded $APP_NAME" && exit 0
+    echo >&2 "Couldn't reload, starting '$CMD' instead"
+    $CMD
     ;;
-
-  reload)
-    reload_unicorn
+  rotate)
+    sig USR1 && echo rotated logs OK && exit 0
+    echo >&2 "Couldn't rotate logs" && exit 1
     ;;
-
-  upgrade)
-    upgrade_unicorn
-    ;;
-
-  status)
-    status_unicorn
-    ;;
-
-  status-old)
-    status_unicorn_old
-    ;;
-
-  rotate|reopen-logs)
-    rotate_unicorn
-    ;;
-
   *)
-    cat >&2 <<USAGE
-
-  Usage: $0
-           <start|stop|stop-force>
-           <restart|reload|upgrade>
-           <status>
-           <rotate|reopen-logs>
-
-    start:         run \$CMD
-    stop:          send QUIT: graceful shutdown.
-    stop-force:    send TERM: fast shutdown.
-    restart:       stop + start
-    reload:        send HUP. Fallback to \$CMD if error.
-    upgrade:       use USR2 + QUIT to replace unicorn. Start \$CMD if is out.
-    status:        check PID on unicorn
-    status-old:    check PID on unicorn (old)
-    rotate:        send USR1, to reopen logs.
-    reopen-logs:   send USR1, to reopen logs.
-
-USAGE
+    echo >&2 $USAGE
     exit 1
     ;;
 esac

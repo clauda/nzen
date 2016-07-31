@@ -1,4 +1,4 @@
-root = "/var/www/pinou/current"
+root = "/var/www/nzen/current"
 working_directory root
 
 pid "#{root}/tmp/pids/unicorn.pid"
