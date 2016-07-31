@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-9">
     <h4>
-      <%= link_to @service.district.name, district_path(@service.district) %> 
+      <%= link_to @service.district.name, district_path(@service.city, @service.district) %> 
       >> <%= link_to @service.category.name, category_path(@service.category) %>
       >> <%= @service.name %>
     </h4>

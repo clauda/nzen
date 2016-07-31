@@ -24,7 +24,7 @@ module Sluggable
   end
 
   def slug_me
-    if self.class.by_slug(self.name.parameterize)
+    if self.class.by_slug(self.name.parameterize) || blacklist.include?(self.name.parameterize)
       if self.respond_to?(:district)
         self.update(permalink: "#{self.id.to_s}-#{self.name.parameterize}-#{self.district.permalink}")
       else
@@ -33,6 +33,12 @@ module Sluggable
     else
       self.update(permalink: self.name.parameterize)
     end
+  end
+
+  def blacklist
+    [ 'cidades', 'explore', 'lojas-e-servicos', 'anuncie', 'busca', 
+      'natal-rn', 'parnamirim-rn', 
+      'pin', 'pinou' ]
   end
 
 end

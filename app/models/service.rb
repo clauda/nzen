@@ -14,8 +14,6 @@ class Service < ApplicationRecord
 
   scope :active, -> { where(published: true, deleted: false).order(:name) }
 
-  # after_commit :reindexes
-
   def search_data
     { name: self.name,
       permalink: self.permalink,
@@ -23,6 +21,7 @@ class Service < ApplicationRecord
       district_permalink: self.district.permalink,
       category_name: self.category.name,
       district_name: self.district.name,
+      city_name: self.district.city.name,
       category_id: self.category.id,
       district_id: self.district.id,
       category_parent_id: self.category.parent.try(:id),

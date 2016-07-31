@@ -17,11 +17,13 @@ class HomeController < ApplicationController
   end
 
   def districts
-    @districts = District.search('*', order: 'name', per_page: 100)
+    @city = params[:city_id] ? City.by_slug(params[:city_id]) : current_city
+    @districts = District.search('*', where: { city_id: @city.id }, order: 'name', per_page: 100)
     @services = Services::Search.for('*', params[:sort], params[:page], { category_id: params[:id] })
   end
 
   def district
+    @city = params[:city_id] ? City.by_slug(params[:city_id]) : current_city
     @district = District.search('*', where: { permalink: params[:district_id] },
         order: 'name', per_page: 10).results.first
     @category = Category.by_slug(params[:category_id]) if params[:category_id]

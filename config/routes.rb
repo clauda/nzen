@@ -15,14 +15,15 @@ Rails.application.routes.draw do
   get 'explore', to: "home#categories", as: :categories
   get 'explore/:id', to: "home#category", as: :category
 
-  get 'natal-rn', to: "home#districts", as: :districts
-  get 'natal-rn/:district_id(/:category_id)', to: "home#district", as: :district
-
   get 'lojas-e-servicos', to: "services#index", as: :services
   get 'anuncie', to: "services#new", as: :new_service
   post 'busca', to: "services#search"
   get 'busca', to: "services#index"
   resources :services, only: [:create,:edit,:update]
+
+  # TODO: refactor this to allow find city by permalink
+  get 'natal-rn', to: "home#districts", as: :districts
+  get 'natal-rn/:district_id(/:category_id)', to: "home#district", as: :district
 
   get ':id', to: "services#show", as: :business
 
