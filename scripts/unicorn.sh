@@ -1,0 +1,70 @@
+#!/bin/bash
+
+export RAILS_ROOT=/var/www/nzen/current
+export RAILS_ENV="${2-production}"
+export UNICORN_CONFIG_FILE="${RAILS_ROOT}/script/unicorn.rb"
+source "${RAILS_ROOT}/script/unicorn/functions"
+
+check_dependencies
+
+case "$1" in
+  start)
+    start_unicorn
+    ;;
+
+  stop)
+    stop_unicorn
+    ;;
+
+  stop-force)
+    force_stop
+    ;;
+
+  restart)
+    reload_unicorn
+    ;;
+
+  reload)
+    reload_unicorn
+    ;;
+
+  upgrade)
+    upgrade_unicorn
+    ;;
+
+  status)
+    status_unicorn
+    ;;
+
+  status-old)
+    status_unicorn_old
+    ;;
+
+  rotate|reopen-logs)
+    rotate_unicorn
+    ;;
+
+  *)
+    cat >&2 <<USAGE
+
+  Usage: $0
+           <start|stop|stop-force>
+           <restart|reload|upgrade>
+           <status>
+           <rotate|reopen-logs>
+
+    start:         run \$CMD
+    stop:          send QUIT: graceful shutdown.
+    stop-force:    send TERM: fast shutdown.
+    restart:       stop + start
+    reload:        send HUP. Fallback to \$CMD if error.
+    upgrade:       use USR2 + QUIT to replace unicorn. Start \$CMD if is out.
+    status:        check PID on unicorn
+    status-old:    check PID on unicorn (old)
+    rotate:        send USR1, to reopen logs.
+    reopen-logs:   send USR1, to reopen logs.
+
+USAGE
+    exit 1
+    ;;
+esac

@@ -16,11 +16,20 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 after 'deploy:publishing', 'deploy:restart'
 
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:reload'
+set :unicorn_script, 'script/unicorn.sh'
+
+namespace :unicorn do
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn"
+    task command do
+      on roles :app do
+        within release_path do
+          execute fetch(:unicorn_script), command
+        end
+      end
+    end
   end
 end
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 2
