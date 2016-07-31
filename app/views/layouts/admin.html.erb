@@ -26,7 +26,23 @@
 
     <%= render 'shared/top' %>
 
+
     <div class="container yield">
+      <div class="dropdown pull-right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Admin
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><%= link_to "serviços", admin_services_path %></li>
+          <li><%= link_to "categorias", admin_categories_path %></li>
+          <li><%= link_to "cidades", admin_cities_path %></li>
+          <li><%= link_to "bairros", admin_districts_path %></li>
+        </ul>
+      </div>
+
+      <hr>
+
       <div class="row">
         <%= yield %>
       </div>

@@ -4,6 +4,7 @@ class Service < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category, counter_cache: true
   belongs_to :district, counter_cache: true
+  has_one :city, through: :district
   has_many :reviews
 
   mount_uploader :logo, LogoUploader

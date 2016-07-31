@@ -97,7 +97,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-  # config.after :all do
-  #   ActiveRecord::Base.subclasses.each(&:delete_all)
-  # end
+  config.after(:suite) do
+    Truncation.new.truncate!
+  end
 end

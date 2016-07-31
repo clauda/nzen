@@ -14,6 +14,9 @@
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
 
+  <%= f.label :city_id %>
+  <%= f.select :city_id, City.active.collect{|city|[city.name, city.id]}, class: 'form-control' %>
+
   <div class="actions">
     <%= f.submit "Salvar", class: 'btn btn-default' %>
   </div>

@@ -69,6 +69,6 @@ class Admin::DistrictsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def district_params
-      params.require(:district).permit(:name, :permalink)
+      params.require(:district).permit(:name, :city_id, :permalink)
     end
 end

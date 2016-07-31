@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "admin/districts/show", type: :view do
-  let(:city) { FactoryGirl.create :city }
+RSpec.describe "admin/cities/show", type: :view do
   before(:each) do
-    @district = assign(:district, District.create!(
+    @city = assign(:city, City.create!(
       :name => "Name",
-      :city => city,
+      :state => "State",
+      :published => false,
       :permalink => "Permalink"
     ))
   end
@@ -13,6 +13,7 @@ RSpec.describe "admin/districts/show", type: :view do
   it "renders attributes in <p>" do
     render
     expect(rendered).to match(/Name/)
+    expect(rendered).to match(/false/)
     expect(rendered).to match(/Permalink/)
   end
 end

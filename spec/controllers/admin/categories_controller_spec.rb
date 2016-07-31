@@ -29,7 +29,8 @@ RSpec.describe Admin::CategoriesController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CategoriesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:user){ FactoryGirl.create(:user) }
+  let(:valid_session) { sign_in user }
 
   describe "GET #index" do
     it "assigns all categories as @categories" do

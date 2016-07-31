@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "admin/districts/new", type: :view do
+  let(:city) { FactoryGirl.create :city }
   before(:each) do
     assign(:district, District.new(
       :name => "MyString",
+      :city => city,
       :permalink => "MyString"
     ))
   end
