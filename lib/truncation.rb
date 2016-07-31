@@ -7,12 +7,12 @@ class Truncation
   # ActiveRecord::Base.connection
   def initialize(env = "test")
     @env = env
-    @connection = connection
+    @connection = connect!
   end
 
-  def connection
-    config = ActiveRecord::Base.configurations[@env]
-    @connection = ActiveRecord::Base.establish_connection(config).connection
+  def connect!
+    @config = ActiveRecord::Base.configurations[@env]
+    @connection = ActiveRecord::Base.establish_connection(@config).connection
   end
 
   def truncate!

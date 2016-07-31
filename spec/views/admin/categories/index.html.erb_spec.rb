@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "admin/categories/index", type: :view do
   describe do
-    let(:category_name){ FFaker::Name.name }
+    let(:category){ FactoryGirl.create(:category) }
     before(:each) do
+      category.reindex
       assign(:categories, Category.search('*', per_page: 1))
     end
 
