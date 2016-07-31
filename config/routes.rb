@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, 
     controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
     path: 'acesso', path_names: { 
-      sign_in: 'login', sign_out: 'logout', sign_up: 'bem-vindo',
+      sign_in: 'login', sign_out: 'sair', sign_up: 'bem-vindo',
       password: 'alterar-senha', confirmation: 'confirmar', edit: 'editar'
     }
 
