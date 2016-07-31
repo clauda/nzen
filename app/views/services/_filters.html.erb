@@ -19,7 +19,7 @@
       <% cache "district-facet-#{id}" do %>
         <label>
           <input type="checkbox" class="facet-district" name="district_id" value="<%= id %>" /> 
-          <%= District.find(id).try(:name) %>
+          <%= find_district(id) %>
         </label><br />
       <% end %>
     <% end %>

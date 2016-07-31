@@ -62,7 +62,7 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.includes(:category, :district).by_slug(params[:id])
-      raise ActiveRecord::RecordNotFound if @service.nil?
+      render(partial: 'shared/404', status: :not_found) if @service.nil?
     end
 
     def set_dependents
@@ -75,7 +75,4 @@ class ServicesController < ApplicationController
       params.require(:service).permit(:name, :user_id, :category_id, :district_id, :description, :phone, :web, :email, :logo, :address, :facebook, :instagram, :opens, :closes, :zipcode)
     end
 
-    rescue_from ActiveRecord::RecordNotFound do 
-      render(partial: 'shared/404', status: :not_found)
-    end
 end
