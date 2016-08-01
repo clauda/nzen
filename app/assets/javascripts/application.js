@@ -12,3 +12,12 @@
 //= require_self
 
 var NZEN = NZEN || {};
+
+$(document).one('turbolinks:load', function(){
+  NZEN.bootstraped = false;
+  if (!NZEN.bootstraped) {
+    angular.bootstrap(document, ['pinio']); // Manual Initialization
+    NZEN.bootstraped = true;
+  }
+  console.log(NZEN);
+});
