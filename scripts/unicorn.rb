@@ -3,8 +3,8 @@ working_directory root
 
 pid "#{root}/tmp/pids/unicorn.pid"
 
-stderr_path "#{root}/log/unicorn.log"
-stdout_path "#{root}/log/unicorn.log"
+stderr_path "#{root}/log/unicorn.err.log"
+stdout_path "#{root}/log/unicorn.out.log"
 
 worker_processes Integer(ENV['WEB_CONCURRENCY'] || 5)
 timeout 30
