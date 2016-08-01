@@ -31,6 +31,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'mailgun-ruby', '~>1.1.0', require: 'mailgun'
 
 gem 'searchkick'
 gem 'kaminari'
