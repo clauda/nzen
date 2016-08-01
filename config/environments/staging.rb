@@ -83,4 +83,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_charset = "utf-8"
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+     :authentication => :plain,
+     :address => "smtp.mailgun.org",
+     :port => 587,
+     :domain => "pinou.com.br",
+     :user_name => "postmaster@pinou.com.br",
+     :password => Rails.application.secrets.mailgun_password
+  }
 end
