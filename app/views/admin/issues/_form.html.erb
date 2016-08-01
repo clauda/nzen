@@ -1,0 +1,52 @@
+<%= form_for([:admin,issue]) do |f| %>
+  <% if issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
+
+      <ul>
+      <% issue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :reason %>
+    <%= f.select :reason, IssuesHelper::REASONS %>
+  </div>
+
+  <div class="field">
+    <%= f.label :service_id %>
+    <%= f.select :service_id, Service.all.collect{|service|[service.name, service.id]} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_area :message %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, IssuesHelper::STATUSES %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observation %>
+    <%= f.text_area :observation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

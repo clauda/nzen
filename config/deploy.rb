@@ -14,7 +14,10 @@ set :deploy_to, '/var/www/nzen'
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
-after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  after :publishing, 'deploy:restart'
+  after :publishing, 'unicorn:restart'
+end
 
 set :unicorn_script, 'scripts/unicorn.sh'
 

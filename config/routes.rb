@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :districts
     resources :services
+    resources :issues
   end
   
   get 'sitemaps', to: 'sitemaps#index'
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   get 'natal-rn', to: "home#districts", as: :districts
   get 'natal-rn/:district_id(/:category_id)', to: "home#district", as: :district
 
-  get ':id', to: "services#show", as: :business
+  get '/:id', to: "services#show", as: :business
 
   root to: "home#index"
 end

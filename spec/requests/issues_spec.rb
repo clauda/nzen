@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Districts", type: :request do
-  describe "GET /admin/districts" do
+RSpec.describe "Issues", type: :request do
+  describe "GET /admin/issues" do
     it "works! (now write some real specs)" do
-      get admin_districts_path
+      get admin_issues_path
       expect(response).to have_http_status(302)
     end
   end

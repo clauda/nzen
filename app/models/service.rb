@@ -6,6 +6,7 @@ class Service < ApplicationRecord
   belongs_to :district, counter_cache: true
   has_one :city, through: :district
   has_many :reviews
+  has_many :issues
 
   mount_uploader :logo, LogoUploader
 

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @issue.reason %>
+</p>
+
+<p>
+  <strong>Protocolo:</strong>
+  <%= @issue.code %>
+</p>
+
+<p>
+  <strong>service:</strong>
+  <%= @issue.service.try(:name) %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @issue.message %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @issue.status %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @issue.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @issue.email %>
+</p>
+
+<%= link_to 'Edit', edit_admin_issue_path(@issue) %> |
+<%= link_to 'Back', admin_issues_path %>

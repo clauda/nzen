@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :service do
     name "MyString"
-    user
+    user nil
     category
     district
     description "MyText"
