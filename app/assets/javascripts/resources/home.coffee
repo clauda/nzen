@@ -11,7 +11,7 @@ swiper = new Swiper('.swiper-container',
 
 $(".typed").typed
   strings: [
-    "consertar o celular ^1000 ou comprar outro", 
+    "consertar o celular ^1000", 
     "de uma boa diarista",
     "de um bom churrasqueiro",
     "reformar meu quarto ^500",
