@@ -1,12 +1,21 @@
+<% seo [
+  { property: 'description', content: @service.description || 'Catalogamos mais de 8 mil serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+] %>
 <% title(@service.name) %>
 
 <div class="row">
+  <div class="pin-breadcrumbs col-sm-12">
+    <h1>
+      <%= link_to "Início", root_path, title: "Pinou Home Page" %> <i class="glyphicon glyphicon-menu-right"></i>
+      <%= link_to @service.district.name, district_path(@service.district) %> <i class="glyphicon glyphicon-menu-right"></i>
+      <%= link_to @service.category.name, category_path(@service.category) %> <i class="glyphicon glyphicon-menu-right"></i>
+      <b><%= @service.name %></b>
+    </h1>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-9">
-    <h4>
-      <%= link_to @service.district.name, district_path(@service.district) %> 
-      >> <%= link_to @service.category.name, category_path(@service.category) %>
-      >> <%= @service.name %>
-    </h4>
 
     <% if @service.logo.url %>
       <%= image_tag @service.logo.url(:medium) %>

@@ -1,13 +1,21 @@
 <% title(@category.name) %>
+<% seo [
+  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+] %>
+
+<div class="row">
+  <div class="pin-breadcrumbs col-sm-12">
+    <h1>
+      <%= link_to "Início", root_path, title: "Pinou Home Page" %> 
+      <i class="glyphicon glyphicon-menu-right"></i> Catálogo <i class="glyphicon glyphicon-menu-right"></i>
+      <%= "#{link_to(@category.parent.name, category_path(@category.parent))} <i class='glyphicon glyphicon-menu-right'></i>".html_safe if @category.parent %> <b><%= @category.name %></b>
+    </h1>
+  </div>
+</div>
 
 <div class="content" id="categories">
   <div class="row">
     <div class="col-md-9">
-      <h4>
-        <%= "#{link_to(@category.parent.name, category_path(@category.parent))} >>".html_safe if @category.parent %> 
-        <%= @category.name %>
-      </h4><hr />
-
       <% @category.children.active.each do |record| %>
         <div class="cat-link">
           <% cache "cat-btn-#{record.id}" do %>
@@ -19,18 +27,21 @@
       <% end %>
 
       <% if @services %>
-        <div class="row col-business">
+        <div class="col-business">
           <ul>
             <% @services.each do |service| %>
-              <%= render partial: 'services/business-card', locals: { service: service } %>
+              <li class="business-card">
+                <div class="pin-featured-items">
+                  <%= render partial: 'services/business-card', locals: { service: service } %>
+                </div>
+              </li>
             <% end %>
           </ul>
         </div>
       <% end %>
     </div>
 
-    <div class="col-md-3">
-      <%= render 'services/filters' %>
+    <div class="col-md-3" id="sidebar">
     </div>
 
   </div>

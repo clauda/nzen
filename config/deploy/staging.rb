@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 set :rails_env, 'staging'
 
-server 'ec2-54-149-37-161.us-west-2.compute.amazonaws.com', user: 'ubuntu', roles: %w{app db web}, port: 5953
+server 'ec2-52-67-110-92.sa-east-1.compute.amazonaws.com', user: 'ubuntu', roles: %w{app db web}, port: 5953
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 

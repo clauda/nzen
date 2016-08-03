@@ -1,5 +1,5 @@
-<div id="filters">
-  <h2>Filtrar</h2>
+<div id="filters" class="pin-page-content-section">
+  <h3 class="pin-content-title">Filtrar</h3>
   <hr />
   <%= form_tag '/busca' do %>
     <div class="input-group">
@@ -12,9 +12,9 @@
   <hr>
 
   <div class="filter-districts">
-    <h5>Bairros
+    <h3 class="pin-content-title">Bairros
       <span class="pull-right">x limpar</span>
-    </h5><hr />
+    </h3><hr />
     <% aggregations_for(@services.aggs, "district_id").each do |id, value| %>
       <% cache "district-facet-#{id}" do %>
         <label>
@@ -26,7 +26,7 @@
   </div>
 
   <div class="filter-categories">
-    <h5>Categorias</h5><hr />
+    <h3 class="pin-content-title">Categorias</h3><hr />
     <% aggregations_for(@services.aggs, "category_id").each do |id, value| %>
       <% cache "category-facet-#{id}" do %>
         <label>

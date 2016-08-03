@@ -35,6 +35,10 @@ class Service < ApplicationRecord
     self.category.parent
   end
 
+  def full_address
+    "#{self.address} - #{self.district.fullpath}"
+  end
+
   def increment_view!
     self.update_column(:views, self.views + 1)
   end

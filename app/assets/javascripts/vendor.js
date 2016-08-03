@@ -1,6 +1,6 @@
 //
 //= require bootstrap.min
 //= require angular.min
-//= require unslider-min
+//= require swiper.min
 //= require typed.min
 //

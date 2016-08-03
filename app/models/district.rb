@@ -14,4 +14,9 @@ class District < ApplicationRecord
       city_name: self.city.name,
       services_count: self.services_count }
   end
+
+  def fullpath
+    "#{self.name} - #{self.city.name}/#{self.city.state}"
+  end
+
 end

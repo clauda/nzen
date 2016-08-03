@@ -1,28 +1,35 @@
+<% seo [
+  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+] %>
 <% title("Lojas & Serviços em Natal") %>
 
 <div class="row">
-  <div class="col-md-4">
-    <%= form_tag '/busca' do %>
-      <div class="input-group">
-        <input type="text" name="pesquisa" class="form-control" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
-        <span class="input-group-btn">
-          <button class="btn btn-primary" type="button">Encontrar</button>
-        </span>
-      </div>
-    <% end %>
+  <div class="pin-section-headings">
+    <h1>Encontre aqui o produto ou serviço que você procura</h1>
+    <hr />
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_tag '/busca' do %>
+        <div class="input-group">
+          <input type="text" name="pesquisa" class="form-control input-lg" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
+          </span>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-9" ng-controller="SearchController" data-no-turbolink>
-
-    <h1>Lojas & Serviços</h1>
-    <hr />
-    
-    <div class="row col-business">
+    <div class="col-business">
       <ul>
         <% @services.each do |service| %>
-          <%= render partial: 'services/business-card', locals: { service: service } %>
+          <li class="business-card">
+            <div class="pin-featured-items">
+              <%= render partial: 'services/business-card', locals: { service: service } %>
+            </div>
+          </li>
         <% end %>
       </ul>
       <% if @services.empty? %>
@@ -34,7 +41,7 @@
   </div>
   
   <div class="col-md-3" id="sidebar">
-    <%= render 'services/filters' %>
+    <%= render 'services/filters' if params[:pesquisa] %>
 
     <div class="ad">
       <div class="thumbnail">

@@ -1,0 +1,22 @@
+<div class="pin-agents-slider-wrapper appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
+
+  <div class="swiper-container pin-services">
+    <div class="swiper-wrapper">
+      <!-- SLIDES -->
+      <% @services.each do |service| %>
+      <div class="swiper-slide pin-services-slide">
+        <div class="pin-featured-items">
+          <%= render partial: 'services/business-card', locals: { service: service } %>
+        </div>
+      </div>
+      <% end %>
+      <!-- END -->
+
+    </div>
+
+    <div class="swiper-pagination pin-agent-pagination"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <div class="swiper-button-prev swiper-button-white"></div>
+  </div>
+
+</div>

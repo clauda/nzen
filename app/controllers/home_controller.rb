@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   layout 'application'
   
   def index
-    @categories = Category.masters.group_by { |cat| cat.name[0] }
+    # @categories = Category.masters.group_by { |cat| cat.name[0] }
+    @services = Service.active.order(created_at: :desc).limit(10)
     render layout: 'home'
   end
 

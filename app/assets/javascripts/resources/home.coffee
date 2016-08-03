@@ -1,9 +1,13 @@
-$('.un-slider').unslider
-  infinite: false
-  autoplay: true
-  keys: false
-  arrows: false
-  nav: false
+swiper = new Swiper('.swiper-container',
+  pagination: '.swiper-pagination',
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  slidesPerView: 3,
+  paginationClickable: true,
+  spaceBetween: 15,
+  autoplay: 2000,
+  loop: true
+)
 
 $(".typed").typed
   strings: [
@@ -15,4 +19,12 @@ $(".typed").typed
     "aprender algo novo! ^1200"
   ],
   typeSpeed: 0
-  loop: true
+
+ $(window).bind 'scroll', ->
+  navHeight = $('#flyer').height() + 100
+  if $(window).scrollTop() > navHeight
+    $('#search-bar').addClass('fixed')
+  else
+    $('#search-bar').removeClass('fixed')
+
+$('[data-toggle="tooltip"]').tooltip()

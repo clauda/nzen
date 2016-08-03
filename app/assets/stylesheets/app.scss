@@ -1,6 +1,8 @@
 // Global
 @import "app/global/base";
 @import "app/global/header";
+@import "app/global/fonts";
+@import "app/global/footer";
 @import "app/global/utils";
 
 // Resources
@@ -10,8 +12,10 @@
 // Components
 @import "app/components/business-card";
 @import "app/components/buttons";
+@import "app/components/breadcrumbs";
 @import "app/components/filters";
 @import "app/components/form";
 @import "app/components/login";
 @import "app/components/search_bar";
+@import "app/components/sidebar";
 @import "app/components/slider";

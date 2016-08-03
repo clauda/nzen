@@ -1,10 +1,25 @@
-<% cache "business-card-#{service.id}" do %>
-  <li class="business-card">
-    <h4><%= link_to service.name, business_path(service) %></h4>
-    <div class="detail">
-      <p class="cat"><%= link_to service.category.name, district_path(service.district, service.category) %></p>
-      <p class="dist"><%= link_to service.district.name, district_path(service.district) %></p>
-      <p><%= service.phone %></p>
+<% cache "pin-service-#{service.id}" do %>
+  <div class="pin-feat-item-details">
+
+    <h3><%= link_to service.name, business_path(service), title: service.name %></h3>
+    <div class="pin-item-location">
+      <i class="glyphicon glyphicon-map-marker"></i>
+      <span><%= truncate(service.full_address, length: 45) %></span>
     </div>
-  </li>
+    
+  </div>
+  <div class="pin-feat-item-metas">
+    <ul class="pin-feature-info">
+      <li>
+        <i class="glyphicon glyphicon-th"></i>
+        <%= link_to truncate(service.category.name, length: 30), category_path(service.category), title: service.category.name, data: { toggle: "tooltip", placement: "top" } %>
+      </li>
+    </ul>
+
+    <div class="pin-rating">
+      <a class="pin-add-wishlist">
+        <i class="fa fa-thumbs-o-up"></i>
+      </a>
+    </div>
+  </div>
 <% end %>

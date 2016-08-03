@@ -3,6 +3,8 @@
   color: #fff;
   padding: 30px 0;
   margin: 0 auto;
+  min-height: 106px;
+  z-index: 10;
 
   .term {
     text-transform: uppercase;
@@ -28,5 +30,13 @@
     border-bottom-left-radius: 4px;
     border: none;
     box-shadow: none;
+  }
+
+  &.fixed {
+    position: fixed; 
+    height: 70px; 
+    left: 0;
+    right: 0;
+    top: 0;
   }
 }

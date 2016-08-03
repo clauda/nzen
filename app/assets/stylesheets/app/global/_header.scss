@@ -5,15 +5,21 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 4;
-  background-color: transparent;
+  z-index: 10;
+  background-color: #03a9f4; // #ED9C16
   border: none;
+  height: 60px;
 
   li {
-    background-color: rgba(0,0,0,0.5);
+    font-size: 16px;
     a { 
+      padding-top: 20px;
+      padding-bottom: 19px;
       color: #fff;
-      &:hover { color: #333; }
+      &:hover, &:focus { 
+        color: #fff;
+        background-color: #2196F3;
+      }
     }
   }
 
@@ -28,7 +34,7 @@
       color: #fff;
       span { 
         font-weight: 900;
-        color: #FFC107 !important;
+        color: #ffeb3b !important;
         font-size: 23px;
       }
       &:hover { 
@@ -38,3 +44,9 @@
     }
   }
 }
+
+.pin-home 
+  .navbar { 
+    background-color: transparent; 
+    li { background-color: rgba(0,0,0,0.5); }
+  }

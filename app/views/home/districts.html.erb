@@ -1,15 +1,24 @@
-<% title("Explore Natal") %>
+<% title("Explore todos os Bairros de Natal") %>
+<% seo [
+  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+] %>
+
+<div class="row">
+  <div class="pin-breadcrumbs col-sm-12">
+    <h1><%= link_to "Início", root_path, title: "Pinou Home Page" %> >> 
+    Bairros & Distritos</h1>
+  </div>
+</div>
 
 <div class="content">
   <div class="row">
-    <div class="col-md-12">
-      <h4>Bairros & Distritos</h4>
+    <div class="col-md-9">
       <% @districts.each do |record| %>
         <p><%= link_to record.name, district_path(record) %> 
           <%= aggregations_for(@services.aggs, "district_id", record.id) %>
         </p>
       <% end %>
     </div>
+    <div class="col-md-3" id="sidebar"></div>
   </div>
-
 </div>

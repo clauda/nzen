@@ -1,47 +1,47 @@
 <% seo [
-  { property: 'description', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, consequuntur?' },
+  { property: 'description', content: 'Catalogamos mais de 8 mil serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
 ] %>
 
-<% cache "jumbo" do %>
-<div id="home">
-  <div class="fluid">
-    <div id="flyer"> 
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8">
-            <h1 class="title">Communicating shouldn’t be this hard.</h1>
-            <h3 class="subtitle">Introducing a new suite of iOS apps designed to capture,
-              showcase, and track your brightest ideas.
-            </h3>
-          </div>
-        </div>
-      </div>
-    </div>
-   
-    <div id="search-bar" class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="col-md-2">
-          <h3 class="term">
-            Faça uma <span>Busca</span>
+<div class="fluid">
+  <div id="flyer"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- <h1 class="title">O que você procura?</h1> -->
+          <h1 class="title">Preciso <small><span class="typed"></span></small></h1>
+          <h3 class="subtitle">Catalogamos mais de 8 mil serviços em Natal<br /> para facilitar o seu dia a dia. Aqui tem o serviço que você procura.
           </h3>
         </div>
-        <div class="col-md-10 no-padding">
-        <%= form_tag '/busca' do %>
-          <div class="input-group">
-            <input type="text" name="pesquisa" class="form-control search-input input-lg" placeholder="Estou procurando por...">
-            <span class="input-group-btn">
-              <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
-            </span>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>
 
-  <section class="districts">
+  <%= render 'shared/search_bar' %>
+</div>
+
+<section class="pin-how-it-works-section pin-custom-section pin-feat-listing-section pin-section-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="pin-section-headings">
+        <h1>Um lugar cheio de oportunidades</h1>
+        <p>Veja quem já está no <b>Pinou</b> e anuncie o seu negócio também.</p>
+      </div>
+
+      <%= render 'services/services_slider' %>
+
+    </div>
+  </div>
+</section>
+
+<% cache 'home-section-2' do %>
+  <section class="districts pin-feat-listing-section pin-section-wrapper">
     <div class="container">
       <div class="row">
-        <h3>Temos + <%= Service.active.size %> lojas e serviços catalogados em Natal</h3>
+        <div class="pin-section-headings">
+          <h1>Temos +8400 lojas e serviços catalogados em Natal</h1>
+          <p>E contando...</p>
+        </div>
+
         <div class="col-md-4">
           <h3>
             <strong>Natal está sendo catalogada.</strong> Adicione o seu negócio no NZEN, o maior portal de lojas e serviços de Natal. É rápido e gratuíto.
@@ -60,48 +60,24 @@
           <h4>Páginas Exclusivas</h4>
           <p>Alguém pela cidade em busca dos seus serviços. Em breve, iremos lançar versões exclusivas de páginas para negócios, com mais destaque e mais visibilidade para o seu negócio. <a href="/">Entre em contato.</a></p>
         </div>
+
       </div>
     </div>
   </section>
+<% end %>
 
-  <section class="ad">
-    <div class="container">
-      <div class="row"></div>
-    </div>
-  </section>
+<section class="ad">
+  <div class="container">
+    <div class="row"></div>
+  </div>
+</section>
 
-  <section class="natal">
-    <div class="overlay"></div>
-    <div class="v-center">
-      <div class="content">
-        <h1 class="call">Explore Natal</h1>
-      </div>
-    </div>
-  </section>
 
-  <section id="slider">
-    <div class="row un-slider">
-      <ul>
-        <li class="cellphone"></li>
-        <li class="housewife"></li>
-        <li class="grill"></li>
-        <li class="bringlayer"></li>
-        <li class="architecture"></li>
-        <li class="piano"></li>
-      </ul>
-      <div class="caption">
-        <h1>Preciso <br /><small><span class="typed"></span></small></h1>
-      </div>
-    </div>
-  </section>
-
-</div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= render partial: 'categories', locals: { categories: @categories }, cached: true %>
+      <%#= render partial: 'categories', locals: { categories: @categories }, cached: true %>
     </div>
   </div>
 </div>
-<% end %>

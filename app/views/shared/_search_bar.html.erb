@@ -1,0 +1,19 @@
+<div id="search-bar" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-2">
+      <h3 class="term">
+        Faça uma <span>Busca</span>
+      </h3>
+    </div>
+    <div class="col-md-10 no-padding">
+    <%= form_tag '/busca' do %>
+      <div class="input-group">
+        <input type="text" name="pesquisa" class="form-control search-input input-lg" placeholder="Estou procurando por...">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
+        </span>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
