@@ -35,6 +35,10 @@ class Service < ApplicationRecord
     self.category.parent
   end
 
+  def increment_view!
+    self.update_column(:views, self.views + 1)
+  end
+
   private
 
     # Move to a background job 

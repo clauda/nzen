@@ -10,7 +10,9 @@ class ServicesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @service.increment_view!
+  end
 
   def new
     @service = Service.new
