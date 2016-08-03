@@ -21,6 +21,17 @@
       font-weight: 500;
       line-height: 1.5;
     }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .8;
+      background-color: #2196f3;
+    }
+
   }
   .districts {
     font-size: 16px;
