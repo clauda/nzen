@@ -505,7 +505,7 @@ header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-me
   }
   header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-menu-wrapper.navbar-collapse,
   header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-menu-wrapper.navbar-collapse {
-    max-height: 100% !importatnt;
+    max-height: 100% !important;
   }
 }
 header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-menu-wrapper ul,
