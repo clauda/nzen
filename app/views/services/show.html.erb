@@ -15,84 +15,67 @@
 </div>
 
 <div class="row">
-  <div class="col-md-9">
+  <div class="pin-service-info-section col-md-9 col-sm-9 col-xs-12">
+    <div class="pin-service-contact-wrapper">
+      <div class="pin-service-info-wrapper">
+        <div class="pin-service-img-wrapper">
+          <%= image_tag "placeholder-standard.jpg", alt: @service.name, class: "pin-lazy" %>
+        </div>
 
-    <% if @service.logo.url %>
-      <%= image_tag @service.logo.url(:medium) %>
-    <% end %>
+        <div class="pin-service-infos">
+          <ul>
+            <li><i class="fa fa-phone"></i><b><%= @service.phone %></b></li>
+            <li class="address"><i class="fa fa-map-marker"></i><%= @service.address %> - <%= link_to @service.district.fullpath, district_path(@service.district), title: @service.district.name %></li>
+            <li><i class="fa fa-envelope-o"></i><%= @service.email || "Não informado" %></li>
+            <li><i class="fa fa-globe"></i><%= @service.web || "Não informado" %></li>
+            <li class="pin-service-social-icons">
+              <%= link_to @service.facebook do %>
+                <i class="fa fa-facebook"></i>
+              <% end %>
+              <%= link_to @service.instagram do %>
+                <i class="fa fa-instagram"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-    <h1><%= @service.name %> </h1>
+      <div class="pin-service-description">
+        <div class="pin-service-details">
+          <h1 class="pin-content-title"><%= @service.name %></h1>
+          <div class="pin-service-name">
+           <h3><%= link_to @service.category.name, category_path(@service.category), title: @service.category.name %></h3>
+              <p>em <%= link_to @service.category.try(:parent).try(:name), category_path(@service.category.parent), title: @service.category.parent.name if @service.category.parent %></p>
+          </div>
 
-    <p>
-      <strong>User:</strong>
-      <%= @service.user.try(:name) %>
-    </p>
+          <p><%= @service.description || "On the other hand, we denounce with righteous ation and dislike men who beguiled and demora pleasure have some" %></p>
 
-    <p>
-      <strong>Category:</strong>
-      <%= @service.category.name %>
-    </p>
+        </div>
+       
+        <div class="pin-rate">
+          <a class="pin-add-wishlist">
+            <i class="fa fa-thumbs-o-up"></i>
+          </a>
 
-    <p>
-      <strong>District:</strong>
-      <%= @service.district.name %>
-    </p>
+           <a class="pin-add-wishlist">
+            <i class="fa fa-thumbs-o-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @service.description %>
-    </p>
+    <div class="pin-fb-comments">
+      <div class="fb-comments" data-href="<%= business_url(@service) %>" data-width="100%" data-numposts="5"></div>
+    </div>
 
-    <p>
-      <strong>Phone:</strong>
-      <%= @service.phone %>
-    </p>
-
-    <p>
-      <strong>Web:</strong>
-      <%= @service.web %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @service.email %>
-    </p>
-
-    <p>
-      <strong>Address:</strong>
-      <%= @service.address %>
-    </p>
-
-    <p>
-      <strong>Facebook:</strong>
-      <%= @service.facebook %>
-    </p>
-
-    <p>
-      <strong>Instagram:</strong>
-      <%= @service.instagram %>
-    </p>
-
-    <p>
-      <strong>Opens:</strong>
-      <%= @service.opens %>
-    </p>
-
-    <p>
-      <strong>Closes:</strong>
-      <%= @service.closes %>
-    </p>
-
-    <p>
-      <strong>Zipcode:</strong>
-      <%= @service.zipcode %>
-    </p>
-
-    <%= link_to 'Back', services_path %>
   </div>
 
-  <div class="col-md-3">
-    
+  <div class="col-md-3 no-padding">
+    <div class="pin-sidebar-widget pin-overview-widget">
+      <div class="pin-overview-wrapper">
+        Anuncie, reportar erro, classficar, reviews, anunciso
+      </div>
+    </div>
   </div>
 </div>
 

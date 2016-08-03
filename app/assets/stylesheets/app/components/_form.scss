@@ -1,4 +1,6 @@
 .form-control { 
   box-shadow: none;
   border-color: #ddd;
+  border-radius: 0;
+  .input-lg { border-radius: 0; }
 }

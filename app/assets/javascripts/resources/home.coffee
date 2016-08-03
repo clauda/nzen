@@ -20,11 +20,17 @@ $(".typed").typed
   ],
   typeSpeed: 0
 
- $(window).bind 'scroll', ->
+$(window).bind 'scroll', ->
   navHeight = $('#flyer').height() + 100
   if $(window).scrollTop() > navHeight
     $('#search-bar').addClass('fixed')
   else
     $('#search-bar').removeClass('fixed')
+
+$(window).bind 'scroll', ->
+  if $(window).scrollTop() > 51
+    $('.cta').addClass('fixed')
+  else
+    $('.cta').removeClass('fixed')
 
 $('[data-toggle="tooltip"]').tooltip()

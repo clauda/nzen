@@ -36,7 +36,7 @@ class Service < ApplicationRecord
   end
 
   def full_address
-    "#{self.address} - #{self.district.fullpath}"
+    "#{self.address} - #{self.district.name}"
   end
 
   def increment_view!

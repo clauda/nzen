@@ -1,4 +1,242 @@
+.pin-service-info-section {
+  padding-right: 30px;
+}
+@media only screen and (max-width: 767px) {
+  .pin-service-info-section {
+    padding: 0px;
+    margin-bottom: 50px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-service-info-section {
+    padding-right: 15px;
+  }
+}
+.pin-service-info-section .pin-service-details {
+  margin-bottom: 40px;
+}
+.pin-service-contact-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  border: 1px solid #ededed;
+  background-color: #ffffff;
+  position: relative;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper {
+  width: 40%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  float: left;
+  background-color: #ffffff;
+}
+@media only screen and (max-width: 767px) {
+  .pin-service-contact-wrapper .pin-service-info-wrapper {
+    width: 100%;
+    display: block;
+    float: none;
+  }
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-img-wrapper {
+  width: 100%;
+  height: 210px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-img-wrapper {
+    height: 160px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-img-wrapper {
+    height: 190px;
+  }
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul {
+  border-right: 1px solid #ededed;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 300;
+  color: #888888;
+  border-bottom: 1px solid #ededed;
+  padding: 0px 40px;
+  background-color: #fff;
+  height: 50px;
+  line-height: 48px;
+  margin-bottom: 0;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.address {
+  line-height: 28px;
+  height: auto;
+  padding: 14px 40px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li {
+    padding: 0px 20px;
+  }
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li i {
+  font-size: 20px;
+  margin-right: 15px;
+  line-height: 50px;
+  float: left;
+  width: 20px;
+  text-align: center;
+  color: #999;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li:last-child {
+  border-bottom: 0px solid;
+}
+@media only screen and (max-width: 767px) {
+  .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li {
+    border-right: 0px solid #ededed;
+    margin-bottom: 0;
+  }
+}
+.pin-service-contact-wrapper .pin-service-name {
+  padding: 10px 0;
+  height: auto;
+  line-height: 1.5;
+  margin-bottom: 15px !important;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-service-contact-wrapper .pin-service-name {
+    padding: 25px 20px;
+  }
+}
+.pin-service-contact-wrapper .pin-service-name h3 {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #454545;
+  margin: 0 0 5px;
+}
+.pin-service-contact-wrapper .pin-service-name h3 a {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #454545;
+  margin: 0;
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  -ms-transition: all 0.35s ease;
+  -o-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.pin-service-contact-wrapper .pin-service-name h3 a:hover {
+  color: #ff5400;
+}
+.pin-service-contact-wrapper .pin-service-name p {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #888888;
+  margin-bottom: 0;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.pin-service-social-icons {
+  padding: 30px 15px 30px 40px;
+  height: auto;
+  overflow: hidden;
+  display: block;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.pin-service-social-icons {
+    padding: 25px 20px;
+  }
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.pin-service-social-icons a {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid #bababa;
+  color: #bababa;
+  line-height: 28px;
+  text-align: center;
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  -ms-transition: all 0.35s ease;
+  -o-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.pin-service-social-icons a:hover {
+  color: #ff5400;
+  border: 1px solid #ff5400;
+}
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.pin-service-social-icons a i {
+  font-size: 16px;
+  line-height: 28px;
+  margin-right: 0;
+  float: none;
+}
+.pin-service-contact-wrapper .pin-service-description {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  float: left;
+  width: 60%;
+  padding: 40px 50px 40px;
+  background-color: #ffffff;
+  border-left: 1px solid #ededed;
+  margin-left: -1px;
+  line-height: 1.5;
+}
+@media only screen and (max-width: 767px) {
+  .pin-service-contact-wrapper .pin-service-description {
+    width: 100%;
+    display: block;
+    float: none;
+    padding: 25px 15px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .pin-service-contact-wrapper .pin-service-description {
+    padding: 30px 25px 30px;
+  }
+}
+.pin-service-contact-wrapper .pin-service-description h1.pin-content-title {
+  margin-bottom: 15px !important;
+}
+.pin-fb-comments { padding: 30px 20px; }
 
+
+.pin-rate {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+.pin-rate a {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.pin-sidebar-widget {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  border: 1px solid #ededed;
+  background-color: #ffffff;
+}
+.pin-sidebar-widget .pin-overview-wrapper {
+  display: inline-block;
+  float: left;
+  width: 60%;
+  padding: 40px 50px 40px;
+  background-color: #ffffff;
+  border-left: 1px solid #ededed;
+  margin-left: -1px;
+  line-height: 1.5
+}
 footer .pin-footer-top-wrapper {
   padding: 100px 0px;
   display: block;
@@ -7987,36 +8225,36 @@ footer .pin-footer-bottom-wrapper ul li a:hover {
   border-top: 1px solid #f2f2f2;
   border-bottom: 1px solid #f2f2f2;
 }
-.pin-expert-team-section .pin-agents-box {
+.pin-expert-team-section .pin-services-box {
   display: inline-block;
   overflow: hidden;
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  .pin-expert-team-section .pin-agents-box {
+  .pin-expert-team-section .pin-services-box {
     width: 50%;
     float: left;
   }
-  .pin-expert-team-section .pin-agents-box:nth-child(n+3) {
+  .pin-expert-team-section .pin-services-box:nth-child(n+3) {
     margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 767px) {
-  .pin-expert-team-section .pin-agents-box {
+  .pin-expert-team-section .pin-services-box {
     margin-bottom: 50px;
   }
-  .pin-expert-team-section .pin-agents-box:last-child {
+  .pin-expert-team-section .pin-services-box:last-child {
     margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .pin-expert-team-section .pin-agents-box {
+  .pin-expert-team-section .pin-services-box {
     margin-top: 50px;
   }
-  .pin-expert-team-section .pin-agents-box:nth-child(-n+2) {
+  .pin-expert-team-section .pin-services-box:nth-child(-n+2) {
     margin-top: 0px;
   }
 }
-.pin-expert-team-section .pin-agents-box .pin-agents-img-wrapper {
+.pin-expert-team-section .pin-services-box .pin-services-img-wrapper {
   width: 100%;
   height: 200px;
   display: block;
@@ -8025,18 +8263,18 @@ footer .pin-footer-bottom-wrapper ul li a:hover {
   text-align: center;
 }
 @media only screen and (max-width: 767px), only screen and (min-width: 992px) and (max-width: 1199px) {
-  .pin-expert-team-section .pin-agents-box .pin-agents-img-wrapper {
+  .pin-expert-team-section .pin-services-box .pin-services-img-wrapper {
     height: 170px;
   }
 }
-.pin-expert-team-section .pin-agents-box .pin-agents-img-wrapper img {
+.pin-expert-team-section .pin-services-box .pin-services-img-wrapper img {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 }
-.pin-expert-team-section .pin-agents-box .pin-feat-item-details {
+.pin-expert-team-section .pin-services-box .pin-feat-item-details {
   display: block;
   overflow: hidden;
   padding: 25px 40px;
@@ -8046,14 +8284,14 @@ footer .pin-footer-bottom-wrapper ul li a:hover {
   position: relative;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .pin-expert-team-section .pin-agents-box .pin-feat-item-details {
+  .pin-expert-team-section .pin-services-box .pin-feat-item-details {
     padding: 25px;
   }
 }
-.pin-expert-team-section .pin-agents-box .pin-feat-item-details h3 {
+.pin-expert-team-section .pin-services-box .pin-feat-item-details h3 {
   margin: 0 0 5px;
 }
-.pin-expert-team-section .pin-agents-box .pin-feat-item-details h3 a {
+.pin-expert-team-section .pin-services-box .pin-feat-item-details h3 a {
   font-family: 'PT Sans', sans-serif;
   font-size: 21px;
   font-weight: 400;
@@ -8064,10 +8302,10 @@ footer .pin-footer-bottom-wrapper ul li a:hover {
   -o-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-.pin-expert-team-section .pin-agents-box .pin-feat-item-details h3 a:hover {
+.pin-expert-team-section .pin-services-box .pin-feat-item-details h3 a:hover {
   color: #fc4a52;
 }
-.pin-expert-team-section .pin-agents-box .pin-feat-item-details p {
+.pin-expert-team-section .pin-services-box .pin-feat-item-details p {
   font-family: 'PT Sans', sans-serif;
   font-size: 14px;
   font-weight: 300;

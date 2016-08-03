@@ -1,10 +1,12 @@
 .pin-breadcrumbs { 
   color: #494949;
-  margin-bottom: 30px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  i.glyphicon { font-size: 14px; }
-  h1 { font-size: 20px; }
+  padding-top: 15px;
+  i.glyphicon { 
+    font-size: 8px;
+    margin: 0 5px;
+  }
+  h1 { font-size: 14px; }
   a { 
     color: #494949;
     &:hover { color: #337ab7; }

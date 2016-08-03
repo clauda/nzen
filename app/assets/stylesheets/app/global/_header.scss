@@ -9,6 +9,7 @@
   background-color: #03a9f4; // #ED9C16
   border: none;
   height: 60px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 
   li {
     font-size: 16px;
@@ -30,6 +31,8 @@
     font-weight: 600;
     line-height: 1.5;
     font-size: 16px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 10;
     a { 
       color: #fff;
       span { 
@@ -42,11 +45,16 @@
         background-color: #ff9800;
       }
     }
+    &.fixed {
+      position: fixed;
+      right: 126px;
+    }
   }
 }
 
 .pin-home 
   .navbar { 
     background-color: transparent; 
+    box-shadow: none;
     li { background-color: rgba(0,0,0,0.5); }
   }
