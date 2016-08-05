@@ -19,7 +19,8 @@ class HomeController < ApplicationController
 
   def districts
     @city = params[:city_id] ? City.by_slug(params[:city_id]) : current_city
-    @districts = District.search('*', where: { city_id: @city.id }, order: 'name', per_page: 100)
+    # @districts = District.for({ city_id: @city.id })
+    @districts = District.where(city_id: @city.id).order(:name).group_by { |cat| cat.name[0] }
     @services = Services::Search.for('*', params[:sort], params[:page], { category_id: params[:id] })
   end
 

@@ -4,18 +4,18 @@
   margin-bottom: 10px;
 }
 
-.col-business {
+.col-fluid {
   -moz-column-width: 15.5em; /* Firefox */
   -webkit-column-width: 15.5em; /* webkit, Safari, Chrome */
   column-width: 15.5em;
 }
 /*remove standard list and bullet formatting from ul*/
-.col-business ul {
+.col-fluid ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 /* correct webkit/chrome uneven margin on the first column*/
-.col-business ul li:first-child {
+.col-fluid ul li:first-child {
   margin-top: 0px;
 }

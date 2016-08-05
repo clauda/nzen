@@ -54,7 +54,11 @@ class Admin::DistrictsController < Admin::AdminController
   # DELETE /districts/1
   # DELETE /districts/1.json
   def destroy
-    @district.destroy
+    if @district.services.any?
+      flash[:error] = "Bairro possui serviços. Não destruído."
+    else
+      @district.destroy
+    end
     respond_to do |format|
       format.html { redirect_to admin_districts_url, notice: 'District was successfully destroyed.' }
       format.json { head :no_content }

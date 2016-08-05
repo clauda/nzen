@@ -12,7 +12,12 @@ class District < ApplicationRecord
       permalink: self.permalink,
       city_id: self.city.id,
       city_name: self.city.name,
-      services_count: self.services_count }
+      services_count: self.services_count,
+      first_char: self.name[0] }
+  end
+
+  def self.for(conditions = {})
+    self.search('*', where: conditions, order: 'name', per_page: 100, aggs: { first_char: { order: { "_term" => "asc" }}})
   end
 
   def fullpath
