@@ -16,16 +16,6 @@
 <div class="content" id="categories">
   <div class="row">
     <div class="col-md-9">
-      <% @category.children.active.each do |record| %>
-        <div class="cat-link">
-          <% cache "cat-btn-#{record.id}" do %>
-            <%= link_to category_path(record), class: 'btn btn-clear' do %>
-              <%= record.name %><span class="badge"><%= record.services_count %></span>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-
       <% if @services %>
         <div class="col-fluid">
           <ul>
@@ -42,6 +32,17 @@
     </div>
 
     <div class="col-md-3" id="sidebar">
+      <ul class="cat-link">
+        <% @category.children.active.each do |record| %>
+          <% cache "cat-btn-#{record.id}" do %>
+            <li>
+            <%= link_to category_path(record), class: 'btn btn-default', title: record.name do %>
+              <%= record.name %><span class="badge"><%= record.services_count %></span>
+            <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
 
   </div>

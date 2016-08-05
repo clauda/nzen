@@ -32,10 +32,38 @@
   .cat-link {
     display: inline-block;
     margin: 10px;
-    .badge { 
-      margin-left: 5px;
-      background-color: #f44336;
+    li {
+      margin-bottom: 10px;
+      .btn { border-radius: 2px; }
+      .badge { 
+        margin-left: 5px;
+        background-color: #ff5722;
+      }
     }
   }
+
+  ul.cat-list {
+    margin-bottom: 20px !important;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    display: inline-block;
+    width: 100%;
+    li {
+      padding: 10px 15px 5px;
+      a { 
+        color: #494949;
+        &:hover { color: #03a9f4; }
+      }
+      &:last-child { padding-bottom: 15px; }
+    }
+    .heading {
+      border-bottom: 1px solid #eee;
+      font-weight: 600;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 18px;
+    }
+  }
+
 
 }

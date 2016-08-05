@@ -13,16 +13,18 @@
   <div class="row">
 
     <div class="col-md-9">
-      <div class="text-center">
-        <% @categories.each do |record| %>
-          <div class="cat-link">
-            <% cache "cat-btn-#{record.id}" do %>
-              <%= link_to category_path(record), class: 'btn btn-clear' do %>
-                <%= record.name %><span class="badge"><%= record.services_total %></span>
+      <div class="col-fluid">
+        <% @categories.each do |alpha, categories| %>
+          <% cache "categories-#{alpha}" do %>
+            <ul class="cat-list">
+              <li class="heading"><%= alpha %></li>
+              <% categories.each do |record| %>
+                <li><%= link_to record.name, category_path(record), title: record.name %></li>
               <% end %>
-            <% end %>
-          </div>
+            </ul>
+          <% end %>
         <% end %>
+      </div>
       </div>
     </div>
 

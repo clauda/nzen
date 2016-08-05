@@ -13,16 +13,16 @@
   <div class="row">
     <div class="col-md-9">
       <div class="col-fluid">
-      <% @districts.each do |alpha, districts| %>
-        <% cache "districts-#{alpha}" do %>
-          <ul class="districts">
-            <li class="heading"><%= alpha %></li>
-            <% districts.each do |record| %>
-              <li><%= link_to record.name, district_path(record), title: record.name %></li>
-            <% end %>
-          </ul>
+        <% @districts.each do |alpha, districts| %>
+          <% cache "districts-#{alpha}" do %>
+            <ul class="districts">
+              <li class="heading"><%= alpha %></li>
+              <% districts.each do |record| %>
+                <li><%= link_to record.name, district_path(record), title: record.name %></li>
+              <% end %>
+            </ul>
+          <% end %>
         <% end %>
-      <% end %>
       </div>
     </div>
     <div class="col-md-3" id="sidebar"></div>
