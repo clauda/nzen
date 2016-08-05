@@ -17,9 +17,14 @@
         <li><%= link_to "Explore", categories_path %></li>
         <li class="cta"><%= link_to "Anuncie seu <span>negócio</span>".html_safe, new_service_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+          <li>
+            <%#= link_to "Sair", destroy_user_session_path, method: :delete %>
+            <%= link_to "Painel", account_path %>
+          </li>
         <% else %>
-          <li><%= link_to "Entrar", new_user_session_path %></li>
+          <li class="pin-lb-wrp">
+            <button class="pin-profile-icon" id="pin-side-menu-btn"></button>
+          </li>
         <% end %>
       </ul>
     </div><!--/.navbar-collapse -->

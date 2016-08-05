@@ -117,7 +117,7 @@ RSpec.describe Admin::ServicesController, type: :controller do
         service = Service.create! valid_attributes
         put :update, params: {id: service.to_param, service: new_attributes}, session: valid_session
         service.reload
-        expect(service.name).to el("Legal")
+        expect(service.name).to eq("Legal")
       end
 
       it "assigns the requested service as @service" do

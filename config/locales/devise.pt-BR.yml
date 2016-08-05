@@ -58,3 +58,19 @@ pt-BR:
       not_saved:
         one: "Não foi possível salvar %{resource}: 1 erro"
         other: "Não foi possível salvar %{resource}: %{count} erros."
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Informe o seu email"
+              taken: "Email já cadastrado"
+            password:
+              too_short: "A sua senha deve ter no minímo 6 caracteres."
+            password_confirmation:
+              confirmation: "A senha de confirmação deve ser igual a senha."
+            current_password:
+              blank: "Para confirmar as alterações você precisa informar sua senha atual."
+              invalid: "Senha inválida"

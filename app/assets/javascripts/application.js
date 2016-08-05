@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require vendor
+//= require init
 //= require_tree ./resources
 //
 // Angular Application
@@ -11,7 +12,9 @@
 //
 //= require_self
 
-var NZEN = NZEN || {};
+$(document).on('turbolinks:load', function(){
+  NZEN.initMenu();
+});
 
 $(document).one('turbolinks:load', function(){
   NZEN.bootstraped = false;

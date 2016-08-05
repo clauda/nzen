@@ -1153,8 +1153,7 @@ header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-ex
   visibility: visible;
   z-index: 100;
 }
-header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-extra-btns-wrapper .pin-profile-icon,
-header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-extra-btns-wrapper .pin-profile-icon {
+.pin-profile-icon {
   width: 36px;
   height: 36px;
   line-height: 36px;
@@ -1165,7 +1164,7 @@ header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-ex
   /* Fix for IE7 */
   overflow: hidden;
   text-align: center;
-  border: 1px solid #e6e6e6;
+  border: 2px solid #fff;
   background-color: transparent;
   outline: 0;
   -webkit-border-radius: 50%;
@@ -1174,12 +1173,12 @@ header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-ex
   border-radius: 50%;
   position: relative;
 }
-header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-extra-btns-wrapper .pin-profile-icon:before,
-header.pin-header .pin-header-bottombar .pin-header-main-menu .container .pin-extra-btns-wrapper .pin-profile-icon:before {
+
+.pin-profile-icon:before {
   content: "\f2c7";
   font-family: "Ionicons";
   font-size: 21px;
-  color: #ababab;
+  color: #fff;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1458,12 +1457,15 @@ img {
 .pin-side-menu-wrap {
   background-color: #ffffff;
   position: fixed;
+  top: 0;
   right: 0;
   bottom: 0;
-  z-index: 1000;
+  z-index: 9;
   width: 400px;
   height: 100%;
   font-size: 14px;
+  border-left: 1px solid #eee;
+  padding-top: 70px;
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
   -ms-transform: translate3d(100%, 0, 0);
@@ -1485,6 +1487,9 @@ img {
     width: 100%;
   }
 }
+.pin-lb-wrp {
+  padding: 12px;
+}
 /*
 OVERLAY
  */
@@ -1492,7 +1497,7 @@ OVERLAY
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 9;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
@@ -1603,6 +1608,7 @@ SIDE MENU ITEMS
   margin-bottom: 10px;
   border-radius: 5px;
 }
+.pin-side-menu-widget-wrap .pin-login-form input[type=submit],
 .pin-side-menu-widget-wrap .pin-login-form button {
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
@@ -1625,6 +1631,7 @@ SIDE MENU ITEMS
   -o-transition: all .35s;
   transition: all .35s;
 }
+.pin-side-menu-widget-wrap .pin-login-form input[type=submit]:hover,
 .pin-side-menu-widget-wrap .pin-login-form button:hover {
   background-color: #fc313a;
 }
@@ -2922,7 +2929,7 @@ span.pin-item-rating i {
   -ms-transform: translate(0, -50%);
   -o-transform: translate(0, -50%);
   transform: translate(0, -50%);
-}
+}/*
 .panel-default,
 .panel {
   border: 0px solid;
@@ -2936,7 +2943,7 @@ span.pin-item-rating i {
 }
 .panel-group .panel + .panel {
   margin: 0;
-}
+}*/
 .pin-job-list-item:nth-child(odd) {
   background-color: #f5fdfc;
 }
@@ -7289,7 +7296,7 @@ header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .
 header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-menu-wrapper ul li ul.pin-sub-menu li a:focus {
   color: #fc4a52;
 }
-header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-profile-icon {
+.pin-profile-icon {
   color: #fc4a52;
 }
 .pin-hero-img-wrapper {
@@ -8507,9 +8514,6 @@ header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .
 header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-menu-wrapper ul li.active:after {
   content: '';
   background-color: #fc4a52;
-}
-header.pin-header .pin-header-bottombar .pin-header-main-menu .container-fluid .pin-profile-icon {
-  color: #fc4a52;
 }
 .pin-blog-page-header {
   padding: 170px 0;

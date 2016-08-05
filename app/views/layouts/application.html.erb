@@ -59,6 +59,7 @@
 
   <body data-layout="application">
 
+    <%= render 'shared/login_box' unless user_signed_in? %>
     <%= render 'shared/top' %>
 
     <div class=<%= "#{controller_name}-#{action_name}" %>>

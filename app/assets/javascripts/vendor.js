@@ -7,4 +7,5 @@
 //= require typeahead.bundle.min
 //= require typeahead.jquery.min
 //= require jquery.mask.min
+//= require classie
 //

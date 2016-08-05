@@ -1,0 +1,56 @@
+<% title("Painel de Negócios") %>
+<% seo [
+  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+] %>
+
+<div class="row">
+  <div class="pin-breadcrumbs col-sm-12">
+    <h1><%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> Painel de Negócios</h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="content" id="account">
+  <div class="row">
+    <div class="col-md-9">
+      <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#negocios" aria-controls="negocios" role="tab" data-toggle="tab">Empresas</a></li>
+          <li role="presentation"><a href="#mensagens" aria-controls="mensagens" role="tab" data-toggle="tab">Seus Envios</a></li>
+          <li role="presentation"><a href="#conta" aria-controls="conta" role="tab" data-toggle="tab">Dados da Conta</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="negocios">
+            <% @services.each do |service| %>
+              <p><%= link_to_if service.published, service.name, business_path(service) %>
+              (<%= service.published ? "Publicado" : "Não Publicado" %>)</p>
+            <% end %>
+
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="mensagens">
+          </div>
+          
+          <div role="tabpanel" class="tab-pane fade" id="conta">
+            <%= render "devise/registrations/edit" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Este é o seu <b>Painel de Negócios</b> e também de muitas oportunidades.</h3>
+        </div>
+      </div>
+
+      <%= link_to "Anuncie seu <span>negócio</span>".html_safe, new_service_path, class: "btn btn-success btn-lg btn-block" %>
+    </div>
+
+  </div>
+</div>

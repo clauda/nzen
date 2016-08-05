@@ -39,7 +39,7 @@ module Sluggable
     [ 'cidades', 'explore', 'lojas-e-servicos', 'anuncie', 'busca', 
       'sitemaps', 'sitemaps-companies', 'conta',
       'natal-rn', 'parnamirim-rn', 
-      'pin', 'pinou' ]
+      'pin', 'pinou', 'painel-de-negocios', 'remote' ]
   end
 
 end

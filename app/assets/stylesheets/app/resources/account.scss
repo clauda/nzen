@@ -1,0 +1,32 @@
+#account {
+  .nav-tabs {
+    border: none;
+    li {
+      &.active a {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom-color: #ff9800;
+        border-radius: 0;
+      }
+      a {
+        margin: 0 15px; 
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid #fff;
+        &:hover {
+          background-color: transparent;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          border-bottom-color: #ff9800;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    padding: 25px;
+  }
+}

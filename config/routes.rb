@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users, 
-    controllers: { omniauth_callbacks: "users/omniauth_callbacks" },
+    controllers: { 
+      registrations: "users/registrations",
+      omniauth_callbacks: "users/omniauth_callbacks"
+    },
     path: 'acesso', path_names: { 
       sign_in: 'login', sign_out: 'sair', sign_up: 'bem-vindo',
       password: 'alterar-senha', confirmation: 'confirmar', edit: 'editar'
@@ -13,6 +17,8 @@ Rails.application.routes.draw do
     resources :services
     resources :issues
   end
+  
+  get 'painel-de-negocios', to: "account#index", as: :account
   
   get 'sitemaps', to: 'sitemaps#index'
   get 'sitemaps-companies', to: 'sitemaps#services'
