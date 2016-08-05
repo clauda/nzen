@@ -37,7 +37,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_to_fit => [420, 420]
+    process :resize_to_fit => [332, 250]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

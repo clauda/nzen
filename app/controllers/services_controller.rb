@@ -22,6 +22,8 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
+    @service.user = current_user if current_user
+    @service.published = false
 
     respond_to do |format|
       if @service.save

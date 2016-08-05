@@ -5,12 +5,20 @@
 ] %>
 
 <div class="row">
+  <div class="pin-breadcrumbs col-sm-12">
+    <%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> Anuncie
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-9">
-    <h1>New Service</h1>
+    <div class="register-panel">
+      <h1>Cadastre um Negócio</h1>
+      <h4>É rápido e gratuíto. Se você é o proprietário da empresa, <%= link_to("cadastre-se", new_registration_path('user'), title: "Cadastro Pinou") %> para ter total acesso aos dados desta empresa e campos adicionais, dando mais informações sobre seu negócio.</h4>
+      <hr>
 
-    <%= render 'form', service: @service %>
-
-    <%= link_to 'Back', services_path %>
+      <%= render 'form', service: @service %>
+    </div>
   </div>
 
   <div class="col-md-3">

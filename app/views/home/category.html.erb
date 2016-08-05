@@ -6,7 +6,7 @@
 <div class="row">
   <div class="pin-breadcrumbs col-sm-12">
     <h1>
-      <%= link_to "Início", root_path, title: "Pinou Home Page" %> 
+      <%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false"  %> 
       <i class="glyphicon glyphicon-menu-right"></i> <%= link_to "Catálogo", categories_path, title: "Todas as Categorias" %> <i class="glyphicon glyphicon-menu-right"></i>
       <%= "#{link_to(@category.parent.name, category_path(@category.parent))} <i class='glyphicon glyphicon-menu-right'></i>".html_safe if @category.parent %> <b><%= @category.name %></b>
     </h1>

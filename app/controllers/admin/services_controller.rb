@@ -24,7 +24,8 @@ class Admin::ServicesController < Admin::AdminController
   # POST /services
   # POST /services.json
   def create
-    @service = current_user.services.build(service_params)
+    @service = Service.new(service_params)
+    @service.published = false
 
     respond_to do |format|
       if @service.save

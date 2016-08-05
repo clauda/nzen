@@ -28,7 +28,7 @@ module Services
     end
 
     def filters
-      _filters = @options[:id_admin] ? {} : { published: true } 
+      _filters = @options[:is_admin] ? {} : { published: true }
       _filters[:category_permalink] = @options[:category_id] if @options[:category_id]
       _filters[:district_permalink] = @options[:district_id] if @options[:district_id]
       _filters

@@ -11,74 +11,67 @@
     </div>
   <% end %>
 
-  <%= f.file_field :logo %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control'  %>
+  <div class="form-group">
+    <%= f.label :name, "Nome da Empresa" %>
+    <%= f.text_field :name, class: 'form-control', required: true %>
   </div>
 
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select :category_id, @categories.collect{|c|[c.name,c.id]} %>
+  <div class="form-group" id="categories">
+    <%= f.label :category_id, "Categoria" %>
+    <%= f.hidden_field :category_id, required: true %>
+    <%= f.text_field :category, class: "form-control typeahead", required: true, placeholder: "Selecione a categoria do seu negócio" %>
   </div>
 
-  <div class="field">
-    <%= f.label :district_id %>
-    <%= f.select :district_id, @districts.collect{|d|[d.name,d.id]} %>
+  <div class="form-group">
+    <%= f.label :zipcode, "CEP" %>
+    <%= f.text_field :zipcode, class: 'form-control', placeholder: "59000-000" %>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control'  %>
+  <div class="form-group">
+    <%= f.label :address, "Endereço" %>
+    <%= f.text_field :address, class: 'form-control', required: true  %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone, class: 'form-control'  %>
+  <div class="form-group">
+    <%= f.label :district_id, "Bairro" %>
+    <%= f.select :district_id, @districts.collect{|d|[d.name,d.id]}, { include_blank: true }, { class: "form-control", required: true } %>
   </div>
 
-  <div class="field">
-    <%= f.label :web %>
-    <%= f.text_field :web, class: 'form-control'  %>
+  <div class="form-group">
+    <%= label_tag :city, "Cidade" %>
+    <%= select_tag 'city', options_for_select(['Natal']), { class: "form-control" } %>
+    <p>Fora de Natal? Não se preocupe, o Pinou em breve irá expandir. Em caso de dúvidas, <a href="/contato">entre em contato com a gente.</a> </p>
   </div>
 
-  <div class="field">
+  <div class="form-group">
+    <%= f.label :description, "Fale uma pouco sobre esta empresa. Capriche na descrição!" %>
+    <%= f.text_area :description, class: 'form-control', required: true, placeholder: "Vamos lá, quanto mais detalhes você puder dar ao seu cliente, melhor para os negócios.", rows: 6 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone, "Telefone" %>
+    <%= f.text_field :phone, class: 'form-control', required: true, placeholder: "(84) 3322-1272" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control'  %>
+    <%= f.email_field :email, class: 'form-control', placeholder: "contato@seunegocio.com.br"  %>
   </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control'  %>
+  <div class="form-group">
+    <%= f.label :web, "Seu website" %>
+    <%= f.text_field :web, class: 'form-control', placeholder: "http://"  %>
+    <p class="pull-right">Não tem website? <%= link_to 'Procure uma agência aqui no Pinou', services_path, title: 'Pesquisar no Pinou' %></p>
   </div>
 
-  <div class="field">
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :instagram %>
-    <%= f.text_field :instagram, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :opens %>
-    <%= f.time_select :opens, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :closes %>
-    <%= f.time_select :closes, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode, class: 'form-control'  %>
+  <div class="form-group">
+    <br />
+    <label>A sua logomarca é muito importante. Ela identifica seu negócio. Faça o upload da sua logo.</label>
+    <%= f.file_field :logo %>
+    <p>Não tem logo? <%= link_to 'Procure um profissional aqui no Pinou', services_path, title: 'Pesquisar no Pinou' %></p>
   </div>
 
   <div class="actions">
-    <%= f.submit "Salvar", class: 'btn btn-success' %>
+    <%= f.submit "Cadastrar Empresa", class: 'btn btn-success btn-lg btn-block' %>
   </div>
 <% end %>

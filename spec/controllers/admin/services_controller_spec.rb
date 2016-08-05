@@ -110,14 +110,14 @@ RSpec.describe Admin::ServicesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: "Legal" }
       }
 
       it "updates the requested service" do
         service = Service.create! valid_attributes
         put :update, params: {id: service.to_param, service: new_attributes}, session: valid_session
         service.reload
-        skip("Add assertions for updated state")
+        expect(service.name).to el("Legal")
       end
 
       it "assigns the requested service as @service" do

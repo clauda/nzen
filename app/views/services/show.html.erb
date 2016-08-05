@@ -6,7 +6,7 @@
 <div class="row">
   <div class="pin-breadcrumbs col-sm-12">
     <h1>
-      <%= link_to "Início", root_path, title: "Pinou Home Page" %> <i class="glyphicon glyphicon-menu-right"></i>
+      <%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i>
       <%= link_to @service.district.name, district_path(@service.district) %> <i class="glyphicon glyphicon-menu-right"></i>
       <%= link_to @service.category.name, category_path(@service.category) %> <i class="glyphicon glyphicon-menu-right"></i>
       <b><%= @service.name %></b>
@@ -19,7 +19,11 @@
     <div class="pin-service-contact-wrapper">
       <div class="pin-service-info-wrapper">
         <div class="pin-service-img-wrapper">
-          <%= image_tag "placeholder-standard.jpg", alt: @service.name, class: "pin-lazy" %>
+          <% if @service.logo.try(:url) %>
+            <%= image_tag @service.logo.url(:medium), alt: @service.name, class: "pin-lazy" %>
+          <% else %>
+            <%= image_tag "placeholder-standard.jpg", alt: @service.name, class: "pin-lazy" %>
+          <% end %>
         </div>
 
         <div class="pin-service-infos">
