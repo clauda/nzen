@@ -84,7 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: "pinou.com.br" }
+  config.action_mailer.default_url_options = { host: "smtp.pinou.com.br" }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
@@ -93,8 +93,8 @@ Rails.application.configure do
      :authentication => :plain,
      :address => "smtp.mailgun.org",
      :port => 587,
-     :domain => "pinou.com.br",
-     :user_name => "postmaster@pinou.com.br",
+     :domain => "smtp.pinou.com.br",
+     :user_name => "postmaster@smtp.pinou.com.br",
      :password => Rails.application.secrets.mailgun_password
   }
 end
