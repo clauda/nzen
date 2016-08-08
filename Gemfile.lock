@@ -128,6 +128,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
+    libv8 (3.16.14.11)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -230,6 +231,7 @@ GEM
       redis-store (~> 1.2.0)
     redis-store (1.2.0)
       redis (>= 2.2)
+    ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rest-client (1.8.0)
@@ -280,6 +282,9 @@ GEM
     sshkit (1.11.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -344,6 +349,7 @@ DEPENDENCIES
   searchkick
   spring
   spring-watcher-listen (~> 2.0.0)
+  therubyracer
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

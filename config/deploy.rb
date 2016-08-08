@@ -16,7 +16,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 namespace :deploy do
   after :publishing, 'deploy:restart'
-  after :publishing, 'unicorn:restart'
+  # after :publishing, 'unicorn:restart'
 end
 
 set :unicorn_script, 'scripts/unicorn.sh'
