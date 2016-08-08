@@ -12,15 +12,11 @@
 //
 //= require_self
 
-$(document).on('turbolinks:load', function(){
-  NZEN.initMenu();
-  if (!!$('.services-show').length) { NZEN.issuesModal(); }
-});
-
-$(document).one('turbolinks:load', function(){
-  NZEN.bootstraped = false;
-  if (!NZEN.bootstraped) {
-    angular.bootstrap(document, ['pinio']); // Manual Initialization
-    NZEN.bootstraped = true;
+$.fn.extend({
+  anime: function(effect){
+    var ends = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    $(this).addClass('animated ' + effect).one(ends, function(){
+      $(this).removeClass('animated ' + effect);
+    });
   }
 });

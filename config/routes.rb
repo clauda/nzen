@@ -26,7 +26,10 @@ Rails.application.routes.draw do
   
   get 'remote/categories', to: 'remote#categories'
   get 'remote/districts', to: 'remote#districts'
-  post 'reportar-erro', to: 'remote#report_error'
+  post 'remote/services/:id/reportar-erro', to: 'remote#report_error', as: :report_error
+  post 'remote/services/:id/like', to: 'remote#like', as: :like
+  post 'remote/services/:id/dislike', to: 'remote#dislike', as: :dislike
+  post 'remote/services/:id/coment', to: 'remote#add_review_comment', as: :review_comment
 
   get 'explore', to: "home#categories", as: :categories
   get 'explore/:id', to: "home#category", as: :category

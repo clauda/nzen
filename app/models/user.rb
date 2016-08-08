@@ -35,6 +35,10 @@ class User < ApplicationRecord
     end
   end
 
+  def issues
+    Issue.where(email: self.email)
+  end
+
   protected
   
     def confirmation_required?

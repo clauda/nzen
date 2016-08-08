@@ -3,6 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .services-show {
   background-color: #f9f9f9;
+
+  .pin-rate {
+    color: #747474;
+    font-size: 13px;
+    font-style: italic;
+    li { display: inline; }
+
+    .is-pin-like { 
+      color: #2196f3;
+      margin: 0.6em;
+      &.cbutton--effect-ivana::before,
+      &.cbutton--effect-ivana::after {
+        box-shadow: 0 0 0 2px rgba(33,150,243,0.8);
+      }
+
+    }
+    .is-pin-dislike { 
+      color: #f44336;
+      margin: 0.6em;
+      margin-left: 0;
+      &.cbutton--effect-ivana::before,
+      &.cbutton--effect-ivana::after {
+        box-shadow: 0 0 0 2px rgba(244,67,54,0.8);
+      }
+    }
+  }
 }
 
 .twitter-typeahead {

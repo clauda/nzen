@@ -3,6 +3,7 @@ class AccountController < ApplicationController
 
   def index
     @services = current_user.services
+    @issues = current_user.issues
   end
 
 end

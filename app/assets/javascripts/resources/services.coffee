@@ -47,11 +47,28 @@ $('#service_zipcode').on 'keyup', ->
         selectDistrict(data.district)
     )
 
+# Rating and Reviews Modals
+NZEN.ratings = ->
+  $('.services-show')
+    .delegate '.is-pin-like', 'click', ->
+      $(@).anime('bounceIn')
+      $('#review-sent .js-rate i.fa').removeClass('fa-thumbs-o-down').addClass('fa-thumbs-o-up')
+    .delegate '.is-pin-dislike', 'click', ->
+      $(@).anime('bounceIn')
+      $('#review-sent .js-rate i.fa').removeClass('fa-thumbs-o-up').addClass('fa-thumbs-o-down')
+    .delegate '.is-pin-like, .is-pin-dislike', 'ajax:success', (evt, data, status, xhr)->
+      console.log data
+      if (data.saved)
+        $('#review-sent').modal('show')
+      else
+        $('#login-modal').modal('show')
+    .delegate '#new_review', 'ajax:success', (evt, data, status, xhr)->
+      $('#review-sent').modal('hide')
+
+# Report Error or Issue Modal
 NZEN.issuesModal = ->
-  console.log('issuesModal')
   $('.services-show')
     .delegate '#new_issue', 'ajax:success', (evt, data, status, xhr)->
-      console.log data
       $('#report-error').modal('hide')
       $('#report-success').modal('show')
       $('.js-report-code').text(data.code)

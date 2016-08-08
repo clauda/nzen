@@ -1,0 +1,23 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="review-sent" aria-labelledby="review-sent">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <%= form_for @review, url: review_comment_path(@service), remote: true do |f| %>
+        <%= f.hidden_field :service_id, value: @service.id %>
+        <div class="modal-body fat-modal">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h1 class="text-center js-rate"><i class="fa"></i></h1>
+          <p>Recebemos o seu voto. Agora nos conte um pouco mais sobre a sua experiência nesta empresa. Dê a sua opinião.</p>
+
+          <div class="form-group">
+            <label>Comentário</label>
+            <%= f.text_area :comment, rows: 6, class: "form-control", placeholder: "Qual foi a sua experiência com esta empresa? Boa? Ruim? Frustrante? Excepcional? Nos conte."  %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+          <%= f.submit "Enviar", class: "btn btn-success btn-lg pull-right" %>
+        </div>
+      <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

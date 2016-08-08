@@ -1,0 +1,19 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="login-modal" aria-labelledby="login-modal">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="pin-side-menu">
+          <div class="pin-side-menu-widget-wrap">
+            <div class="pin-login-form-wrapper">
+              <p>Você precisa efetuar o login antes de avaliar uma empresa.</p>
+              <%= render 'devise/sessions/form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

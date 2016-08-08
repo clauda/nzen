@@ -69,8 +69,19 @@
     </div>
     
     <%= render 'shared/footer' %>
+    <%= render 'shared/login_modal' unless user_signed_in? %>
 
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag 'application', 'data-turbolinks-eval': 'false' %>
+
+    <%= yield :javascripts %>
+
+    <% unless flash.empty? %>
+      <script type="text/javascript">
+        <% flash.each do |name, message| %>
+          toastr['<%= flash_for(name) %>']('<%= message %>');
+        <% end %>
+      </script>
+    <% end %>
   </body>
 </html>

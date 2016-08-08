@@ -34,3 +34,9 @@ $(window).bind 'scroll', ->
     $('.cta').removeClass('fixed')
 
 $('[data-toggle="tooltip"]').tooltip()
+
+toastr.options.showMethod = 'slideDown';
+toastr.options.hideMethod = 'slideUp';
+toastr.options.closeMethod = 'slideUp';
+toastr.options.progressBar = true;
+toastr.options.timeOut = 3000;

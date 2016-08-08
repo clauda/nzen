@@ -77,19 +77,25 @@
 
         </div>
        
-        <div class="pin-rate">
-          <a class="pin-add-wishlist">
-            <i class="fa fa-thumbs-o-up"></i>
-          </a>
-
-           <a class="pin-add-wishlist">
-            <i class="fa fa-thumbs-o-down"></i>
-          </a>
-        </div>
+        <ul class="pin-rate">
+          <li>Avalie esta empresa:</li>
+          <li>
+            <%= link_to like_path(@service), remote: true, method: :post, class: "cbutton cbutton--effect-ivana is-pin-like" do %>
+              <i class="cbutton__icon fa fa-fw fa-thumbs-o-up"></i>
+              <span class="cbutton__text">Gostei</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to dislike_path(@service), remote: true, method: :post, class: "cbutton cbutton--effect-ivana is-pin-dislike" do %>
+              <i class="cbutton__icon fa fa-fw fa-thumbs-o-down"></i>
+              <span class="cbutton__text">Não gostei</span>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div class="pin-page-contents-wrapper pin-location-map-wrapper appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
+    <div class="pin-page-contents-wrapper pin-location-map-wrapper">
       <!-- <p>mapa vai aqui</p> -->
       <div class="pin-location-map">
         <div id="pin-map-small"></div>
@@ -117,6 +123,7 @@
   </div>
 </div>
 
+<%= render 'review' %>
 <%= render 'report_error' %>
 
 <% end %>

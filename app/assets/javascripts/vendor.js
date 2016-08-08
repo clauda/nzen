@@ -6,6 +6,7 @@
 //= require bloodhound.min
 //= require typeahead.bundle.min
 //= require typeahead.jquery.min
+//= require toastr.min
 //= require jquery.mask.min
 //= require classie
 //

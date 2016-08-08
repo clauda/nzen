@@ -1,0 +1,15 @@
+<div class="pin-login-form">
+  <%= form_for('user', as: 'user', url: session_path('user')) do |f| %>
+    <%= f.email_field :email, placeholder: 'Email', class: "pin-user-input form-control", autofocus: true, placeholder: "contato@seunegocio.com" %>
+    <%= f.password_field :password, placeholder: 'Senha', class: "form-control", autocomplete: "off" %>
+    <button type="submit">Entrar</button>
+  <% end %>
+</div>
+
+<div class="pin-social-login-opt">
+  <%= link_to "Entre com o Facebook", user_facebook_omniauth_authorize_path, class: "pin-social-login-btn pin-facebook-login" %>
+</div>
+
+<div class="pin-other-options">
+  <%= render "devise/shared/links" %>
+</div>

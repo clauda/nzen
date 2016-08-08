@@ -4,4 +4,7 @@
  *= require font-awesome
  *= require swiper.min
  *= require theme/business.style
+ *= require animate
+ *= require cbuttons
+ *= require toastr.min
  */
