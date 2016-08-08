@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :issue, class: 'Issue' do
-    reason "MyString"
-    message "MyText"
-    status "MyString"
-    name "MyString"
-    email "MyString"
+    reason "mistake"
+    message "Lorem Ipsum"
+    status "new"
+    name "Claudia"
+    email "claudia@pinou.com.br"
     service
   end
 end

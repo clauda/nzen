@@ -12,6 +12,7 @@ class ServicesController < ApplicationController
 
   def show
     @service.increment_view!
+    @issue = @service.issues.build
   end
 
   def new

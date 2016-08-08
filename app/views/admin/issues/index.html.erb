@@ -2,15 +2,12 @@
 
 <h1> Issues</h1>
 
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
-      <th>Reason</th>
-      <th>Message</th>
+      <th>PIN</th>
+      <th>Motivo</th>
       <th>Status</th>
-      <th>User</th>
-      <th>Name</th>
-      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,11 +15,9 @@
   <tbody>
     <% @issues.each do |issue| %>
       <tr>
-        <td><%= issue.reason %></td>
-        <td><%= issue.message %></td>
-        <td><%= issue.status %></td>
-        <td><%= issue.name %></td>
-        <td><%= issue.email %></td>
+        <td><%= issue.code %></td>
+        <td><%= Issue::REASONS[issue.reason.to_sym] %></td>
+        <td><%= Issue::STATUSES[issue.status.to_sym] %></td>
         <td><%= link_to 'Show', admin_issue_path(issue) %></td>
         <td><%= link_to 'Edit', edit_admin_issue_path(issue) %></td>
         <td><%= link_to 'Destroy', admin_issue_path(issue), method: :delete, data: { confirm: 'Are you sure?' } %></td>

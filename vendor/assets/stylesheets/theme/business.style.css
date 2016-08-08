@@ -55,6 +55,7 @@
     height: 190px;
   }
 }
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos a { color: #333; }
 .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul {
   border-right: 1px solid #ededed;
 }

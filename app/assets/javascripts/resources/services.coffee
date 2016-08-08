@@ -47,3 +47,13 @@ $('#service_zipcode').on 'keyup', ->
         selectDistrict(data.district)
     )
 
+NZEN.issuesModal = ->
+  console.log('issuesModal')
+  $('.services-show')
+    .delegate '#new_issue', 'ajax:success', (evt, data, status, xhr)->
+      console.log data
+      $('#report-error').modal('hide')
+      $('#report-success').modal('show')
+      $('.js-report-code').text(data.code)
+    .delegate '#new_issue', 'ajax:error', (xhr, status, error)->
+      console.error('failed:', error)

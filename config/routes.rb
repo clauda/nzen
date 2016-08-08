@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   
   get 'remote/categories', to: 'remote#categories'
   get 'remote/districts', to: 'remote#districts'
+  post 'reportar-erro', to: 'remote#report_error'
 
   get 'explore', to: "home#categories", as: :categories
   get 'explore/:id', to: "home#category", as: :category

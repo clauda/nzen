@@ -1,0 +1,8 @@
+.modal {
+  .modal-content {
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+    .modal-header, .modal-footer { border: none; }    
+  }
+}

@@ -29,7 +29,7 @@ RSpec.describe Admin::IssuesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    { message: nil }
+    { reason: nil }
   }
 
   # This should return the minimal set of values that should be in the session

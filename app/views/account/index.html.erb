@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="pin-breadcrumbs col-sm-12">
-    <h1><%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> Painel de Negócios</h1>
+    <h1><%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false" %> <i class="glyphicon glyphicon-menu-right"></i> Painel de Negócios</h1>
   </div>
 </div>
 
@@ -14,6 +14,7 @@
 <div class="content" id="account">
   <div class="row">
     <div class="col-md-9">
+      <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-default btn-sm pull-right" %>
       <div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">

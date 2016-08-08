@@ -14,6 +14,7 @@
 
 $(document).on('turbolinks:load', function(){
   NZEN.initMenu();
+  if (!!$('.services-show').length) { NZEN.issuesModal(); }
 });
 
 $(document).one('turbolinks:load', function(){
@@ -22,5 +23,4 @@ $(document).one('turbolinks:load', function(){
     angular.bootstrap(document, ['pinio']); // Manual Initialization
     NZEN.bootstraped = true;
   }
-  console.log(NZEN);
 });

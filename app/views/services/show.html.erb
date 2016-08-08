@@ -3,6 +3,7 @@
 ] %>
 <% title(@service.name) %>
 
+<% cache @service do %>
 <div class="row">
   <div class="pin-breadcrumbs col-sm-12">
     <h1>
@@ -28,18 +29,38 @@
 
         <div class="pin-service-infos">
           <ul>
-            <li><i class="fa fa-phone"></i><b><%= @service.phone %></b></li>
-            <li class="address"><i class="fa fa-map-marker"></i><%= @service.address %> - <%= link_to @service.district.fullpath, district_path(@service.district), title: @service.district.name %></li>
-            <li><i class="fa fa-envelope-o"></i><%= @service.email || "Não informado" %></li>
-            <li><i class="fa fa-globe"></i><%= @service.web || "Não informado" %></li>
-            <li class="pin-service-social-icons">
-              <%= link_to @service.facebook do %>
-                <i class="fa fa-facebook"></i>
-              <% end %>
-              <%= link_to @service.instagram do %>
-                <i class="fa fa-instagram"></i>
-              <% end %>
+            <li>
+              <i class="fa fa-phone"></i>
+              <b><%= link_to @service.phone, "tel:#{numbers_only(@service.phone)}", title: "#{@service.name} Telefone", target: "_blank" %></b>
             </li>
+            <li class="address"><i class="fa fa-map-marker"></i><%= @service.address %> - <%= link_to @service.district.fullpath, district_path(@service.district), title: @service.district.name, title: "Endereço do #{@service.name}" %></li>
+            
+            <% unless @service.email.blank? %>
+              <li><i class="fa fa-envelope-o"></i>
+                <%= link_to @service.email, "mailto:#{@service.email}", title: "#{@service.name} Email" %>
+              </li>
+            <% end %>
+
+            <% unless @service.web.blank? %>
+              <li><i class="fa fa-globe"></i><%= link_to @service.web, @service.web, title: "#{@service.name} website", target: "_blank" %></li>
+            <% end %>
+            
+            <% if @service.facebook || @service.instagram %>
+              <li class="pin-service-social-icons">
+                <% unless @service.facebook.blank? %>
+                  <%= link_to @service.facebook, title: "#{@service.name} Facebook", target: "_blank" do %>
+                    <i class="fa fa-facebook"></i>
+                    <%= @service.facebook %>
+                  <% end %>
+                <% end %>
+                <% unless @service.instagram.blank? %>
+                  <%= link_to @service.instagram, title: "#{@service.name} Instagram", target: "_blank" do %>
+                    <i class="fa fa-instagram"></i>
+                    <%= @service.instagram %>
+                  <% end %>
+                <% end %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -48,11 +69,11 @@
         <div class="pin-service-details">
           <h1 class="pin-content-title"><%= @service.name %></h1>
           <div class="pin-service-name">
-           <h3><%= link_to @service.category.name, category_path(@service.category), title: @service.category.name %></h3>
-              <p>em <%= link_to @service.category.try(:parent).try(:name), category_path(@service.category.parent), title: @service.category.parent.name if @service.category.parent %></p>
+            <h3><%= link_to @service.category.name, category_path(@service.category), title: @service.category.name %></h3>
+            <p>em <%= link_to @service.category.try(:parent).try(:name), category_path(@service.category.parent), title: @service.category.parent.name if @service.category.parent %></p>
           </div>
 
-          <p><%= @service.description || "On the other hand, we denounce with righteous ation and dislike men who beguiled and demora pleasure have some" %></p>
+          <p><%= @service.description || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
 
         </div>
        
@@ -69,13 +90,13 @@
     </div>
 
     <div class="pin-page-contents-wrapper pin-location-map-wrapper appear fadeIn" data-wow-duration=".5s" data-wow-delay=".3s">
-      <p>mapa vai aqui</p>
+      <!-- <p>mapa vai aqui</p> -->
       <div class="pin-location-map">
         <div id="pin-map-small"></div>
       </div>
     </div>
 
-    <div class="pin-fb-comments">
+    <div class="row pin-fb-comments">
       <div class="fb-comments" data-href="<%= business_url(@service) %>" data-width="100%" data-numposts="5"></div>
     </div>
 
@@ -87,6 +108,15 @@
         Anuncie, reportar erro, classficar, reviews, anunciso
       </div>
     </div>
+
+    <div>
+      <p>Encontrou algum problema com este anúncio?
+        <%= button_tag "Reportar Problema", class: "btn btn-primary btn-lg btn-block", data: { toggle: "modal", target: "#report-error" } %>
+      </p>
+    </div>
   </div>
 </div>
 
+<%= render 'report_error' %>
+
+<% end %>

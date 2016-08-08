@@ -1,8 +1,23 @@
 class Issue < ApplicationRecord
   belongs_to :service
-  validates :reason, :message, :email, presence: true
+  validates :reason, :email, presence: true
+  validates :code, uniqueness: true
 
   after_create :generate_protocol
+
+  REASONS = {
+    claim: "Sou dono(a) desta Empresa",
+    no_aswer: "Não atendem no número informado",
+    closed: "Empresa Inativa/Fora de funcionamento",
+    mistake: "Erro nas informações",
+    abuse: "Anúncio maldoso ou com conteúdo impróprio"
+  }
+
+  STATUSES = {
+    new: "Novo",
+    in_progress: "Em andamento",
+    done: "Concluído"
+  }
 
   private
 
