@@ -16,4 +16,9 @@ namespace :utils do
     Net::HTTP.get(URI(url))
     # Net::HTTP.get(uri)
   end
+
+  desc "Cache clear"
+  task :cache => :environment do |t, args|
+    Rails.cache.clear
+  end
 end

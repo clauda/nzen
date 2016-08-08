@@ -15,23 +15,17 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 namespace :deploy do
-  after :publishing, 'deploy:restart'
-  # after :publishing, 'unicorn:restart'
-end
-
-set :unicorn_script, 'scripts/unicorn.sh'
-
-namespace :unicorn do
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn"
-    task command do
-      on roles :app do
-        within release_path do
-          execute fetch(:unicorn_script), command
-        end
-      end
+  desc 'Reload application'
+  task :reload do
+    desc "Reload app after change"
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
+
+  after :publishing, 'deploy:restart'
+  after :publishing, 'deploy:reload'
 end
 
 # Default value for keep_releases is 5
