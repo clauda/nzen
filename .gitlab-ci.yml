@@ -7,9 +7,9 @@ image: "ruby:2.3.0"
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-service
 services:
-  - elasticsearch:latest
-  - redis:latest
   - postgres:latest
+  - redis:latest
+  - elasticsearch:latest
 
 # Cache gems in between builds
 cache:
@@ -23,12 +23,11 @@ before_script:
   - gem install bundler  --no-ri --no-rdoc    # Bundler is not installed with the image
   - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
 
-# Optional - Delete if not using `rubocop`
-# rubocop:
-#  script:
-#  - rubocop
+rubocop:
+  script:
+    - rubocop
 
 rspec:
   script:
-  - bundle exec rake db:migrate
-  - rspec spec
+    - bundle exec rake db:migrate
+    - rspec spec
