@@ -25,7 +25,7 @@ before_script:
 
 rubocop:
   script:
-    - rubocop
+    - rubocop -R -l
 
 rspec:
   script:
