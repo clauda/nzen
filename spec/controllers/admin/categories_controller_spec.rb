@@ -34,7 +34,7 @@ RSpec.describe Admin::CategoriesController, type: :controller do
 
   describe "GET #index" do
     it "assigns all categories as @categories" do
-      category = Category.create! valid_attributes
+      # category = Category.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:categories)).not_to be_empty
     end

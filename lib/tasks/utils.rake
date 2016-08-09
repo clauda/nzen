@@ -2,7 +2,7 @@ require 'net/http'
 
 namespace :utils do
   desc "Ping Google"
-  task :ping => :environment do |t, args|
+  task :ping => :environment do
     District.all.each do |district|
       ping("http://localhost:3000/sitemaps/#{district.id}.xml")
     end
@@ -18,7 +18,7 @@ namespace :utils do
   end
 
   desc "Cache clear"
-  task :cache => :environment do |t, args|
+  task :cache => :environment do
     Rails.cache.clear
   end
 end

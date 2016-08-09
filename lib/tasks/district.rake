@@ -1,6 +1,6 @@
 namespace :district do
   desc "Load districts from file"
-  task :seed => :environment do |t, args|
+  task :seed => :environment do
     city = City.find_or_create_by(name: "Natal", state: "RN")
     file = File.open(Rails.root.join("db","data","districts.csv"), "r") 
     file.each_line do |line|

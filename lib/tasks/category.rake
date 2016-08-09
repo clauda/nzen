@@ -1,6 +1,6 @@
 namespace :category do
   desc "Load categories from file"
-  task :seed => :environment do |t, args|
+  task :seed => :environment do
     CSV.foreach(Rails.root.join("db","data","categories.csv")) do |row|
       category = Category.find_or_create_by(name: row[0], primary: true)
       category.children.find_or_create_by(name: row[1], primary: false)
@@ -8,7 +8,7 @@ namespace :category do
   end
 
   desc "Find orphans"
-  task :orphans => :environment do |t, args|
+  task :orphans => :environment do
     categories = Category.where(primary: false, parent_id: nil)
     puts "#{categories.size} orphans! Find my dad:"
     categories.each do |category|
@@ -18,7 +18,7 @@ namespace :category do
   end
 
   desc "Reset Services Counters"
-  task :update_counters => :environment do |t, args|
+  task :update_counters => :environment do
     Category.find_each { |record| Category.reset_counters(record.id, :services) }
     Category.reindex
   end

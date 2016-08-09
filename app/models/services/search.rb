@@ -16,9 +16,9 @@ module Services
     def search
       return [] if @query.blank?
 
-      _filters = filters
+      @filters ||= filters
       Service.search(@query,
-                    where: _filters,
+                    where: filters,
                     include: includes,
                     order: order,
                     page: @page,
@@ -28,10 +28,10 @@ module Services
     end
 
     def filters
-      _filters = @options[:is_admin] ? {} : { published: true }
-      _filters[:category_permalink] = @options[:category_id] if @options[:category_id]
-      _filters[:district_permalink] = @options[:district_id] if @options[:district_id]
-      _filters
+      @filters = @options[:is_admin] ? {} : { published: true }
+      @filters[:category_permalink] = @options[:category_id] if @options[:category_id]
+      @filters[:district_permalink] = @options[:district_id] if @options[:district_id]
+      @filters
     end
 
     def order

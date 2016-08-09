@@ -29,7 +29,7 @@ class Truncation
       ["schema_migrations", "ar_internal_metadata"]
     end
 
-    def execute(sql, name = nil)
+    def execute(sql)
       @connection.query(sql)
     end
 

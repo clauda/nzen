@@ -26,9 +26,9 @@ module Sluggable
   def slug_me
     if self.class.by_slug(self.name.parameterize) || blacklist.include?(self.name.parameterize)
       if self.respond_to?(:district)
-        self.update(permalink: "#{self.id.to_s}-#{self.name.parameterize}-#{self.district.permalink}")
+        self.update(permalink: "#{self.id}-#{self.name.parameterize}-#{self.district.permalink}")
       else
-        self.update(permalink: "#{self.id.to_s}-#{self.name.parameterize}")
+        self.update(permalink: "#{self.id}-#{self.name.parameterize}")
       end
     else
       self.update(permalink: self.name.parameterize)

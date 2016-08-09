@@ -24,7 +24,7 @@ module SeoHelper
     content_for(:title) { "#{page_title} no " }
   end
 
-  def url(*paths, **options)
+  def url(*paths, _options)
     paths[0] = paths.first[1..-1] if paths.first && paths.first[0] == '/'
     ["http://pinou.com.br", *paths].join('/')
   end
