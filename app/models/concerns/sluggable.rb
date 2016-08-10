@@ -37,8 +37,8 @@ module Sluggable
 
   def blacklist
     [ 'cidades', 'explore', 'lojas-e-servicos', 'anuncie', 'busca', 
-      'sitemaps', 'sitemaps-companies', 'conta',
-      'natal-rn', 'parnamirim-rn', 'reportar-erro', 
+      'sitemaps', 'sitemaps-companies', 'conta', 'contato', 'institucional',
+      'natal-rn', 'parnamirim-rn', 'reportar-erro', 'termos-de-uso', 'perguntas-frequentes', 
       'pin', 'pinou', 'painel-de-negocios', 'remote' ]
   end
 

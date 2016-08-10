@@ -41,7 +41,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to business_path(@service), notice: 'Service was successfully updated.' }
+        format.html { redirect_to business_path(@service), notice: 'Empresa atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -53,7 +53,7 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to services_url, notice: 'Empresa removida.' }
       format.json { head :no_content }
     end
   end

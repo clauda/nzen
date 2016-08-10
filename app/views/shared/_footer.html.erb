@@ -33,9 +33,11 @@
 
           <div class="pin-footer-widget-content">
             <ul>
-              <li><a href="#">Sobre</a></li>
-              <li><a href="#">Perguntas Frequentes</a></li>
-              <li><a href="#">Termos e Política de Uso</a></li>
+              <!-- <li><a href="#">Sobre</a></li> -->
+              <li><%= link_to "Perguntas Frequentes", faq_path %></li>
+              <li><%= link_to "Termos de Uso", terms_path %></li>
+              <li><%= link_to "Políticas de Privicidade", politics_path %></li>
+              <li><%= link_to "Contato", contact_path %></li>
             </ul>
           </div>
         </div>

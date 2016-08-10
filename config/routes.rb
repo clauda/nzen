@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   
   get 'painel-de-negocios', to: "account#index", as: :account
   
+  get 'termos-de-uso', to: 'statics#terms', as: :terms
+  get 'politicas-de-privacidade', to: 'statics#politics', as: :politics
+  get 'perguntas-frequentes', to: 'statics#faq', as: :faq
+  get 'contato', to: 'statics#contact', as: :contact
+
   get 'sitemaps', to: 'sitemaps#index'
   get 'sitemaps-companies', to: 'sitemaps#services'
   get 'sitemaps/:id', to: 'sitemaps#district'
