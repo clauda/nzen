@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to business_path(@service), notice: 'Service was successfully created.' }
+        format.html { redirect_to business_path(@service), notice: 'A empresa foi criada, porém ainda não está no ar e não aparece nos resultados de busca. Se os dados fornecidos estiverem de acordo com os termos de uso, ela poderá entrar no ar em até 48 horas.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }

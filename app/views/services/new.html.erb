@@ -25,3 +25,28 @@
     
   </div>
 </div>
+
+<% unless user_signed_in? %>
+  <div class="modal fade" tabindex="-1" role="dialog" id="login-warn" aria-labelledby="login-warn">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content fat-modal">
+        <div class="modal-body text-center">
+          <h3><b>Cadastra-se para ter total acesso! :)</b></h3>
+          <p>Cadastrar uma empresa estando logado, lhe permite que você possa editá-la futuramente, você poderá ainda dar mais informações sobre ela, como adicionar uma logomarca, e além disso, a empresa será colocada no ar mais rápido.</p><br />
+          <p>
+            <%= link_to "Cadastrar-se Agora Mesmo", new_registration_path('user'), class: 'btn btn-success btn-block btn-lg' %><br />
+            Já possui conta? <%= link_to "Acesse aqui", new_session_path('user') %><br />
+            <a data-dismiss="modal">Continuar sem login</a><br />
+            <a>Dúvidas?</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% content_for :javascripts do %>
+    <script>
+      $(function(){ $('#login-warn').modal('show') });
+    </script>
+  <% end %>
+<% end %>
