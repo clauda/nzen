@@ -44,6 +44,7 @@
   display: block;
   overflow: hidden;
   text-align: center;
+  background-color: #eee;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-img-wrapper {
@@ -57,6 +58,7 @@
 }
 .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos a { color: #333; }
 .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul {
+  border-top: 1px solid #ededed;
   border-right: 1px solid #ededed;
 }
 .pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li {
@@ -128,7 +130,7 @@
   transition: all 0.35s ease;
 }
 .pin-service-contact-wrapper .pin-service-name h3 a:hover {
-  color: #ff5400;
+  color: #6163ad;
 }
 .pin-service-contact-wrapper .pin-service-name p {
   font-family: 'PT Sans', sans-serif;
@@ -318,7 +320,7 @@ footer .pin-footer-top-wrapper .pin-footer-widget .pin-footer-widget-content ul 
 }
 footer .pin-footer-top-wrapper .pin-footer-logo {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 0;
   padding-left: 0;
   text-align: left;
   width: 210px;

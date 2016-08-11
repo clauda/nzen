@@ -29,9 +29,9 @@ $(window).bind 'scroll', ->
 
 $(window).bind 'scroll', ->
   if $(window).scrollTop() > 51
-    $('.cta').addClass('fixed')
+    $('#default .cta').addClass('fixed')
   else
-    $('.cta').removeClass('fixed')
+    $('#default .cta').removeClass('fixed')
 
 $('[data-toggle="tooltip"]').tooltip()
 

@@ -23,7 +23,7 @@
           <% if @service.logo.try(:url) %>
             <%= image_tag @service.logo.url(:medium), alt: @service.name, class: "pin-lazy" %>
           <% else %>
-            <%= image_tag "placeholder-standard.jpg", alt: @service.name, class: "pin-lazy" %>
+            <%= image_tag "placeholder-standard.png", alt: @service.name, class: "pin-lazy" %>
           <% end %>
         </div>
 

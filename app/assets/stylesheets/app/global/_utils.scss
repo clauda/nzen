@@ -4,3 +4,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.sunshine {
+  background: transparent radial-gradient(circle farthest-side at right bottom , #ff9e4f 5%, #ec5d2f 25%, #dd5124 80%, #a32800 98%) repeat scroll 0% 0%;      
+}
+.twilight {
+  background-image: radial-gradient(circle at 50% top, rgba(84,90,182,0.6) 0%, rgba(84,90,182,0) 75%),radial-gradient(circle at right top, #794aa2 0%, rgba(121,74,162,0) 57%);
+}

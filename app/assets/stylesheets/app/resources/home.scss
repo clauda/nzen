@@ -1,5 +1,14 @@
-
 #home {
+
+  .navbar {
+    .pinou-logo {
+      background: image-url('logo-pinou-sm.png') center center no-repeat transparent;
+      background-size: initial;
+      width: 160px;
+      margin-top: 15px;
+      padding: 0;
+    }
+  }
 
   #flyer {
     padding: 140px 50px 50px 20px;

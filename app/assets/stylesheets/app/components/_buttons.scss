@@ -7,6 +7,14 @@
     background: #e74c3c;
     color: #fff;
   }
+  &.btn-light {
+    border-color: #64ccff !important;
+    color: #64ccff;
+    &:hover {
+      background: transparent;
+      color: #fff;
+    }
+  }
 }
 
 .btn.btn-lg { border-radius: 2px; }

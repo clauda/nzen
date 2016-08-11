@@ -7,6 +7,18 @@
   min-height: 106px;
   z-index: 9;
 
+  .pinou-logo {
+    background: image-url('logo-pinou-sm.png') center center no-repeat transparent;
+    width: 160px;
+    float: right;
+    display: none;
+  }
+
+  .btn-light { 
+    padding: 11px;
+    display: none;
+  }
+
   .term {
     text-transform: uppercase;
     margin: 0;
@@ -39,5 +51,7 @@
     left: 0;
     right: 0;
     top: 0;
+
+    .btn-light, .pinou-logo { display: inline-block; }
   }
 }

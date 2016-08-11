@@ -1,5 +1,9 @@
 <div id="search-bar" class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-2 no-padding">
+    <a class="navbar-brand pinou-logo" href="/"></a>
+  </div>
+
+  <div class="col-md-8">
     <div class="col-md-2">
       <h3 class="term">
         Faça uma <span>Busca</span>
@@ -15,5 +19,9 @@
       </div>
     <% end %>
     </div>
+  </div>
+
+  <div class="col-md-2 no-padding">
+    <%= link_to "Anunciar", new_service_path, class: "btn btn-clear btn-light" %>
   </div>
 </div>
