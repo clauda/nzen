@@ -4,7 +4,12 @@
     .heading { 
       border-bottom: 1px solid #eee;
       a { color: #222; }
+      h4 { font-weight: bold; }
     }
-    p { padding: 25px 15px; }
+    p { 
+      padding: 25px 15px;
+      font-size: 18px;
+      font-style: italic;
+    }
   }
 }

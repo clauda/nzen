@@ -23,6 +23,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :phone, "Telefone" %>
+    <%= f.text_field :phone, class: 'form-control', required: true, placeholder: "(84) 3322-1272" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :zipcode, "CEP" %>
     <%= f.text_field :zipcode, class: 'form-control', placeholder: "59000-000" %>
   </div>
@@ -48,28 +53,25 @@
     <%= f.text_area :description, class: 'form-control', required: true, placeholder: "Vamos lá, quanto mais detalhes você puder dar ao seu cliente, melhor para os negócios.", rows: 6 %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :phone, "Telefone" %>
-    <%= f.text_field :phone, class: 'form-control', required: true, placeholder: "(84) 3322-1272" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "contato@seunegocio.com.br"  %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control', placeholder: "contato@seunegocio.com.br"  %>
-  </div>
+    <div class="form-group">
+      <%= f.label :web, "Seu website" %>
+      <%= f.text_field :web, class: 'form-control', placeholder: "http://"  %>
+      <p class="pull-right">Não tem website? <%= link_to 'Procure uma agência aqui no Pinou', services_path, title: 'Pesquisar no Pinou' %></p>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :web, "Seu website" %>
-    <%= f.text_field :web, class: 'form-control', placeholder: "http://"  %>
-    <p class="pull-right">Não tem website? <%= link_to 'Procure uma agência aqui no Pinou', services_path, title: 'Pesquisar no Pinou' %></p>
-  </div>
-
-  <div class="form-group">
-    <br />
-    <label>A sua logomarca é muito importante. Ela identifica seu negócio. Faça o upload da sua logo.</label>
-    <%= f.file_field :logo %>
-    <p>Não tem logo? <%= link_to 'Procure um profissional aqui no Pinou', services_path, title: 'Pesquisar no Pinou' %></p>
-  </div>
+    <div class="form-group">
+      <br />
+      <label>A sua logomarca é muito importante. Ela identifica seu negócio. Faça o upload da sua logo.</label>
+      <%= f.file_field :logo %>
+      <p>Não tem logo? <%= link_to 'Procure um profissional aqui no Pinou', services_path, title: 'Pesquisar no Pinou' %></p>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Cadastrar Empresa", class: 'btn btn-success btn-lg btn-block' %>
