@@ -71,7 +71,7 @@
   line-height: 48px;
   margin-bottom: 0;
 }
-.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.address {
+.pin-service-contact-wrapper .pin-service-info-wrapper .pin-service-infos ul li.fullh {
   line-height: 28px;
   height: auto;
   padding: 14px 40px;
@@ -271,7 +271,7 @@ footer .pin-footer-top-wrapper .pin-footer-widget {
 }
 @media only screen and (min-width: 480px) and (max-width: 767px), only screen and (min-width: 768px) and (max-width: 991px) {
   footer .pin-footer-top-wrapper .pin-footer-widget {
-    width: 50%;
+    /*width: 50%;*/
     margin-bottom: 50px;
     float: left;
   }

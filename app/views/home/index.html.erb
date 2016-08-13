@@ -9,7 +9,8 @@
       <div class="row">
         <div class="col-sm-10">
           <!-- <h1 class="title">O que você procura?</h1> -->
-          <h1 class="title">Preciso <small><span class="typed"></span></small></h1>
+          <h1 class="title hidden-xs">Preciso <small><span class="typed"></span></small></h1>
+          <h1 class="bold visible-xs">Procurando por serviços?</h2>
           <h3 class="subtitle">Catalogamos mais de 8 mil serviços em Natal<br /> para facilitar o seu dia a dia. Aqui tem o serviço que você procura.
           </h3>
         </div>
@@ -40,7 +41,6 @@
       <div class="row">
         <div class="pin-section-headings">
           <h1>Temos +8400 lojas e serviços catalogados em Natal</h1>
-          <p>E contando...</p>
         </div>
 
         <div class="col-md-4">
@@ -50,7 +50,7 @@
           <%= link_to "Divulgue seu Negócio", new_service_path, class: "btn btn-clear btn-lg" %>
         </div>
 
-        <div class="col-md-4 text-center hidden-xs">
+        <div class="col-md-4 text-center hidden-sm">
           <%= image_tag "natal/bairros.jpg" %>
         </div>
         
@@ -67,14 +67,16 @@
   </section>
 <% end %>
 
-<section class="ad">
+<section class="secondary">
   <div class="container">
     <div class="row">
-      <!-- Pinou_Home_Section -->
-      <ins class="adsbygoogle"
-        style="display:inline-block;width:728px;height:90px"
-        data-ad-client="ca-pub-9856374304140488"
-        data-ad-slot="7285145086"></ins>
+      <div class="ad">
+        <!-- Pinou_Home_Section -->
+        <ins class="adsbygoogle"
+          style="display:inline-block;width:728px;height:90px"
+          data-ad-client="ca-pub-9856374304140488"
+          data-ad-slot="7285145086"></ins>
+      </div>
     </div>
   </div>
 </section>

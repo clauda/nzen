@@ -1,0 +1,25 @@
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .container { width: 100%; }
+  #home #flyer .title { font-size: 46px; }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px), only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (max-width: 767px) {
+  .hidden-sm { display: none; }
+  .pin-home .navbar, .navbar {
+    li {
+      background-color: #03A9F4;
+      text-align: right;
+      &.cta { 
+        width: initial;
+        a { padding-top: 10px; }
+      }
+    }
+  }
+  .navbar-nav { margin: 0; }
+
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+}

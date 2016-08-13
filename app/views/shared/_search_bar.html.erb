@@ -1,15 +1,15 @@
 <div id="search-bar" class="row">
-  <div class="col-md-2 no-padding">
+  <div class="col-md-2 no-padding hidden-sm">
     <a class="navbar-brand pinou-logo" href="/"></a>
   </div>
 
-  <div class="col-md-8">
-    <div class="col-md-2">
+  <div class="col-md-8 col-sm-12">
+    <div class="col-md-2 hidden-sm">
       <h3 class="term">
         Faça uma <span>Busca</span>
       </h3>
     </div>
-    <div class="col-md-10 no-padding">
+    <div class="col-md-10 col-sm-12 no-padding">
     <%= form_tag '/busca' do %>
       <div class="input-group">
         <input type="text" name="pesquisa" class="form-control search-input input-lg" placeholder="Estou procurando por...">
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <div class="col-md-2 no-padding">
+  <div class="col-md-2 no-padding hidden-sm">
     <%= link_to "Anunciar", new_service_path, class: "btn btn-clear btn-light" %>
   </div>
 </div>

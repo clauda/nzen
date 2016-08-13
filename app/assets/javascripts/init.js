@@ -1,5 +1,7 @@
 var NZEN = NZEN || {};
 
+NZEN.isMobile = $(window).width() < 768;
+
 NZEN.clickEffects = function(){
   $('.cbutton').on('click', function(){
     var $el = $(this);

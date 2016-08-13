@@ -1,24 +1,29 @@
-swiper = new Swiper('.swiper-container',
+swOptions =
   pagination: '.swiper-pagination',
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  slidesPerView: 3,
   paginationClickable: true,
-  spaceBetween: 15,
   autoplay: 2000,
-  loop: true
-)
 
-$(".typed").typed
-  strings: [
-    "consertar o celular ^1000", 
-    "de uma boa diarista",
-    "de um bom churrasqueiro",
-    "reformar meu quarto ^500",
-    "contruir um outro quarto ^1000",
-    "aprender algo novo! ^1200"
-  ],
-  typeSpeed: 0
+if !NZEN.isMobile
+  swOptions.loop = true
+  swOptions.spaceBetween = 15
+  swOptions.slidesPerView = 3
+
+swiper = new Swiper('.swiper-container', swOptions)
+console.log swOptions
+
+if !NZEN.isMobile
+  $(".typed").typed
+    strings: [
+      "consertar o celular ^1000", 
+      "de uma boa diarista",
+      "de um bom churrasqueiro",
+      "reformar meu quarto ^500",
+      "contruir um outro quarto ^1000",
+      "aprender algo novo! ^1200"
+    ],
+    typeSpeed: 0
 
 $(window).bind 'scroll', ->
   navHeight = $('#flyer').height() + 100

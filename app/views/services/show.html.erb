@@ -16,7 +16,7 @@
 </div>
 
 <div class="row">
-  <div class="pin-service-info-section col-md-9 col-sm-9 col-xs-12">
+  <div class="pin-service-info-section col-md-9 col-sm-12">
     <div class="pin-service-contact-wrapper">
       <div class="pin-service-info-wrapper">
         <div class="pin-service-img-wrapper">
@@ -29,11 +29,19 @@
 
         <div class="pin-service-infos">
           <ul>
+            <li class="visible-xs">
+              <i class="fa fa-angle-double-right"></i>
+              <b><%= @service.name %></b>
+            </li>
             <li>
               <i class="fa fa-phone"></i>
               <b><%= link_to @service.phone, "tel:#{numbers_only(@service.phone)}", title: "#{@service.name} Telefone", target: "_blank" %></b>
             </li>
-            <li class="address"><i class="fa fa-map-marker"></i><%= @service.address %> - <%= link_to @service.district.fullpath, district_path(@service.district), title: @service.district.name, title: "Endereço do #{@service.name}" %></li>
+            <li class="fullh"><i class="fa fa-map-marker"></i><%= @service.address %> - <%= link_to @service.district.fullpath, district_path(@service.district), title: @service.district.name, title: "Endereço do #{@service.name}" %></li>
+
+            <li class="fullh visible-xs">
+              <p><%= @service.description || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
+            </li>
             
             <% unless @service.email.blank? %>
               <li><i class="fa fa-envelope-o"></i>
@@ -65,7 +73,7 @@
         </div>
       </div>
 
-      <div class="pin-service-description">
+      <div class="pin-service-description hidden-xs">
         <div class="pin-service-details">
           <h1 class="pin-content-title"><%= @service.name %></h1>
           <div class="pin-service-name">
