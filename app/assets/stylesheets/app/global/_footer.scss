@@ -1,5 +1,9 @@
 footer {
   .pin-btn {
-    background-color: #ff9800;
+    background-color: #ff5722;
+  }
+  .pin-sym {
+    opacity: 0.5;
+    &:hover { opacity: 1; }
   }
 }

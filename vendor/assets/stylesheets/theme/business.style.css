@@ -1573,7 +1573,6 @@ SIDE MENU ITEMS
   width: 100%;
 }
 .pin-side-menu-widget-wrap h3 {
-  font-family: 'Roboto', sans-serif;
   font-size: 22px;
   font-weight: 400;
   text-transform: none;
@@ -1583,7 +1582,6 @@ SIDE MENU ITEMS
   display: block;
 }
 .pin-side-menu-widget-wrap p {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #888888;
@@ -1597,9 +1595,8 @@ SIDE MENU ITEMS
   border-bottom: 1px solid #dedede;
 }
 .pin-side-menu-widget-wrap .pin-login-form input {
-  font-family: 'Roboto', sans-serif;
   font-size: 15px;
-  color: #bababa;
+  color: #666;
   width: 100%;
   height: 45px;
   line-height: 43px;
@@ -1612,7 +1609,6 @@ SIDE MENU ITEMS
 }
 .pin-side-menu-widget-wrap .pin-login-form input[type=submit],
 .pin-side-menu-widget-wrap .pin-login-form button {
-  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: #ffffff;
@@ -1643,7 +1639,6 @@ SIDE MENU ITEMS
   padding: 30px 0;
 }
 .pin-side-menu-widget-wrap .pin-social-login-opt a.pin-social-login-btn {
-  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: #ffffff;
@@ -1683,7 +1678,6 @@ SIDE MENU ITEMS
   overflow: hidden;
 }
 .pin-side-menu-widget-wrap .pin-other-options a {
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #888888;
@@ -2049,8 +2043,6 @@ SIDE MENU ITEMS
   margin-right: 10px;
 }
 .pin-btn {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 14px;
   font-weight: 700;
   color: #ffffff;
   line-height: 1;
@@ -7249,10 +7241,10 @@ ul.pin-list-item li:before {
   }
 }
 footer .pin-footer-top-wrapper .pin-footer-widget .pin-footer-widget-content ul li a:hover {
-  color: #fc4a52;
+  color: #03A9F4;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget.pin-useful-links ul li a:hover:before {
-  color: #fc4a52;
+  color: #03A9F4;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget.pin-subscribe-widget form button {
   background-color: #fc4a52;
@@ -8215,10 +8207,10 @@ h3.pin-single-title {
   z-index: 1;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget .pin-footer-widget-content ul li a:hover {
-  color: #fc4a52;
+  color: #03A9F4;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget.pin-useful-links ul li a:hover:before {
-  color: #fc4a52;
+  color: #03A9F4;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget.pin-subscribe-widget form button {
   background-color: #fc4a52;
@@ -8495,10 +8487,10 @@ footer .pin-footer-bottom-wrapper ul li a:hover {
   content: '\f422';
 }
 footer .pin-footer-top-wrapper .pin-footer-widget .pin-footer-widget-content ul li a:hover {
-  color: #fc4a52;
+  color: #03A9F4;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget.pin-useful-links ul li a:hover:before {
-  color: #fc4a52;
+  color: #03A9F4;
 }
 footer .pin-footer-top-wrapper .pin-footer-widget.pin-subscribe-widget form button {
   background-color: #fc4a52;

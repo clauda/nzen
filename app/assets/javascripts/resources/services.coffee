@@ -57,7 +57,6 @@ NZEN.ratings = ->
       $(@).anime('bounceIn')
       $('#review-sent .js-rate i.fa').removeClass('fa-thumbs-o-up').addClass('fa-thumbs-o-down')
     .delegate '.is-pin-like, .is-pin-dislike', 'ajax:success', (evt, data, status, xhr)->
-      console.log data
       if (data.saved)
         $('#review-sent').modal('show')
       else

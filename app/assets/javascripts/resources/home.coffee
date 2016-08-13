@@ -11,7 +11,6 @@ if !NZEN.isMobile
   swOptions.slidesPerView = 3
 
 swiper = new Swiper('.swiper-container', swOptions)
-console.log swOptions
 
 if !NZEN.isMobile
   $(".typed").typed
@@ -37,6 +36,9 @@ $(window).bind 'scroll', ->
     $('#default .cta').addClass('fixed')
   else
     $('#default .cta').removeClass('fixed')
+
+$('.pin-sym').hover ->
+  $(@).anime 'pulse'
 
 $('[data-toggle="tooltip"]').tooltip()
 

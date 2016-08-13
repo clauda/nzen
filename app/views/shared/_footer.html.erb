@@ -5,9 +5,9 @@
       <div class="row">
         <!-- FOOTER WIDGET -->
         <div class="pin-footer-widget pin-footer-logo pin-footer-fixed-widget hidden-sm col-sm-3">
-          <a href="/" title="Pinou, Portal de Negócios">
+          <%= link_to root_path, class: "pin-sym", title: "Pinou, Portal de Negócios" do %>
             <%= image_tag "pinou-footer.png", alt: "Pinou" %>
-          </a>
+          <% end %>
         </div>
         <!-- END -->
 
@@ -33,24 +33,35 @@
 
           <div class="pin-footer-widget-content">
             <ul>
-              <!-- <li><a href="#">Sobre</a></li> -->
-              <li><%= link_to "Perguntas Frequentes", faq_path %></li>
-              <li><%= link_to "Termos de Uso", terms_path %></li>
-              <li><%= link_to "Políticas de Privicidade", politics_path %></li>
-              <li><%= link_to "Contato", contact_path %></li>
+              <li><%= link_to "Início", root_path, "data-turbolins" => "false", title: "Página Inicial do Pinou" %></li>
+              <li><%= link_to "Perguntas Frequentes", faq_path, title: "Perguntas Frequentes no Pinou" %></li>
+              <li><%= link_to "Termos de Uso", terms_path, title: "Termos de Uso do Pinou" %></li>
+              <li><%= link_to "Políticas de Privicidade", politics_path, title: "Políticas de Privacidade no Pinou" %></li>
+              <li><%= link_to "Contato", contact_path, title: "Entre em contato com a equipe do Pinou" %></li>
             </ul>
           </div>
         </div>
         <!-- END -->
 
         <!-- FOOTER WIDGET -->
-        <div class="pin-footer-widget pin-subscribe-widget col-sm-12">
+        <div class="pin-footer-widget pin-useful-links pin-subscribe-widget col-sm-12">
           <h3 class="pin-footer-widget-title">Anuncie no Pinou</h3>
 
           <div class="pin-footer-widget-content">
-          <p>Seja encontrado facilmente na web. É rápido e gratuíto.</p>
+            <ul>
+              <li><%= link_to "Lojas & Serviços", all_services_path, title: "Lojas e Serviços em Natal/RN" %></li>
+              <li><%= link_to "Todos os Bairros", districts_path, title: "Bairros de Natal/RN" %></li>
+              <li><%= link_to "Todas as Categorias", categories_path, title: "Catálogo de Profissionais, Serviços, Lojas e Produtos" %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Painel", account_path, title: "Painel de Negócios" %></li>
+              <% else %>
+                <li><%= link_to "Cadastre-se", new_registration_path('user'), title: "Cadastre-se no Pinou" %></li>
+              <% end %>
+            </ul>
+            <br />
+            <p>Seja encontrado facilmente na web. É rápido e gratuíto.</p>
 
-          <a href="/anuncie" class="pin-btn">Anuncie agora mesmo</a>
+            <a href="/anuncie" class="pin-btn">Anuncie agora mesmo</a>
           </div>
         </div>
         <!-- END -->

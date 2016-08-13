@@ -6,7 +6,7 @@
 <div class="row">
   <div class="pin-breadcrumbs col-sm-12">
     <h1>
-      <%= link_to "Início", root_path, title: "Pinou Home Page", "data-turbolinks" => "false"  %> 
+      <%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> 
       <i class="glyphicon glyphicon-menu-right"></i> <%= link_to "Catálogo", categories_path, title: "Todas as Categorias" %> <i class="glyphicon glyphicon-menu-right"></i>
       <%= "#{link_to(@category.parent.name, category_path(@category.parent))} <i class='glyphicon glyphicon-menu-right'></i>".html_safe if @category.parent %> <b><%= @category.name %></b>
     </h1>
@@ -43,6 +43,28 @@
           <% end %>
         <% end %>
       </ul>
+
+      <div class="ad">
+        <!-- Pinou_Category_001 -->
+        <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9856374304140488"
+           data-ad-slot="3155996689"
+           data-ad-format="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <div class="ad">
+        <!-- Pinou_Category_002 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9856374304140488"
+             data-ad-slot="4632729883"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
     </div>
 
   </div>
