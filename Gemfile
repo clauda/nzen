@@ -30,7 +30,11 @@ gem 'redis-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'rmagick'
+gem 'piet'
+gem 'piet-binary'
+
 gem 'mailgun-ruby', '~>1.1.0', require: 'mailgun'
 
 gem 'searchkick'
@@ -66,7 +70,6 @@ group :development do
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
-  gem 'capistrano3-unicorn', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
