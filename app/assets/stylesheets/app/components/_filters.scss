@@ -1,9 +1,36 @@
 #filters {
-  padding: 15px;
+  padding: 0;
   margin: 0 auto;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  
+  h3.pin-content-title:first-child,
+  h3.pin-content-title { 
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #ddd;
+    &.no-mb { margin-bottom: 0; }
+  }
+
+  a.clean { 
+    font-size: 12px;
+    float: right;
+    border: 1px solid #999;
+    color: #666;
+    padding: 2px 8px;
+  }
+
+  .form-control.input-lg,
+  .btn.btn-lg { border-radius: none; }
+
+  .filter-districts,
+  .filter-categories { padding-bottom: 20px; }
+  
   label {
+    padding: 0 15px;
     font-weight: normal;
     margin: 5px 0;
+    display: block;
     input { margin-right: 5px; }
   }
 }

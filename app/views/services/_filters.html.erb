@@ -1,38 +1,37 @@
 <div id="filters" class="pin-page-content-section">
-  <h3 class="pin-content-title">Filtrar</h3>
-  <hr />
+  <h3 class="pin-content-title no-mb">
+    <b>Refine sua busca</b>
+    <a class="clean"><i class="fa fa-close"></i> Limpar</a>
+  </h3>
   <%= form_tag '/busca' do %>
     <div class="input-group">
-      <input type="text" name="pesquisa" class="form-control" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
+      <input type="text" name="pesquisa" class="form-control input-lg" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
       <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">Ok</button>
+        <button class="btn btn-primary btn-lg" type="button">Ok</button>
       </span>
     </div>
   <% end %>
-  <hr>
 
   <div class="filter-districts">
-    <h3 class="pin-content-title">Bairros
-      <span class="pull-right">x limpar</span>
-    </h3><hr />
+    <h3 class="pin-content-title"><small>Filtrar por</small> Bairros</h3>
     <% aggregations_for(@services.aggs, "district_id").each do |id, value| %>
       <% cache "district-facet-#{id}" do %>
         <label>
-          <input type="checkbox" class="facet-district" name="district_id" value="<%= id %>" /> 
+          <input type="checkbox" name="district_id[]" value="<%= id %>" ng-change="filterByDistrict('<%= id %>')" ng-model="districts['<%= id %>']" /> 
           <%= find_district(id) %>
-        </label><br />
+        </label>
       <% end %>
     <% end %>
   </div>
 
   <div class="filter-categories">
-    <h3 class="pin-content-title">Categorias</h3><hr />
+    <h3 class="pin-content-title"><small>Filtrar por</small> Categorias</h3>
     <% aggregations_for(@services.aggs, "category_id").each do |id, value| %>
       <% cache "category-facet-#{id}" do %>
         <label>
-          <input type="checkbox" class="facet-category" name="category_id" value="<%= id %>"  /> 
+          <input type="checkbox" name="category_id" value="<%= id %>"  /> 
           <%= Category.find(id).try(:name) %>
-        </label><br />
+        </label>
       <% end %>
     <% end %>
   </div>

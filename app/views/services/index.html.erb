@@ -20,9 +20,13 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-9" ng-controller="SearchController" data-no-turbolink>
+<div class="row" ng-controller="SearchController" data-no-turbolink>
+  <div class="col-md-9">
     <div class="col-fluid">
+      <ul ng-repeat="model in services">
+        <li><div class="well">{{model.name}}, {{model.district.name}}</div></li>
+      </ul>
+
       <ul>
         <% @services.each do |service| %>
           <li class="business-card">
