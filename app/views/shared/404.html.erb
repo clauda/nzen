@@ -1,0 +1,42 @@
+<% title("Página Não Encontrada") %>
+<% seo [
+  { property: 'description', content: 'Página não encontrada. Realize uma busca ou Fale conosco.' },
+] %>
+
+<div class="row">
+  <ol class="pin-breadcrumbs col-sm-12">
+    <li>
+      <%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> 
+      <i class="glyphicon glyphicon-menu-right"></i> </li>
+    <li><b>404 Página Não Encontrada</b></li>
+  </ol>
+</div>
+
+<div class="content" id="statics">
+  <div class="row">
+    <div class="pin-section-headings">
+    <h1>Não encontramos a página que você está procurando. ;( </h1>
+    <p>Faça uma pesquisa.</p>
+    <hr />
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_tag '/busca' do %>
+        <div class="input-group">
+          <input type="text" name="pesquisa" class="form-control input-lg" placeholder="Estou procurando por..." value="<%= params[:pesquisa] %>">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg" type="button">Encontrar</button>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<% content_for :javascripts do %>
+  <script>
+    (function(){
+      // new NZEN.Tracker('404', location.pathname);
+      ga('send', 'event', '404', location.pathname)
+    })();
+  </script>
+<% end %>

@@ -69,7 +69,7 @@ class ServicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_service
       @service = Service.includes(:category, :district).by_slug(params[:id])
-      render(partial: 'shared/404', status: :not_found) if @service.nil?
+      render('shared/404', status: :not_found) if @service.nil?
     end
 
     def set_dependents

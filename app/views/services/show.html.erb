@@ -1,6 +1,12 @@
 <% seo [
   { property: 'description', content: @service.description || "Encontramos #{@service.name} em Natal. Onde encontrar #{@service.category.name} em #{@service.district.name}, Natal? São mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia." },
-  { property: "og:image", content: @service.logo.try(:url) || "placeholder-standard.png" }
+  { property: "og:image", content: @service.logo.try(:url) || "placeholder-standard.png" },
+  { property: 'og:title', content: "#{@service.name} no Pinou", type: 'property' },
+  { property: 'og:image', content: image_url('logos/symbol-holoteca.png'), type: 'property' },
+  { property: 'og:description', content: @service.description, type: 'property' },
+  { property: 'twitter:title', content: "#{@service.name} no Pinou @pinounegocios" },
+  { property: 'twitter:description', content: @service.description },
+  { property: 'twitter:image:src', content: @service.logo.try(:url) || "placeholder-standard.png" }
 ] %>
 <% title(@service.name) %>
 
