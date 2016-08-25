@@ -1,7 +1,7 @@
 <div id="filters" class="pin-page-content-section">
   <h3 class="pin-content-title no-mb">
     <b>Refine sua busca</b>
-    <a class="clean"><i class="fa fa-close"></i> Limpar</a>
+    <!-- <a class="clean"><i class="fa fa-close"></i> Limpar</a> -->
   </h3>
   <%= form_tag '/busca' do %>
     <div class="input-group">
@@ -12,27 +12,23 @@
     </div>
   <% end %>
 
-  <div class="filter-districts">
+  <div class="filter">
     <h3 class="pin-content-title"><small>Filtrar por</small> Bairros</h3>
-    <% aggregations_for(@services.aggs, "district_id").each do |id, value| %>
-      <% cache "district-facet-#{id}" do %>
+    <%= form_tag search_path(pesquisa: params[:pesquisa]) do %>
+      <% @districts.each do |district| %>
         <label>
-          <input type="checkbox" name="district_id[]" value="<%= id %>" ng-change="filterByDistrict('<%= id %>')" ng-model="districts['<%= id %>']" /> 
-          <%= find_district(id) %>
+          <%= check_box_tag "district_ids[]", district.permalink %> 
+          <% if aggregations_for(@services.aggs, "district_id", district.id) %>
+            <%= district.name %> 
+            <span class="label label-warning"><%= aggregations_for(@services.aggs, "district_id", district.id) %></span>
+          <% else %>
+            <span class="mute"><%= district.name %></span>
+          <% end %>
         </label>
       <% end %>
-    <% end %>
-  </div>
-
-  <div class="filter-categories">
-    <h3 class="pin-content-title"><small>Filtrar por</small> Categorias</h3>
-    <% aggregations_for(@services.aggs, "category_id").each do |id, value| %>
-      <% cache "category-facet-#{id}" do %>
-        <label>
-          <input type="checkbox" name="category_id" value="<%= id %>"  /> 
-          <%= Category.find(id).try(:name) %>
-        </label>
-      <% end %>
+      <%= submit_tag "Filtrar", disabled_with: "Aguarde...", class: "btn btn-success btn-lg btn-block" %>
     <% end %>
   </div>
 </div>
+
+<p><%= @services.total_count %> negócios encontrados.</p>

@@ -1,11 +1,11 @@
 module Services
   class Search
 
-    def initialize(query, sorting, page, options = {})
+    def initialize(query, sorting, page, options)
       @query = query.presence || '*'
       @sorting = sorting.presence || 'name'
       @page = page || 1
-      @options = options
+      @options = options || {}
     end
 
     def self.for(*attrs)

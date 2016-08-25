@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   get 'lojas-e-servicos', to: "services#index", as: :all_services
   get 'anuncie', to: "services#new", as: :new_service
   post 'busca', to: "services#search"
-  get 'busca', to: "services#index"
+  get 'busca', to: "services#index", as: :search
 
   # TODO: refactor this to allow find city by permalink
   get 'natal-rn', to: "home#districts", as: :districts

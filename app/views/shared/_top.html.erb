@@ -12,7 +12,7 @@
         <li><%= link_to "Lojas & Serviços", all_services_path, title: "Lojas e Serviços em Natal/RN" %></li>
         <li><%= link_to "Bairros", districts_path, title: "Todos os bairros de Natal/RN" %></li>
         <li><%= link_to "Explore", categories_path, title: "Todas as categorias" %></li>
-        <li class="cta"><%= link_to "Anuncie seu <span>negócio</span>".html_safe, new_service_path, title: "Anuncie no Pinou" %></li>
+        <li class="cta"><%= link_to "Anuncie seu <span>negócio</span>".html_safe, new_service_path, title: "Anuncie no Pinou", "data-turbolinks" => "false" %></li>
         <% if user_signed_in? %>
           <li>
             <%#= link_to "Sair", destroy_user_session_path, method: :delete %>

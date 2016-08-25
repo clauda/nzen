@@ -3,7 +3,12 @@ class ServicesController < ApplicationController
   before_action :set_dependents, only: [:new, :create, :edit, :update]
 
   def index
-    @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page])
+    @districts = District.all.order(:name)
+    options = { 
+      district_id: params[:districts]
+    } if params[:districts]
+
+    @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page], options)
   end
 
   def show
@@ -56,7 +61,7 @@ class ServicesController < ApplicationController
 
   def search
     # @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page])
-    redirect_to(services_path(pesquisa: params[:pesquisa]))
+    redirect_to(services_path(pesquisa: params[:pesquisa], districts: params[:district_ids]))
   end
 
   private
