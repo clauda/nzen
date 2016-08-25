@@ -1,66 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pinou - Erro 500</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
   <style>
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    background-color: #fff;
+    color: #494949;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
   }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  .container { margin-top: 6%;  }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <img src="pinou.png" alt="Pinou Logo" title="Pinou Logo" width="100px" />
+        <h1>Desculpe-nos, mas ocorreu um erro ao processar sua solicitação</h1>
+        <div class="input-group">
+          <input type="text" name="pesquisa" class="form-control input-lg" placeholder="Estou procurando por..." id="term">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg" id="go">Encontrar</button>
+          </span>
+        </div>
+        <hr>
+        <p>Sinta-se a vontade para <a href="/contato">entrar em contato</a> com a gente e contar o que aconteceu e como você veio parar nesta página. Agradecemos a compreensão.</p>
+        <hr>
+        <a href="/" class="btn btn-info btn-lg btn-block">Voltar ao Pinou.com.br</a>
+        <h5><small>Pinou @ 2016 pinou.com.br</small></h5>
+        <img src="marca-pinou.png" alt="Pinou" title="Pinou" style="margin-top:-50px;height:150px" />
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+
+  <script type="text/javascript">
+    var button = document.getElementById("go");
+    button.addEventListener("click", function(e){
+      e.preventDefault();
+      var term = document.getElementById("term").value;
+      window.location = location.origin + "/lojas-e-servicos?pesquisa=" + term;
+    }, false);
+  </script>
 </body>
 </html>
