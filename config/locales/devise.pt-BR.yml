@@ -18,7 +18,7 @@ pt-BR:
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
     mailer:
       confirmation_instructions:
-        subject: 'Instruções de confirmação'
+        subject: 'Confirme seu cadastro no Pinou. Instruções.'
       reset_password_instructions:
         subject: 'Instruções de troca de senha'
       unlock_instructions:

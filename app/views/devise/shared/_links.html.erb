@@ -1,10 +1,13 @@
 <br />
+
+<%- if controller_name == 'registrations' %>
+  <p>Ao se cadastrar você estará concordando com os <%= link_to "Termos de Uso", terms_path %> do Pinou.</p><br />
+<% end -%>
 <%- if ['registrations', 'passwords', 'confirmations'].include? controller_name %>
   Já possui conta? <%= link_to "Acesse aqui", new_session_path('user') %><br />
 <% end -%>
 
 <%- if controller_name != 'registrations' %>
-  <p>Ao se cadastrar você estará concordando com os <%= link_to "Termos de Uso", terms_path %> do Pinou.</p>
   <%= link_to "Cadastrar-se", new_registration_path('user') %><br />
 <% end -%>
 

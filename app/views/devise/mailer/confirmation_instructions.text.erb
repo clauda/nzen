@@ -1,0 +1,7 @@
+Agora falta pouco...
+
+Recebemos o seu cadastro com o email <%= @email %>. Confirme seu cadastro no Pinou clicando no botão abaixo. Com o cadastro confirmado você pode submeter um anuncio com dados adicionais, além de ter prioridade na moderação do negócio. Quer dizer, sua loja ou serviço será aprovada mais rapidamente e ficará disponível no site do Pinou.
+
+Copie este link e cole no seu navegador: 
+
+<%= confirmation_url(@resource, confirmation_token: @token) %>
