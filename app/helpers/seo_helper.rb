@@ -21,12 +21,12 @@ module SeoHelper
   end
 
   def title(page_title)
-    content_for(:title) { "#{page_title} no " }
+    content_for(:title) { "#{page_title} - " }
   end
 
-  def url(*paths, _options)
+  def url(*paths, **options)
     paths[0] = paths.first[1..-1] if paths.first && paths.first[0] == '/'
     ["http://pinou.com.br", *paths].join('/')
   end
-
+ 
 end

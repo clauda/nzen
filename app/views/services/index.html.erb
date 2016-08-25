@@ -3,6 +3,19 @@
 ] %>
 <% title("Lojas & Serviços em Natal") %>
 
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "http://pinou.com.br/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://pinou.com.br/lojas-e-servicos?pesquisa={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 <div class="row">
   <div class="pin-section-headings">
     <h1>Encontre aqui o produto ou serviço que você procura</h1>
@@ -20,22 +33,19 @@
   </div>
 </div>
 
-<div class="row" ng-controller="SearchController" data-no-turbolink>
+<div class="row">
   <div class="col-md-9">
     <div class="col-fluid">
-      <ul ng-repeat="model in services">
-        <li><div class="well">{{model.name}}, {{model.district.name}}</div></li>
-      </ul>
-
       <ul>
         <% @services.each do |service| %>
-          <li class="business-card">
+         <li class="business-card">
             <div class="pin-featured-items">
               <%= render partial: 'services/business_card', locals: { service: service } %>
             </div>
           </li>
         <% end %>
       </ul>
+
       <% if @services.empty? %>
         <p>Nenhuma loja encontrada. <a href="/anuncie">Cadastre</a> ou tente buscar por outro termo.</p>
       <% end %>

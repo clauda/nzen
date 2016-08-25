@@ -1,12 +1,13 @@
 <% title("Explore todos os Bairros de Natal") %>
 <% seo [
-  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+  { property: 'description', content: "Onde encontrar lojas e serviços em Natal?. Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia." },
 ] %>
 
 <div class="row">
-  <div class="pin-breadcrumbs col-sm-12">
-    <h1><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> Bairros & Distritos</h1>
-  </div>
+  <ol class="pin-breadcrumbs col-sm-12">
+    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
+    <li><b>Bairros & Distritos</b></li>
+  </ol>
 </div>
 
 <div class="content">

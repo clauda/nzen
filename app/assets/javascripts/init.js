@@ -12,20 +12,25 @@ NZEN.clickEffects = function(){
   });
 }
 
-$(document).on('turbolinks:load', function(){
+$(document).on('page:change', function(){
   NZEN.initMenu();
   NZEN.initFB();
   NZEN.clickEffects();
+  // when in service page
   if (!!$('.services-show').length) { 
     NZEN.issuesModal(); 
     NZEN.ratings(); 
   }
 });
 
-$(document).one('turbolinks:load', function(){
-  NZEN.bootstraped = false;
-  if (!NZEN.bootstraped) {
-    angular.bootstrap(document, ['pinio']); // Manual Initialization
-    NZEN.bootstraped = true;
-  }
+$(document).on('turbolinks:request-end', function(){
+  FB.init({ appId: '1139457282744397', cookie: true, xfbml: true, version: 'v2.5' })
 });
+
+// $(document).one('turbolinks:load', function(){
+//   NZEN.bootstraped = false;
+//   if (!NZEN.bootstraped) {
+//     angular.bootstrap(document, ['pinio']); // Manual Initialization
+//     NZEN.bootstraped = true;
+//   }
+// });

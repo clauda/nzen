@@ -1,16 +1,19 @@
-<% title(@category.name) %>
+<% if @category.parent
+    title("#{@category.name} em #{@category.parent.name}") 
+  else
+    title("#{@category.name} em Natal") 
+  end %>
 <% seo [
-  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal/RN para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+  { property: 'description', content: " Onde encontrar #{@category.name} em Natal? Catalogamos mais de 8 mil prestadores de serviços para facilitar o seu dia a dia." },
 ] %>
 
 <div class="row">
-  <div class="pin-breadcrumbs col-sm-12">
-    <h1>
-      <%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> 
-      <i class="glyphicon glyphicon-menu-right"></i> <%= link_to "Catálogo", categories_path, title: "Todas as Categorias" %> <i class="glyphicon glyphicon-menu-right"></i>
-      <%= "#{link_to(@category.parent.name, category_path(@category.parent))} <i class='glyphicon glyphicon-menu-right'></i>".html_safe if @category.parent %> <b><%= @category.name %></b>
-    </h1>
-  </div>
+  <ol class="pin-breadcrumbs col-sm-12">
+    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false" %></li>
+    <li><i class="glyphicon glyphicon-menu-right"></i> <%= link_to "Catálogo", categories_path, title: "Todas as Categorias" %> <i class="glyphicon glyphicon-menu-right"></i></li>
+    <li><%= "#{link_to(@category.parent.name, category_path(@category.parent))} <i class='glyphicon glyphicon-menu-right'></i>".html_safe if @category.parent %></li>
+    <li><b><%= @category.name %></b></li>
+  </ol>
 </div>
 
 <div class="content" id="categories">

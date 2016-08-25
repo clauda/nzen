@@ -1,7 +1,7 @@
 <% cache "pin-service-#{service.id}" do %>
   <div class="pin-feat-item-details">
 
-    <h3><%= link_to service.name, business_path(service), title: service.name %></h3>
+    <h3><%= link_to service.name, business_path(service), title: service.name, "data-turbolinks" => "false" %></h3>
     <div class="pin-item-location">
       <i class="glyphicon glyphicon-map-marker"></i>
       <span><%= truncate(service.full_address, length: 45) %></span>

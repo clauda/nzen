@@ -4,10 +4,6 @@ class ServicesController < ApplicationController
 
   def index
     @services = Services::Search.for(params[:pesquisa], params[:sort], params[:page])
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   def show

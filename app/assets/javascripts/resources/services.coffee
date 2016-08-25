@@ -21,22 +21,23 @@ selectDistrict = (value)->
       break
     i++
 
-data = new Bloodhound(
-  limit: 10
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name')
-  queryTokenizer: Bloodhound.tokenizers.whitespace
-  prefetch: '/remote/categories.json'
-)
-data.initialize(true)
+$(document).on 'turbolinks:load', ->
+  data = new Bloodhound(
+    limit: 10
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name')
+    queryTokenizer: Bloodhound.tokenizers.whitespace
+    prefetch: '/remote/categories.json'
+  )
+  data.initialize(true)
 
-$('#categories .typeahead').typeahead(null,
-  name: 'name'
-  display: 'name'
-  source: data
-)
+  $('#categories .typeahead').typeahead(null,
+    name: 'name'
+    display: 'name'
+    source: data
+  )
 
-$('.typeahead').bind 'typeahead:select', (e, got)->
-  $('#service_category_id').val(got.id)
+  $('.typeahead').bind 'typeahead:select', (e, got)->
+    $('#service_category_id').val(got.id)
 
 $('#service_zipcode').on 'keyup', ->
   zipcode = $(@).val()

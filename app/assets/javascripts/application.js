@@ -6,9 +6,9 @@
 //= require_tree ./resources
 //
 // Angular Application
-//= require app/app
-//= require app/factories/service
-//= require app/controllers/search_controller
+// require app/app
+// require app/factories/service
+// require app/controllers/search_controller
 //
 //= require_self
 

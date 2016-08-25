@@ -6,7 +6,7 @@ NZEN.initFB = ->
   @fb_root = null
   @fb_events_bound = false
 
-  bindFacebookEvents = ->
+  @bindFacebookEvents = ->
     $(document)
       .on('page:fetch', saveFacebookRoot)
       .on('page:change', restoreFacebookRoot)
@@ -25,9 +25,9 @@ NZEN.initFB = ->
       $('body').append @fb_root
 
     window.fbAsyncInit = initializeFacebookSDK
-    $.getScript("//connect.facebook.net/nl_NL/all.js#xfbml=1")
+    $.getScript("//connect.facebook.net/pt_BR/all.js#xfbml=1&version=v2.7&appId=1139457282744397")
 
-  loadFacebookSDK = ->
+  @loadFacebookSDK = ->
     ((d, s, id) ->
       js = undefined
       fjs = d.getElementsByTagName(s)[0]
@@ -35,7 +35,7 @@ NZEN.initFB = ->
         return
       js = d.createElement(s)
       js.id = id
-      js.src = '//connect.facebook.net/en_US/sdk.js'
+      js.src = '//connect.facebook.net/pt_BR/sdk.js'
       fjs.parentNode.insertBefore js, fjs
       return
     ) document, 'script', 'facebook-jssdk'
@@ -45,8 +45,8 @@ NZEN.initFB = ->
       appId     : '1139457282744397'
       cookie    : true
       xfbml     : true
-      version   : 'v2.5'
+      version   : 'v2.7'
 
-  loadFacebookSDK()
-  bindFacebookEvents() unless @fb_events_bound
+  @loadFacebookSDK()
+  @bindFacebookEvents() unless @fb_events_bound
 

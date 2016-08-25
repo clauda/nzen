@@ -1,12 +1,13 @@
-<% title("Catálogo Natal") %>
+<% title("Lista de Lojas e Prestadores de Serviços em Natal") %>
 <% seo [
-  { property: 'description', content: 'Todas as categorias. Catalogamos mais de 8 mil lojas e serviços em Natal/RN para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+  { property: 'description', content: 'Serviços automotivos, gerais, terceirizados, elétricos, hidráulicos, gráficos e o que mais você puder encontrar em Natal. Aqui está a lista completa de serviços que você procura.' },
 ] %>
 
 <div class="row">
-  <div class="pin-breadcrumbs col-sm-12">
-    <h1><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> <b>Catálogo</b></h1>
-  </div>
+  <ol class="pin-breadcrumbs col-sm-12">
+    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
+    <li><b>Catálogo</b></li>
+  </ol>
 </div>
 
 <div id="categories">

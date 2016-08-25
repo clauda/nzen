@@ -27,7 +27,7 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane fade in active" id="negocios">
             <% @services.each do |service| %>
-              <p><%= link_to_if service.published, service.name, business_path(service) %>
+              <p><%= link_to_if service.published, service.name, business_path(service), "data-turbolinks" => "false" %>
               (<%= service.published ? "Publicado" : "Não Publicado" %>)</p>
             <% end %>
 
