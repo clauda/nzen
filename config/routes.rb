@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get 'politicas-de-privacidade', to: 'statics#politics', as: :politics
   get 'perguntas-frequentes', to: 'statics#faq', as: :faq
   get 'contato', to: 'statics#contact', as: :contact
+  post 'contato', to: 'statics#contact', as: :submit_contact
+  patch 'contato', to: 'statics#contact'
 
   get 'sitemaps', to: 'sitemaps#index'
   get 'sitemaps-companies', to: 'sitemaps#services'

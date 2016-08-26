@@ -12,4 +12,21 @@
       font-style: italic;
     }
   }
+
+  .contact {
+    .channels {
+      color: #999;
+      li { 
+        padding: 10px 15px;
+        .fa { margin-right: 15px; }
+      }
+    }
+    .modal-body, .modal-footer { padding: 0; border: none; }
+    input, .btn {
+      height: 46px;
+      padding: 10px 16px;
+      font-size: 18px;
+      line-height: 1.3333333;
+    }
+  }
 }

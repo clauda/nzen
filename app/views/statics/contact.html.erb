@@ -13,11 +13,55 @@
 </div>
 
 <div class="content" id="statics">
-  <div class="row">
+  <div class="row contact">
     <div class="col-sm-9">
-      <h1>Entre em contato conosco</h1>
-      
+      <h1 class="sm">Contato Pinou</h1>
+      <p>Para tirar dúvidas, sugestões ou para reportar algum erro encontrado.</p>
+
+      <%= form_for @issue, url: submit_contact_path do |f| %>
+        <%= render partial: 'shared/issue_form', locals: { f: f } %>
+      <% end %>
+
+      <ul class="channels">
+        <li><i class="fa fa-phone"></i>(84) 3322-1272</li>
+        <li><i class="fa fa-whatsapp"></i>(84) 98184-7288</li>
+        <li><i class="fa fa-envelope-o"></i><a href="mailto:contato@pinou.com.br">contato@pinou.com.br</a></li>
+      </ul>
+
+      <div class="ad">
+        <!-- Pinou_Contact_003 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-9856374304140488"
+             data-ad-slot="8040194689"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+      <!-- Pinou_Contact_001 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-9856374304140488"
+           data-ad-slot="5086728289"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
+      <div class="ad">
+        <!-- Pinou_Contact_002 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9856374304140488"
+             data-ad-slot="6563461484"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
   </div>
 </div>

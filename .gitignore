@@ -20,3 +20,4 @@ dump.rdb
 .byebug_history
 
 /public/uploads
+/coverage

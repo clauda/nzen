@@ -52,6 +52,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'rubocop', require: false
+  gem 'simplecov', require: false
 end
 
 group :development do

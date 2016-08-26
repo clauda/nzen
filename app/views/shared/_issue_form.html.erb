@@ -1,0 +1,31 @@
+<div class="modal-body">
+  <% if @service %>
+    <p>Encontrou algum problema com o anúncio do <%= @service.name %>? 
+    Conta pra gente.</p>
+    <div class="form-group">
+      <label>Motivo</label>
+      <%= f.select :reason, Issue::REASONS.map{|r|[r[1],r[0]]}, { include_blank: true }, { class: "form-control", required: true } %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>Seu Nome</label>
+    <%= f.text_field :name, value: current_user ? current_user.name : nil, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <%= f.email_field :email, value: current_user ? current_user.email : nil, class: "form-control", required: true, placeholder: "email@provedor.com" %>
+  </div>
+
+  <div class="form-group">
+    <label>Mensagem</label>
+    <%= f.text_area :message, class: "form-control", placeholder: "Descreva o problema que você encontrou. Quanto mais detalhes, mais rápido a gente vai conseguir resolvê-lo."  %>
+  </div>
+</div>
+<div class="modal-footer">
+  <% if @service %>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+  <% end %>
+  <%= f.submit "Enviar", class: "btn btn-danger" %>
+</div>
