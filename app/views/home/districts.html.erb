@@ -1,17 +1,25 @@
 <% title("Explore todos os Bairros de Natal") %>
 <% seo [
-  { property: 'description', content: "Onde encontrar lojas e serviços em Natal?. Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia." },
+  { property: 'description', content: "Onde encontrar lojas e serviços em Natal? Precisando de profissionais? Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia." },
 ] %>
 
-<div class="row">
-  <ol class="pin-breadcrumbs col-sm-12">
-    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
-    <li><b>Bairros & Distritos</b></li>
-  </ol>
-</div>
+<% content_for :subhead do %>
+  <div id="subhead">
+    <div class="container">
+      <ol class="pin-breadcrumbs col-sm-12">
+        <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
+        <li><b>Bairros & Distritos</b></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
 
 <div class="content">
   <div class="row">
+    <div class="col-sm-12">
+      <h1 class="sm">Navegue por bairros de Natal</h1>
+    </div>
+
     <div class="col-md-9">
       <div class="col-fluid">
         <% @districts.each do |alpha, districts| %>

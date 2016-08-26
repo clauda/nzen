@@ -4,21 +4,33 @@
     title(@district.name) 
   end %>
 <% seo [
-  { property: 'description', content: "Aqui tem #{@category.try(:name) || 'o que você procura'} em #{@district.name}. Encontre lojas e serviços em Natal/RN para facilitar o seu dia a dia." },
+  { property: 'description', content: "Procurando profissionais? Aqui tem #{@category.try(:name) || 'o que você procura'} em #{@district.name}. Diversas lojas e serviços para facilitar o seu dia a dia. Encontre." },
 ] %>
 
-<div class="row">
-  <ol class="pin-breadcrumbs col-sm-12">
-    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i></li>  
-    <li><%= link_to "Bairros & Distritos", districts_path, title: "Todos os Bairros" %> <i class="glyphicon glyphicon-menu-right"></i></li>
-    <li><%= link_to @district.name, district_path(@district), title: @district.name %> </li>
-    <% if @category %>
-      <li><%= " <i class='glyphicon glyphicon-menu-right'></i> <b>#{link_to @category.name, category_path(@category)}</b>".html_safe %></li>
-    <% end %>
-  </ol>
-</div>
+<% content_for :subhead do %>
+  <div id="subhead">
+    <div class="container">
+      <ol class="pin-breadcrumbs col-sm-12">
+        <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false" %> <i class="glyphicon glyphicon-menu-right"></i></li>  
+        <li><%= link_to "Bairros & Distritos", districts_path, title: "Todos os Bairros" %> <i class="glyphicon glyphicon-menu-right"></i></li>
+        <li><%= link_to @district.name, district_path(@district), title: @district.name %> </li>
+        <% if @category %>
+          <li><%= " <i class='glyphicon glyphicon-menu-right'></i> <b>#{link_to @category.name, category_path(@category)}</b>".html_safe %></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+<% end %>
 
   <div class="row">
+    <div class="col-sm-12">
+      <% if @category %>
+        <h1 class="sm"><%= "Encontre #{@category.name} em #{@district.name}" %></h1>
+      <% else %>
+        <h1 class="sm"><%= "Lojas e Serviços em #{@district.name}" %></h1>
+      <% end %>
+    </div>
+
     <div class="col-md-9">
   
       <div class="col-fluid">

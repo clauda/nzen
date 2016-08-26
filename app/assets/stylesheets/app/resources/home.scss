@@ -1,6 +1,10 @@
 #home {
 
   .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     .pinou-logo {
       background: image-url('logo-pinou-sm.png') center center no-repeat transparent;
       background-size: initial;

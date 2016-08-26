@@ -1,5 +1,5 @@
 <% seo [
-  { property: 'description', content: 'Catalogamos mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia. Aqui tem o serviço que você procura.' },
+  { property: 'description', content: 'Catalogamos mais de 8 mil empresas em Natal para facilitar o seu dia a dia. Encontre eletricista, churrasqueiro, diarista, serviços automotivos e tudo mais.' },
 ] %>
 <% title("Lojas & Serviços em Natal") %>
 
@@ -15,6 +15,17 @@
   }
 }
 </script>
+
+<% content_for :subhead do %>
+  <div id="subhead">
+    <div class="container">
+      <ol class="pin-breadcrumbs col-sm-12">
+        <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
+        <li><b>Lojas e Serviços</b></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
 
 <div class="row">
   <div class="pin-section-headings">

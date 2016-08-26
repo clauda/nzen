@@ -65,6 +65,7 @@
 
     <%= render 'shared/login_box' unless user_signed_in? %>
     <%= render 'shared/top' %>
+    <%= yield :subhead %>
 
     <div class=<%= "#{controller_name}-#{action_name}" %>>
       <div class="container yield">

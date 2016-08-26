@@ -11,6 +11,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 { line-height: 1.5; }
+h1.sm { font-size: 24px; }
+
 a { cursor: pointer;
   &:hover, &:focus { text-decoration: none; }
 }
@@ -22,7 +24,6 @@ ul {
 }
 
 .yield { 
-  margin-top: 60px;
   padding-bottom: 50px;
   min-height: 640px;
 }

@@ -1,17 +1,24 @@
 <% title("Lista de Lojas e Prestadores de Serviços em Natal") %>
 <% seo [
-  { property: 'description', content: 'Serviços automotivos, gerais, terceirizados, elétricos, hidráulicos, gráficos e o que mais você puder encontrar em Natal. Aqui está a lista completa de serviços que você procura.' },
+  { property: 'description', content: 'Serviços automotivos, gerais, terceirizados, elétricos, hidráulicos, gráficos, diarista, médicos, consultórios, e o que mais você puder encontrar em Natal.' },
 ] %>
 
-<div class="row">
-  <ol class="pin-breadcrumbs col-sm-12">
-    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
-    <li><b>Catálogo</b></li>
-  </ol>
-</div>
+<% content_for :subhead do %>
+  <div id="subhead">
+    <div class="container">
+      <ol class="pin-breadcrumbs col-sm-12">
+        <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i> </li>
+        <li><b>Catálogo</b></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
 
 <div id="categories">
   <div class="row">
+    <div class="col-sm-12">
+      <h1 class="sm">Aqui está a lista completa dos tipos de serviços para te ajudar.</h1>
+    </div>
 
     <div class="col-md-9">
       <div class="col-fluid">

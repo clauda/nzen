@@ -19,6 +19,8 @@
 
               <%= f.password_field :password_confirmation, placeholder: 'Confirmação da Senha', class: "form-control", autocomplete: "off" %>
 
+               <p>Ao se cadastrar você estará concordando com os <%= link_to "Termos de Uso", terms_path %> do Pinou.</p>
+
               <%= f.submit "Quero Participar" %>
             <% end %>
           </div>

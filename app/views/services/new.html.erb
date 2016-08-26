@@ -1,15 +1,19 @@
 <% title "Anuncio Conosco. É rápido e grátis." %>
 
 <% seo [
-  { property: 'description', content: 'Anuncie no Pinou. É rápido e grátis. Seu negócio precisa ser encontrado.' },
+  { property: 'description', content: 'Qual é o seu negócio? Anuncie no Pinou hoje mesmo. É rápido e grátis. Seu negócio precisa ser encontrado. Ganhe alcance e visibilidade no Pinou.' },
 ] %>
 
-<div class="row">
-  <ol class="pin-breadcrumbs col-sm-12">
-    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i></li> 
-    <li><b>Anuncie</b></li>
-  </ol>
-</div>
+<% content_for :subhead do %>
+  <div id="subhead">
+    <div class="container">
+      <ol class="pin-breadcrumbs col-sm-12">
+        <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i></li> 
+        <li><b>Anuncie</b></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
 
 <div class="row">
 

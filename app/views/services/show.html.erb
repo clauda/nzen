@@ -53,17 +53,21 @@
   }
 </script>
 
-<% cache @service do %>
-<div class="row">
-  <ol class="pin-breadcrumbs col-sm-12">
-    <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i></li>
-    <li><%= link_to "Bairros & Distritos", districts_path, title: "Todos os Bairros" %> <i class="glyphicon glyphicon-menu-right"></i></li>
-    <li><%= link_to @service.district.name, district_path(@service.district) %> <i class="glyphicon glyphicon-menu-right"></i></li>
-    <li><%= link_to @service.category.name, category_path(@service.category) %> <i class="glyphicon glyphicon-menu-right"></i></li>
-    <li><b><%= @service.name %></b></li>
-  </ol>
-</div>
+<% content_for :subhead do %>
+  <div id="subhead" class="dark">
+    <div class="container">
+      <ol class="pin-breadcrumbs col-sm-12">
+        <li><%= link_to "Início", root_path, title: "Página Inicial do Pinou", "data-turbolinks" => "false"  %> <i class="glyphicon glyphicon-menu-right"></i></li>
+        <li><%= link_to "Bairros & Distritos", districts_path, title: "Todos os Bairros" %> <i class="glyphicon glyphicon-menu-right"></i></li>
+        <li><%= link_to @service.district.name, district_path(@service.district) %> <i class="glyphicon glyphicon-menu-right"></i></li>
+        <li><%= link_to @service.category.name, category_path(@service.category) %> <i class="glyphicon glyphicon-menu-right"></i></li>
+        <li><b><%= @service.name %></b></li>
+      </ol>
+    </div>
+  </div>
+<% end %>
 
+<% cache "#{@service.id}-page" do %>
 <div class="row">
   <div class="pin-service-info-section col-md-9 col-sm-12">
     <div class="pin-service-contact-wrapper">
@@ -131,7 +135,6 @@
           </div>
 
           <p><%= @service.description || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
-
         </div>
        
         <ul class="pin-rate">
