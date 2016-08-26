@@ -1,7 +1,14 @@
-<p>Hello <%= @resource.email %>!</p>
-
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
-
-<p>Click the link below to unlock your account:</p>
-
-<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+<table width="75%" align="center" border="0" cellpadding="0" cellspacing="0" style="text-align:center;margin:10px auto;">
+  <tbody>
+    <tr>
+      <td style="color:#454545;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;margin:20px auto;" class="content_width">
+          <p style="color:#888888;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;line-height:30px;">
+          Olá, <%= @resource.email %>!<br />
+          Sua conta foi bloquead por exceder o número máximo de tentativas de acesso sem sucesso.<br />
+          Clique no link abaixo para desbloquear sua conta.<br />
+          <%= link_to 'Desbloquear minha conta', unlock_url(@resource, unlock_token: @token), style:"color:#6163ad;display:inline-block;font-family:sans-serif;font-size:16px;font-weight:400;line-height:60px;text-align:center;text-decoration:none;-webkit-text-size-adjust:none;" %>
+          </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
