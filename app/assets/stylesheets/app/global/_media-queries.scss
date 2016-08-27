@@ -5,6 +5,7 @@
 @media only screen and (min-width: 480px) and (max-width: 767px), only screen and (min-width: 768px) and (max-width: 991px) {}
 
 @media only screen and (max-width: 767px) {
+
   .hidden-sm { display: none; }
   .pin-home .navbar, .navbar {
     li {
@@ -17,6 +18,8 @@
     }
   }
   .navbar-nav { margin: 0; }
+  .pin-breadcrumbs { padding-top: 20px; }
+  .services-show { padding-top: 0; }
 
 }
 
