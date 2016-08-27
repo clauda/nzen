@@ -62,11 +62,45 @@
         </div>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-      <%= link_to 'Cadastrar Empresa', new_admin_service_path, class: 'btn btn-info btn-block btn-lg' %>
-      <%= link_to 'Ir para Moderação', moderate_admin_services_path, class: 'btn btn-success btn-block btn-lg btn-trans' %>
-    </div>
   </div>
 
+  <div id="results"></div>
+
 </section>
+
+
+<% content_for :javascript do %>
+  <script src="https://apis.google.com/js/client.js?onload=loadLib"</script>
+
+  <script type="text/javascript">
+    function makeApiCall(){
+      var apiQuery = gapi.client.analytics.data.ga.get({
+        'ids': 'ga:2347706',
+        'start-date': '2010-01-01',
+        'end-date': '2010-01-15',
+        'metrics': 'ga:sessions',
+        'dimensions': 'ga:source,ga:keyword',
+        'sort': '-ga:sessions,ga:source',
+        'filters': 'ga:medium==organic',
+        'max-results': 25
+      });
+      apiQuery.execute(handleCoreReportingResults);
+    };
+
+    function handleCoreReportingResults(results) {
+      if (!results.error) {
+        console.log('works');
+      } else {
+        console.log('There was an error: ' + results.message);
+      }
+    };
+
+    $(function(){
+      function loadLib(){
+        gapi.client.load('analytics', 'v3', makeApiCall);
+      };
+    });
+  </script>
+
+<% end %>
+
