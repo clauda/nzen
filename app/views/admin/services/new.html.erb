@@ -1,5 +1,16 @@
-<h1>New Service</h1>
+<div class="pageheader">
+  <h1>Cadastro de Empresa</h1>
+  <div class="right-wrapper">
+    <%= link_to 'voltar', admin_services_path, class: 'btn btn-default btn-xs btn-trans' %>
+  </div>
+</div>
 
-<%= render 'form', service: @service %>
-
-<%= link_to 'Back', services_path %>
+<section id="main-content" class="animated fadeInUp">
+  <div class="row">
+    <div class="col-sm-12">
+      
+      <%= render 'form', service: @service %>
+     
+    </div>
+  </div>
+</section>

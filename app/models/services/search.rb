@@ -31,6 +31,7 @@ module Services
       @filters = @options[:is_admin] ? {} : { published: true }
       @filters[:category_permalink] = @options[:category_id] if @options[:category_id]
       @filters[:district_permalink] = @options[:district_id] if @options[:district_id]
+      @filters[:published] = false if @options[:waiting]
       @filters
     end
 

@@ -4,7 +4,7 @@ module ApplicationHelper
     notice: "success",
     alert: "warning",
     error: "error",
-    infod: "info"
+    info: "info"
   }
 
   def flash_for name

@@ -1,90 +1,99 @@
-<%= form_for([:admin,service]) do |f| %>
-  <% if service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+ <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">DADOS DA EMPRESA</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for([:admin,service], html: { class: 'form-horizontal form-border' }) do |f| %>
+      <% if service.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
-      <ul>
-      <% service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% service.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <%= f.file_field :logo %>
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :name, class: 'form-control' %></div>
+      </div>
 
-  <div class="field">
-    <label>
-      <%= f.check_box :published  %> Publicado?
-    </label>
+      <div class="form-group">
+        <%= f.label :category_id, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.select :category_id, Category.active.collect{|c|[c.name,c.id]}, {}, { class: 'form-control'} %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :district_id, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.select :district_id, District.all.collect{|d|[d.name,d.id]}, {}, { class: 'form-control' } %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_area :description, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :phone, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :phone, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :web, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :web, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.email_field :email, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :address, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :facebook, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :facebook, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :instagram, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :instagram, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :opens, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.time_select :opens, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :closes, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.time_select :closes, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :zipcode, class: "col-sm-3 control-label" %>
+        <div class="col-sm-6"><%= f.text_field :zipcode, class: 'form-control' %></div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Logomarca</label>
+        <div class="col-sm-6"><%= f.file_field :logo %></div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label">
+          Publicado?
+        </label>
+        <div class="col-sm-6"><%= f.check_box :published %></div>
+      </div>
+
+      <%= f.submit "Salvar", class: 'btn btn-primary btn-lg pull-right' %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select :category_id, Category.active.collect{|c|[c.name,c.id]} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :district_id %>
-    <%= f.select :district_id, District.all.collect{|d|[d.name,d.id]} %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :web %>
-    <%= f.text_field :web, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :instagram %>
-    <%= f.text_field :instagram, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :opens %>
-    <%= f.time_select :opens, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :closes %>
-    <%= f.time_select :closes, class: 'form-control'  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :zipcode %>
-    <%= f.text_field :zipcode, class: 'form-control'  %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Salvar", class: 'btn btn-success' %>
-  </div>
-<% end %>
+</div>

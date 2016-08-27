@@ -21,6 +21,8 @@ class Issue < ApplicationRecord
     done: "Concluído"
   }
 
+  scope :opened, -> { where(status: 'new') }
+
   private
 
     def generate_protocol

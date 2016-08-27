@@ -1,0 +1,57 @@
+<div class="brand">
+  <%= link_to admin_root_path, class: 'logo' do %>
+    <%= image_tag 'logo-pinou-sm.png', width: '100px' %>
+  <% end %>
+</div>
+
+<ul class="nav navbar-nav navbar-left">
+  <li class="toggle-navigation toggle-left">
+    <button class="sidebar-toggle" id="toggle-left">
+      <i class="fa fa-bars"></i>
+    </button>
+  </li>
+  <li class="hidden-xs hidden-sm">
+    <input type="text" class="search" placeholder="Procurar empresa...">
+    <button type="submit" class="btn btn-sm btn-search"><i class="fa fa-search"></i>
+    </button>
+  </li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown profile hidden-xs">
+    <a class="dropdown-toggle" data-toggle="dropdown">
+      <span class="meta">
+        <span class="text"><%= current_user.name %></span>
+        <span class="caret"></span>
+      </span>
+    </a>
+    <ul class="dropdown-menu animated fadeInRight" role="menu">
+      <li>
+        <a>
+          <span class="icon"><i class="fa fa-user"></i>
+          </span>Conta</a>
+      </li>
+      <li>
+        <a>
+          <span class="icon"><i class="fa fa-envelope"></i>
+          </span>Mensagens</a>
+      </li>
+      <li>
+        <a>
+          <span class="icon"><i class="fa fa-cog"></i>
+          </span>Settings</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a>
+          <span class="icon"><i class="fa fa-sign-out"></i>
+          </span>Logout</a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-icon">
+    <%= link_to root_path, title: 'Ir para o Portal', target: '_blank' do %>
+      <i class="fa fa-external-link"></i>
+    <% end %>
+  </li>
+</ul>

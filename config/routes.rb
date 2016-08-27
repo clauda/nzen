@@ -14,8 +14,14 @@ Rails.application.routes.draw do
     resources :cities
     resources :categories
     resources :districts
-    resources :services
+    resources :services do
+      collection do 
+        get 'moderate', to: 'services#moderate', as: :moderate
+      end
+    end
     resources :issues
+    resources :users
+    root to: "dashboard#index"
   end
   
   get 'painel-de-negocios', to: "account#index", as: :account

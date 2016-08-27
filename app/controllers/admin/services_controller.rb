@@ -29,7 +29,7 @@ class Admin::ServicesController < Admin::AdminController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to [:admin,@service], notice: 'Service was successfully created.' }
+        format.html { redirect_to [:admin,@service], notice: 'Feito! Empresa criada' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::ServicesController < Admin::AdminController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to [:admin,@service], notice: 'Service was successfully updated.' }
+        format.html { redirect_to [:admin,@service], notice: 'ok, Empresa atualizada' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -60,6 +60,12 @@ class Admin::ServicesController < Admin::AdminController
       format.html { redirect_to admin_services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def moderate
+    @services = Service.waiting
+    @services = Services::Search.for(params[:term], params[:sort], params[:page], { is_admin: true, waiting: true })
+    render :index
   end
 
   private

@@ -1,78 +1,103 @@
-<p id="notice"><%= notice %></p>
+<div class="pageheader">
+  <h1><%= @service.name %></h1>
+  <div class="right-wrapper">
+    <%= link_to 'ver no site', business_path(@service), target: '_blank', class: 'btn btn-danger btn-trans btn-xs' %> <%= link_to 'Editar', edit_admin_service_path(@service), class: 'btn btn-warning btn-xs btn-trans' %> <%= link_to 'voltar', admin_services_path, class: 'btn btn-info btn-xs btn-trans' %>
+  </div>
+</div>
 
-<% if @service.logo.url %>
-<%= image_tag @service.logo.url(:medium) %>
-<% end %>
+<section id="main-content" class="animated fadeInUp">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Dados Básicos</h3>
+        </div>
+        <div class="panel-body">
+          <address>
+            <strong><%= @service.name %></strong><br />
+            <i class="fa fa-map-marker"></i> <%= @service.address %><br />
+            <i class="fa fa-phone"></i> <%= @service.phone %><br />
+            <%= @service.zipcode %>
+          </address>
 
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
+          <blockquote>
+            <%= @service.description || '_Sem descrição_' %>
+          </blockquote>
+        </div>
+      </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @service.user.try(:name) %>
-</p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Usuário</h3>
+        </div>
+        <div class="panel-body">
+         <% if @service.user %>
+            <p>
+              <b><%= link_to @service.user.try(:name), admin_users_path(@service.user) %></b><br />
+              <%= @service.user.try(:email) %>
+            </p>
+          <% else %>
+            <em>Nenhum</em>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @service.category.name %>
-</p>
+    <div class="col-sm-4">
+      <div class="panel panel-solid-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Categoria</h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to @service.category.name, admin_categories_path(@service.category) %>
+        </div>
+      </div>
 
-<p>
-  <strong>District:</strong>
-  <%= @service.district.name %>
-</p>
+      <div class="panel panel-solid-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Bairro</h3>
+        </div>
+        <div class="panel-body">
+          <%= link_to @service.district.name, admin_districts_path(@service.district) %>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
+    <div class="col-sm-3">
+      <div class="panel">
+        <% if @service.logo.url %>
+          <%= image_tag @service.logo.url(:medium), class: 'img-responsive' %>
+        <% else %>
+          <%= image_tag 'placeholder-standard.png', class: 'img-responsive' %>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @service.phone %>
-</p>
 
-<p>
-  <strong>Web:</strong>
-  <%= @service.web %>
-</p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Social</h3>
+        </div>
+        <div class="panel-body">
+          <p><i class="fa fa-globe"></i> <%= @service.web || 'Não fornecido' %></p>
+          <p><i class="fa fa-envelope-o"></i> <%= @service.email || 'Não fornecido' %></p>
+          <p><i class="fa fa-facebook"></i> <%= @service.facebook || 'Não fornecido' %></p>
+          <p><i class="fa fa-instagram"></i> <%= @service.instagram || 'Não fornecido' %></p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @service.email %>
-</p>
+          <p>
+            <i class="fa fa-clock-o"></i>
+            Abre às <%= @service.opens %><br />
+            Fecha às <%= @service.closes %>
+          </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @service.address %>
-</p>
+          <p>
+            lat <%= @service.lat %><br />
+            png <%= @service.lng %>
+          </p>
 
-<p>
-  <strong>Facebook:</strong>
-  <%= @service.facebook %>
-</p>
+          <p><i class="fa fa-eye"></i> <%= @service.views %> visualizações </p>
 
-<p>
-  <strong>Instagram:</strong>
-  <%= @service.instagram %>
-</p>
-
-<p>
-  <strong>Opens:</strong>
-  <%= @service.opens %>
-</p>
-
-<p>
-  <strong>Closes:</strong>
-  <%= @service.closes %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @service.zipcode %>
-</p>
-
-<%= link_to 'Edit', edit_admin_service_path(@service) %> |
-<%= link_to 'Back', admin_services_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

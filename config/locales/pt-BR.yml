@@ -15,3 +15,24 @@ pt-BR:
           other: "Exibindo <b>todos %{count}</b> %{entry_name}"
       more_pages:
         display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"
+  activerecord:
+    models:
+      service: Empresa
+    attributes:
+      service:
+        name: Nome
+        category_id: Categoria
+        district_id: Bairro
+        description: Descrição
+        phone: Telefone Principal
+        web: Site
+        address: Endereço
+        opens: 'Horário de Abertura'
+        closes: 'Horário de Fechamento'
+        zipcode: CEP
+    errors:
+      models:
+        service:
+          attributes:
+            phone:
+              blank: 'Telefone é mandatório'
