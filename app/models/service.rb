@@ -13,9 +13,11 @@ class Service < ApplicationRecord
   validates :name, :phone, :category_id, :district_id, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, allow_nil: true, allow_blank: true
 
-  scope :active, -> { where(published: true, deleted: false).order(:name) }
+  scope :active, -> { where(published: true, deleted: false) }
   scope :waiting, -> { where(published: false) }
   scope :latest, -> { where("created_at > ?", (Date.today - 30.days)) }
+
+  after_save :reindexes, if: :published?
 
   def search_data
     { name: self.name,
@@ -30,6 +32,7 @@ class Service < ApplicationRecord
       category_parent_id: self.category.parent.try(:id),
       description: self.description,
       published: self.published,
+      created_at: self.created_at,
       phone: self.phone }
   end
 

@@ -24,7 +24,7 @@ module Nzen
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Brasilia"
 
-    config.cache_store = :redis_store, ENV['REDIS_NZEN_URL'], { expires_in: 1.day }
+    config.cache_store = :redis_store, ENV['REDIS_NZEN_URL'], { expires_in: 90.minutes }
     config.active_record.time_zone_aware_types = [:datetime, :time]
   end
 end

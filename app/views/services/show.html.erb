@@ -98,7 +98,7 @@
             
             <% unless @service.email.blank? %>
               <li><i class="fa fa-envelope-o"></i>
-                <%= link_to @service.email, "mailto:#{@service.email}", title: "#{@service.name} Email" %>
+                <%= link_to truncate(@service.email, length: 30), "mailto:#{@service.email}", title: "#{@service.name} Email" %>
               </li>
             <% end %>
 
@@ -136,8 +136,9 @@
 
           <p><%= @service.description || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
         </div>
-       
+
         <ul class="pin-rate">
+          <li></li>
           <li>Avalie esta empresa:</li>
           <li>
             <%= link_to like_path(@service), remote: true, method: :post, class: "cbutton cbutton--effect-ivana is-pin-like" do %>
@@ -155,6 +156,9 @@
       </div>
     </div>
 
+    <%= button_tag "Reportar Problema", class: "btn btn-xs btn-clear btn-muted up", data: { toggle: "modal", target: "#report-error" } %>
+       
+
     <div class="pin-page-contents-wrapper pin-location-map-wrapper">
       <!-- <p>mapa vai aqui</p> -->
       <div class="pin-location-map">
@@ -163,11 +167,12 @@
     </div>
 
     <div class="ad">
-      <!-- Pinou_Business_Page_Botton -->
+      <!-- Pinou_Business_Page_Botton_001 -->
       <ins class="adsbygoogle"
-           style="display:inline-block;width:728px;height:90px"
+           style="display:block"
            data-ad-client="ca-pub-9856374304140488"
-           data-ad-slot="2715344685"></ins>
+           data-ad-slot="8840773488"
+           data-ad-format="auto"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 

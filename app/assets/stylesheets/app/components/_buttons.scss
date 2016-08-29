@@ -15,6 +15,16 @@
       color: #fff;
     }
   }
+
+  &.btn-muted {
+    border-color: #ddd !important;
+    color: #ccc;
+    &:hover {
+      background: transparent;
+      color: #666;
+    }
+  }
+
 }
 
 .btn.btn-lg { border-radius: 2px; }
