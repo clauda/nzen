@@ -134,7 +134,7 @@
             <p>em <%= link_to @service.category.try(:parent).try(:name), category_path(@service.category.parent), title: @service.category.parent.name if @service.category.parent %></p>
           </div>
 
-          <p><%= @service.description || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
+          <p><%= @service.description.blank? ? "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe : @service.description.html_safe %></p>
         </div>
 
         <ul class="pin-rate">

@@ -54,7 +54,7 @@ class Admin::DistrictsController < Admin::AdminController
   # DELETE /districts/1
   # DELETE /districts/1.json
   def destroy
-    @district.destroy unless @district.services
+    @district.destroy if @district.services.empty?
     respond_to do |format|
       format.html { redirect_to admin_districts_url, notice: 'District was successfully destroyed.' }
       format.json { head :no_content }
