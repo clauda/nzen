@@ -4,7 +4,7 @@ namespace :utils do
   desc "Ping Google"
   task :ping => :environment do
     District.all.each do |district|
-      ping("http://localhost:3000/sitemaps/#{district.id}.xml")
+      ping("http://pinou.com.br/sitemaps/#{district.id}.xml")
     end
   end
 
@@ -12,9 +12,8 @@ namespace :utils do
     uri = URI("http://www.google.com/webmasters/sitemaps/ping")
     params = { sitemap: url }
     uri.query = URI.encode_www_form(params)
-    puts "Ping #{url}"
-    Net::HTTP.get(URI(url))
-    # Net::HTTP.get(uri)
+    puts "Ping #{uri}"
+    puts `curl -IL #{uri}`
   end
 
   desc "Cache clear"
