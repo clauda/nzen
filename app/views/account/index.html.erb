@@ -18,14 +18,17 @@
       <div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#negocios" aria-controls="negocios" role="tab" data-toggle="tab">Empresas</a></li>
+          <li role="presentation" class="active"><a href="#conta" aria-controls="conta" role="tab" data-toggle="tab">Dados da Conta</a></li>
+          <li role="presentation"><a href="#negocios" aria-controls="negocios" role="tab" data-toggle="tab">Empresas</a></li>
           <li role="presentation"><a href="#mensagens" aria-controls="mensagens" role="tab" data-toggle="tab">Seus Envios</a></li>
-          <li role="presentation"><a href="#conta" aria-controls="conta" role="tab" data-toggle="tab">Dados da Conta</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane fade in active" id="negocios">
+          <div role="tabpanel" class="tab-pane fade in active" id="conta">
+            <%= render "devise/registrations/edit" %>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="negocios">
             <% @services.each do |service| %>
               <p><%= link_to_if service.published, service.name, business_path(service), "data-turbolinks" => "false" %>
               (<%= service.published ? "Publicado" : "Não Publicado" %>)</p>
@@ -35,9 +38,6 @@
           <div role="tabpanel" class="tab-pane fade" id="mensagens">
           </div>
           
-          <div role="tabpanel" class="tab-pane fade" id="conta">
-            <%= render "devise/registrations/edit" %>
-          </div>
         </div>
 
       </div>
