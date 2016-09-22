@@ -15,9 +15,10 @@ class Service < ApplicationRecord
 
   scope :active, -> { where(published: true, deleted: false) }
   scope :waiting, -> { where(published: false) }
-  scope :latest, -> { where("created_at > ?", (Date.today - 30.days)) }
+  scope :latest, -> { order(created_at: :desc).where("created_at > ?", (Date.today - 30.days)) }
 
   after_save :reindexes, if: :published?
+  after_update :notify, if: :published?
 
   def search_data
     { name: self.name,
@@ -55,6 +56,10 @@ class Service < ApplicationRecord
       self.category.reindex
       self.reindex
       # Rails.cache.clear
+    end
+
+    def notify
+      ServiceMailer.published(self).deliver_now
     end
 
 end

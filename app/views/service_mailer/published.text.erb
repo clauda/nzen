@@ -1,0 +1,8 @@
+<%= @service.name %> foi publicada
+<hr />
+Recebemos o seu cadastro da sua empresa, analisamos, aprovamos e publicamos. <strong><%= @service.name %></strong> agora poderá ser encontrado por qualquer pessoa que esteja em busca de <%= @service.category.try(:name) %>, ou qualquer um com acesso a internet, tanto no computador, como no celular. Veja como ficou e compartilhe!</p>
+
+<%= service_url(@service) %>
+<br />
+<br />
+Corre e diz para todos. Compartilhe o seu negócio no Facebook, Twitter, Instagram e nas demais redes socias!
