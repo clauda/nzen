@@ -1,0 +1,43 @@
+<div class="pageheader">
+  <h1><%= @user.name %></h1>
+</div>
+
+<section id="main-content" class="animated fadeInUp">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Dados Básicos</h3>
+        </div>
+        <div class="panel-body">
+          <strong><%= @user.name %></strong><br />
+          <%= @user.email %><br />
+          <%= @user.role %><br />
+          <%= @user.provider %><br />
+          <%= @user.uid %><br />
+          <%= @user.image %><br />
+          Entrou <%= @user.sign_in_count %> vezes<br />
+          IP <%= @user.last_sign_in_ip %><br />
+          <%= @user.confirmed? ? 'Confirmado' : 'Não confirmado' %><br />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-solid-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Empresas</h3>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <%= @user.services.each do |service| %>
+              <li><%= link_to service.name, admin_service_path(service) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       end
     end
     resources :issues
-    resources :users
+    resources :users, only: [:index, :show]
     root to: "dashboard#index"
   end
   

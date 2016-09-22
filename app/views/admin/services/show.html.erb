@@ -1,5 +1,5 @@
 <div class="pageheader">
-  <h1><%= @service.name %></h1>
+  <h1>#<%= @service.id %> <%= @service.name %></h1>
   <div class="right-wrapper">
     <%= link_to 'ver no site', business_path(@service), target: '_blank', class: 'btn btn-danger btn-trans btn-xs' %> <%= link_to 'Editar', edit_admin_service_path(@service), class: 'btn btn-warning btn-xs btn-trans' %> <%= link_to 'voltar', admin_services_path, class: 'btn btn-info btn-xs btn-trans' %>
   </div>
@@ -33,7 +33,7 @@
         <div class="panel-body">
          <% if @service.user %>
             <p>
-              <b><%= link_to @service.user.try(:name), admin_users_path(@service.user) %></b><br />
+              <b><%= link_to @service.user.try(:name), admin_user_path(@service.user) %></b><br />
               <%= @service.user.try(:email) %>
             </p>
           <% else %>
