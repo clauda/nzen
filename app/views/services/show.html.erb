@@ -1,11 +1,11 @@
 <% seo [
-  { property: 'description', content: @service.description || "Encontramos #{@service.name} em Natal. Onde encontrar #{@service.category.name} em #{@service.district.name}, Natal? São mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia." },
+  { property: 'description', content: ActionView::Base.full_sanitizer.sanitize(@service.description) || "Encontramos #{@service.name} em Natal. Onde encontrar #{@service.category.name} em #{@service.district.name}, Natal? São mais de 8 mil lojas e serviços em Natal para facilitar o seu dia a dia." },
   { property: "og:image", content: @service.logo.try(:url) || "placeholder-standard.png" },
   { property: 'og:title', content: "#{@service.name} no Pinou", type: 'property' },
   { property: 'og:image', content: image_url('logos/symbol-holoteca.png'), type: 'property' },
-  { property: 'og:description', content: @service.description, type: 'property' },
+  { property: 'og:description', content: ActionView::Base.full_sanitizer.sanitize(@service.description), type: 'property' },
   { property: 'twitter:title', content: "#{@service.name} no Pinou @pinounegocios" },
-  { property: 'twitter:description', content: @service.description },
+  { property: 'twitter:description', content: ActionView::Base.full_sanitizer.sanitize(@service.description) },
   { property: 'twitter:image:src', content: @service.logo.try(:url) || "placeholder-standard.png" }
 ] %>
 <% title(@service.name) %>
@@ -93,7 +93,7 @@
             <li class="fullh"><i class="fa fa-map-marker"></i><%= @service.address %> - <%= link_to @service.district.fullpath, district_path(@service.district), title: @service.district.name, title: "Endereço do #{@service.name}" %></li>
 
             <li class="fullh visible-xs">
-              <p><%= @service.description || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
+              <p><%= @service.description.try(:html_safe) || "<em>#{@service.name}</em> também está no Pinou. Cadastre-se e #{link_to('anuncie o seu negócio', new_service_path, title: 'Anuncie no Pinou')} para fazer parte do maior portal de negócios de Natal.".html_safe %></p>
             </li>
             
             <% unless @service.email.blank? %>

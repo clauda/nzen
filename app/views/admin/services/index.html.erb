@@ -13,6 +13,7 @@
                 <th>Nome</th>
                 <th>Categoria</th>
                 <th>Bairro</th>
+                <th>Criado em</th>
                 <th></th>
               </tr>
             </thead>
@@ -23,6 +24,7 @@
                   <td><%= link_to service.name, admin_service_path(service) %></td>
                   <td><%= service.category.name %></td>
                   <td><%= service.district.name %></td>
+                  <td><%= service.created_at.strftime('%d/%m/%Y') %></td>
                   <td><%= link_to 'Editar', edit_admin_service_path(service), class: 'btn btn-primary btn-xs' %></td>
                 </tr>
               <% end %>

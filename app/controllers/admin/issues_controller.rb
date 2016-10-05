@@ -4,7 +4,7 @@ class Admin::IssuesController < Admin::AdminController
   # GET /admin/issues
   # GET /admin/issues.json
   def index
-    @issues = Issue.all.order(:created_at)
+    @issues = Issue.all.order(created_at: :desc)
   end
 
   # GET /admin/issues/1

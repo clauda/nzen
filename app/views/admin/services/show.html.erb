@@ -21,7 +21,7 @@
           </address>
 
           <blockquote>
-            <%= @service.description || '_Sem descrição_' %>
+            <%= @service.description.try(:html_safe) || '_Sem descrição_' %>
           </blockquote>
         </div>
       </div>

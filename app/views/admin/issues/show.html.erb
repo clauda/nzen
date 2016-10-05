@@ -1,39 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="pageheader">
+  <h1>#<%= @issue.id %> <%= @issue.code %></h1>
+  <div class="right-wrapper">
+    <%= link_to 'Editar', edit_admin_issue_path(@issue), class: 'btn btn-warning btn-xs btn-trans' %> <%= link_to 'voltar', admin_issues_path, class: 'btn btn-info btn-xs btn-trans' %>
+  </div>
+</div>
 
-<p>
-  <strong>Reason:</strong>
-  <%= @issue.reason %>
-</p>
+<section id="main-content" class="animated fadeInUp">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Dados Básicos</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Reason:</strong>
+            <%= @issue.reason %>
+          </p>
 
-<p>
-  <strong>Protocolo:</strong>
-  <%= @issue.code %>
-</p>
+          <p>
+            <strong>Protocolo:</strong>
+            <%= @issue.code %>
+          </p>
 
-<p>
-  <strong>service:</strong>
-  <%= @issue.service.try(:name) %>
-</p>
+          <p>
+            <strong>service:</strong>
+            <%= @issue.service.try(:name) %>
+          </p>
 
-<p>
-  <strong>Message:</strong>
-  <%= @issue.message %>
-</p>
+          <p>
+            <strong>Message:</strong>
+            <%= @issue.message %>
+          </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @issue.status %>
-</p>
+          <p>
+            <strong>Status:</strong>
+            <%= @issue.status %>
+          </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @issue.name %>
-</p>
+          <p>
+            <strong>Name:</strong>
+            <%= @issue.name %>
+          </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @issue.email %>
-</p>
-
-<%= link_to 'Edit', edit_admin_issue_path(@issue) %> |
-<%= link_to 'Back', admin_issues_path %>
+          <p>
+            <strong>Email:</strong>
+            <%= @issue.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
