@@ -7,7 +7,7 @@
         <hr />
         <p style="color:#888888;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;line-height:30px;">Recebemos o seu cadastro da sua empresa, analisamos e verificamos que, infelizmente, não sua empresa não está de acordo com o nosso <%= link_to "termo de uso", terms_url %>.</p>
 
-        <% if @service.banned_reason %>
+        <% unless @service.banned_reason.blank? %>
           <br />
           <p style="color:#888888;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;line-height:30px;">
             <i>Motivo: <%= @service.banned_reason %></i>
