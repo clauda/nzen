@@ -20,12 +20,24 @@
 
             <tbody>
               <% @services.each do |service| %>
-                <tr>
-                  <td><%= link_to service.name, admin_service_path(service) %></td>
+                <tr class="<%= service_class_for service %>">
+                  <td>
+                    <% if service.is_publicable? %>
+                      <i class="fa fa-coffee"></i>
+                    <% end %>
+
+                    <% if service.banned? || service.deleted? %>
+                      <i class="fa fa-times"></i>
+                    <% end %>
+                    <%= link_to service.name, admin_service_path(service) %>
+                  </td>
                   <td><%= service.category.name %></td>
                   <td><%= service.district.name %></td>
                   <td><%= service.created_at.strftime('%d/%m/%Y') %></td>
-                  <td><%= link_to 'Editar', edit_admin_service_path(service), class: 'btn btn-primary btn-xs' %></td>
+                  <td>
+                    <%= link_to 'Ver', admin_service_path(service), class: 'btn btn-info btn-xs' %>
+                    <%= link_to 'Editar', edit_admin_service_path(service), class: 'btn btn-primary btn-xs' %>
+                    </td>
                 </tr>
               <% end %>
             </tbody>

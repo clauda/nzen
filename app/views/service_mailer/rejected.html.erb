@@ -1,0 +1,22 @@
+<table width="75%" align="center" border="0" cellpadding="0" cellspacing="0" style="text-align:center;margin:10px auto;">
+  <tbody>
+    <tr>
+      <td style="color:#454545;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;margin:20px auto;" class="content_width">
+
+        <p style="color:#454545;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:2em;font-weight:700;">Lamentamos, mas seu negócio não pode ser publicado ;/</p>
+        <hr />
+        <p style="color:#888888;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;line-height:30px;">Recebemos o seu cadastro da sua empresa, analisamos e verificamos que, infelizmente, não sua empresa não está de acordo com o nosso <%= link_to "termo de uso", terms_url %>.</p>
+
+        <% if @service.banned_reason %>
+          <br />
+          <p style="color:#888888;font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;font-weight:400;line-height:30px;">
+            <i>Motivo: <%= @service.banned_reason %></i>
+          </p>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td style="font-family:'PT Sans',Helvetica,Arial,sans-serif;font-size:1em;text-decoration:none;color:#999999;"><br /><br />Para esclarecer, o Pinou é um portal de anúncio de negócios. Nós queremos ser construir um grande catálogo de lojas e serviços que as pessoas possam consultar a qualquer hora e obter ajuda. Se você tem um negócio, você pode anunciá-lo online no nosso site. Mas nós não fazemos anúncios de classificados. Se você tem um produto específico para anunciar, tanto para vender ou alugar, você pode usar outros meios de divulgação. Em tudo mais que nós possamos nos ajudar, fique a vontade para entrar em contato conosco.</td>
+    </tr>
+  </tbody>
+</table>

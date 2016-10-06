@@ -1,5 +1,5 @@
 class Admin::ServicesController < Admin::AdminController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :reject]
 
   # GET /services
   # GET /services.json
@@ -55,7 +55,7 @@ class Admin::ServicesController < Admin::AdminController
   # DELETE /services/1
   # DELETE /services/1.json
   def destroy
-    @service.destroy
+    @service.update_column(:deleted, true)
     respond_to do |format|
       format.html { redirect_to admin_services_url, notice: 'Service was successfully destroyed.' }
       format.json { head :no_content }
@@ -68,6 +68,23 @@ class Admin::ServicesController < Admin::AdminController
     render :index
   end
 
+  def reject
+    @service.banned = true
+    @service.banned_reason = service_params[:banned_reason]
+    respond_to do |format|
+      if @service.save
+        format.html {
+          ServiceMailer.rejected(@service).deliver_now
+          redirect_to [:admin, @service], notice: 'ok, Empresa rejeitada' 
+        }
+        format.json { render :show, status: :ok, location: @service }
+      else
+        format.html { render :edit }
+        format.json { render json: @service.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
@@ -76,6 +93,6 @@ class Admin::ServicesController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :user_id, :category_id, :district_id, :description, :phone, :web, :email, :logo, :address, :facebook, :instagram, :opens, :closes, :zipcode, :published)
+      params.require(:service).permit(:name, :user_id, :category_id, :district_id, :description, :phone, :web, :email, :logo, :address, :facebook, :instagram, :opens, :closes, :zipcode, :published, :banned_reason)
     end
 end

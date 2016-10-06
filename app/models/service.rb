@@ -49,6 +49,10 @@ class Service < ApplicationRecord
     self.update_column(:views, self.views + 1)
   end
 
+  def is_publicable?
+    (!self.published? && !self.banned? && !self.deleted?)
+  end
+
   private
 
     # Move to a background job 

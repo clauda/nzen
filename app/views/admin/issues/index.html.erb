@@ -20,7 +20,7 @@
 
             <tbody>
               <% @issues.each do |issue| %>
-                <tr>
+                <tr class="<%= issue_class_for issue.status %>">
                   <td><%= link_to issue.code, admin_issue_path(issue) %></td>
                   <td><%= Issue::REASONS[issue.reason.to_sym] %></td>
                   <td><%= Issue::STATUSES[issue.status.to_sym] %></td>

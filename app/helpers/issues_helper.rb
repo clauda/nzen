@@ -14,4 +14,11 @@ module IssuesHelper
     ["Concluído", "done"]
   ]
 
+  def issue_class_for status
+    case status
+      when 'new' then 'info'
+      when 'in_progress' then 'success'
+    end
+  end
+
 end
