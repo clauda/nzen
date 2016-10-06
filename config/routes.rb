@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     end
     resources :issues
     resources :users, only: [:index, :show]
+
+    post 'busca', to: "services#search"
+    get 'busca', to: "services#index", as: :search
     root to: "dashboard#index"
   end
   

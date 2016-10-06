@@ -11,8 +11,10 @@
     </button>
   </li>
   <li class="hidden-xs hidden-sm">
-    <input type="text" class="search" placeholder="Procurar empresa...">
-    <button type="submit" class="btn btn-sm btn-search"><i class="fa fa-search"></i>
+    <%= form_tag '/admin/busca' do %>
+      <input type="text" name="term" class="search" placeholder="Empresa..." value="<%= params[:term] %>">
+      <button type="submit" class="btn btn-sm btn-search"><i class="fa fa-search"></i></button>
+    <% end %>
     </button>
   </li>
 </ul>

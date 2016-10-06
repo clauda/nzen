@@ -62,6 +62,10 @@ class Admin::ServicesController < Admin::AdminController
     end
   end
 
+  def search
+    redirect_to(admin_services_path(term: params[:term]))
+  end
+
   def moderate
     @services = Service.waiting
     @services = Services::Search.for(params[:term], params[:sort], params[:page], { is_admin: true, waiting: true })
