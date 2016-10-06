@@ -1,28 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="pageheader">
+  <h1>Categorias
+  <%= link_to 'Adicionar', new_admin_category_path, class: 'btn btn-xs btn-primary pull-right' %> </h1>
+</div>
 
-<h1>Categories</h1>
-<%= link_to 'New Category', new_admin_category_path, class: 'btn btn-success pull-right' %>
+<section id="main-content" class="animated fadeInUp">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Published</th>
+                <th colspan="2"></th>
+              </tr>
+            </thead>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Published</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+            <tbody>
+              <% @categories.each do |category| %>
+                <tr>
+                  <td><%= link_to category.name, [:admin,category] %></td>
+                  <td><%= category.published ? 'Sim' : 'Não' %></td>
+                  <td><%= link_to 'Editar', edit_admin_category_path(category), class: 'btn btn-xs btn-info' %></td>
+                  <td><%= link_to 'Remover', [:admin,category], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger btn-trans' %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= link_to category.name, [:admin,category] %></td>
-        <td><%= category.published ? 'Sim' : 'Não' %></td>
-        <td><%= link_to 'Editar', edit_admin_category_path(category) %></td>
-        <td><%= link_to 'Destroy', [:admin,category], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <%= paginate @categories %>

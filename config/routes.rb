@@ -18,6 +18,10 @@ Rails.application.routes.draw do
       collection do 
         get 'moderate', to: 'services#moderate', as: :moderate
       end
+
+      member do
+        patch 'reject', to: 'services#reject', as: :reject
+      end
     end
     resources :issues
     resources :users, only: [:index, :show]

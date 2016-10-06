@@ -1,27 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="pageheader">
+  <h1>Bairros
+    <%= link_to 'Adicionar', new_admin_district_path, class: 'btn btn-xs btn-primary pull-right' %>
+  </h1>
+</div>
 
-<h1>Bairros</h1>
-<%= link_to '+ Bairro', new_admin_district_path, class: 'btn btn-success pull-right' %>
+<section id="main-content" class="animated fadeInUp">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Permalink</th>
+                <th colspan="2"></th>
+              </tr>
+            </thead>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Permalink</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @districts.each do |district| %>
-      <tr>
-        <td><%= link_to district.name, [:admin,district] %></td>
-        <td><%= district.permalink %></td>
-        <td><%= link_to 'Edit', edit_admin_district_path(district) %></td>
-        <td><%= link_to 'Destroy', [:admin,district], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+            <tbody>
+              <% @districts.each do |district| %>
+                <tr>
+                  <td><%= link_to district.name, [:admin,district] %></td>
+                  <td><%= district.permalink %></td>
+                  <td><%= link_to 'Editar', edit_admin_district_path(district), class: 'btn btn-xs btn-primary' %></td>
+                  <td><%= link_to 'Remover', [:admin,district], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs btn-trans" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
